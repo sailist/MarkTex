@@ -15,13 +15,13 @@ def texSection(match):
 
 
 
-def findBound(pattern, lines, start_index):
+def findBound(pattern, lines, start_index,expand = False):
     end_index = start_index
     max_line = len(lines)
     while True:
         if end_index + 1 == max_line:
             return start_index, end_index
-        if re.search(pattern, lines[end_index + 1]):
+        if (expand and len(lines[end_index+1]) > 0 ) or re.search(pattern, lines[end_index + 1]):
             end_index += 1
         else:
             return start_index, end_index
@@ -65,6 +65,7 @@ def excu(text):
         elif re.search(markQuote,line):##TODO 对于连续的 >不会有层次
             start,end = findBound(markQuote,lines,line_index)
             k = MarkQuote(lines[start:end+1])
+            line_index = end
             pass
         elif re.search(markImg,line):
             k = MarkImg(line)
@@ -89,10 +90,14 @@ def excu(text):
             # print("\n".join(lines[start+1:end]))
             k = MarkCode(codeTemplate,lines[start+1:end+1])
             line_index = end+1 #因为返回的是```的上一行
+        elif re.search(markLine,line):
+            k = MarkHLine(line)
         else:
             k = MarkNormal(line)
         # print(k.toLatex())
-        mdoc.content.append(k)
+        if len(line)>0:
+            mdoc.content.append(k)
+            mdoc.content.append(MarkNewLine())
 
         line_index += 1
     print(mdoc.toLabex())

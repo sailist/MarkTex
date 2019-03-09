@@ -1,7 +1,7 @@
 from setuptools import setup
 
 setup(
-    name='md2latex',
+    name='mdconverter',
     version='0.1.dev1',
     description='convert markdown 2 latex code perfactly,support Chinese Language',
     url='https://github.com/sailist/md2latex',
@@ -19,5 +19,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     keywords='markdown latex convert',
-    packages=['md2latex'],
+    packages=['mdconverter'],
 )

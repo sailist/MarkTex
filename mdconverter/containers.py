@@ -1,6 +1,9 @@
 from pylatex import Figure,Document,Section,Subsection,Subsubsection,Package,Itemize,Enumerate,frames,Tabular,NoEscape
+from imgconvert import transimg
+
+from PIL import Image
 from pylatex.utils import bold,italic,dumps_list
-from .environments import CodeEnvironment,QuoteEnvironment
+from .environments import CodeEnvironment,QuoteEnvironment,Center,Text
 from .utils import *
 
 
@@ -20,9 +23,11 @@ class MarkContainer():
     def toLatex(self):
         return "% not impl"
 
-class MarkHLine:
+class MarkHLine(MarkContainer):
+    def __init__(self,line = None):
+        pass
     def toLatex(self):
-        return NoEscape(r"\hrule\vspace{-0.4pt}").__str__()
+        return NoEscape(r"{\vspace{\baselineskip}\color{gainsboro}\hrule\vspace{\baselineskip}}")
 
 class MarkSection(MarkContainer):
     def __init__(self,s):
@@ -37,8 +42,17 @@ class MarkSection(MarkContainer):
             return Subsection(self.content,label=False)
         elif self.level == 3:
             return Subsection(self.content,label=False)
+        elif self.level == 4:
+            return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(self.content))
+        elif self.level == 5:
+            return NoEscape(r"\noindent{{\large \textbf{{{}}}}}".format(self.content))
 
 
+class MarkNewLine(MarkContainer):
+    def __init__(self):
+        pass
+    def toLatex(self):
+        return NoEscape("\n")
 class MarkToc(MarkContainer):
     def __init__(self,line = None):
         pass
@@ -46,6 +60,11 @@ class MarkToc(MarkContainer):
     def toLatex(self):
         return NoEscape(r"\maketitle")
 
+class DumpsObject:
+    def __init__(self,content):
+        self.content = content
+    def dumps(self):
+        return self.content
 
 class MarkImg(MarkContainer):
 
@@ -54,11 +73,21 @@ class MarkImg(MarkContainer):
         self.caption = result.group(1)
         self.content = result.group(2)
 
+
     def toLatex(self):
         f = Figure(position='h!')
-        f.add_caption(self.caption)
-        f.add_image(self.content)
-        return NoEscape("%not impl markImg")#TODO
+        # f.add_caption(self.caption)
+        self.content = urllib_download(self.content)
+        self.content = transimg(self.content)
+        try:
+            Image.open(self.content).verify()
+            t = Text()
+            t.append(NoEscape(r"\vspace{{\baselineskip}}\includegraphics[width=0.8\textwidth]{{{}}}\vspace{{\baselineskip}}".format(self.content)))
+            return t
+        except:
+            return NoEscape("% 图片损坏或者未下载")
+
+
 
 markTableSplit = re.compile(r"^-+$")
 
@@ -66,8 +95,11 @@ class MarkTable(MarkContainer):
 
     def __init__(self,markRows):
         self.content = []
+        self.max_col = 0
         for row in markRows:
             row_items = []
+
+
             matchiter = re.finditer(markTableContent, row)
             for i in matchiter:
                 if re.search(markTableSplit,i.group(1)):
@@ -77,26 +109,38 @@ class MarkTable(MarkContainer):
             # print(row_items)
             if len(row_items) != 0:
                 self.content.append(row_items)
+                self.max_col = max(self.max_col,len(row_items))
 
 
     def toLatex(self):
-        t = Tabular('rc|cl')
+
+
+        option = "|"+r"p{{{:.1f}\textwidth}}<{{\centering}}|".format(1.0/self.max_col)*self.max_col
+        t = Tabular(option)
         t.add_hline()
         for ii in self.content:
             for i in range(len(ii)):
-                if re.search(mark2newline,i):
+                if re.search(mark2newline,ii[i]):
                     rows = excuInlineText(ii[i])
                     rows = [MarkNormal(r).toLatex().__str__() for r in rows]
                     ii[i] = NoEscape("".join(rows))
 
             t.add_row(ii)
             t.add_hline()
-        return t
+        c = Center()
+        c.append(t)
+        return c
 
 
 class MarkQuote(MarkContainer):
     def __init__(self,quotes):
-        quote = [re.search(markQuote,q).group(1) for q in quotes]
+        quote = []
+        for row in quotes:
+            if re.search(markQuote, row):
+                quote.append(re.search(markQuote,row).group(1))
+            else:
+                quote.append(row)
+
         self.content = quote
         # result = re.search(markQuote,quote)
         # if result:
@@ -113,6 +157,7 @@ class MarkQuote(MarkContainer):
                     q.append(MarkNormal(j).toLatex())
             else:
                 q.append(i)
+            q.append(MarkNewLine().toLatex())
         return q
 
 class MarkItem(MarkContainer):
@@ -157,9 +202,8 @@ class MarkCode(MarkContainer):
         self.code_type = ctype
         self.content = code
     def toLatex(self):
-        c = CodeEnvironment()
-        for i in self.content:
-            c.append(i)
+        c = CodeEnvironment(options=[NoEscape("language={[ANSI]C++}"), NoEscape("keywordstyle=\color{blue!70}"), NoEscape("commentstyle=\color{red!50!green!50!blue!50}"), NoEscape("escapeinside=``"), NoEscape(r"basicstyle=\tiny")])
+        c.append(NoEscape("\n".join(self.content)))
         return c
 
 class MarkNormal(MarkContainer):
@@ -172,7 +216,7 @@ class MarkNormal(MarkContainer):
     def __init__(self,row):
         self.content = []
         self.func = []
-        row = dumps_list([row])
+        # row = dumps_list([row])
         rows = excuInlineText(row)
         for row in rows:
         # print(row)
@@ -185,6 +229,16 @@ class MarkNormal(MarkContainer):
             elif re.search(markInline,row):
                 self.content.append(re.search(markInline,row).group(1))
                 self.func.append(hignlight)
+            elif re.search(markImg,row):
+                self.content.append(row)
+                self.func.append(toImg)
+            elif re.search(markLink,row):
+                thedict = {
+                    "url":re.search(markLink,row).group(2),
+                    "content":re.search(markLink,row).group(1),
+                }
+                self.content.append(thedict)
+                self.func.append(herf)
             else:
                 self.content.append(row)
                 self.func.append(NoEscape)
@@ -195,3 +249,6 @@ class MarkNormal(MarkContainer):
             result.append(func(w))
         return NoEscape("".join(result))
 
+
+def toImg(row):
+    return MarkImg(row).toLatex().dumps()

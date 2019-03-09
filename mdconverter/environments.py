@@ -9,3 +9,9 @@ class CodeEnvironment(Environment):
     _latex_name = "lstlisting"
     packages = [Package("listings"),Package("xcolor")]
 
+class Center(Environment):
+    _latex_name = "center"
+
+
+class Text(Environment):
+    _latex_name = "text"
