@@ -41,9 +41,9 @@ class MarkSection(MarkContainer):
         elif self.level == 3:
             return Subsection(self.content,label=False)
         elif self.level == 4:
-            return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(self.content))
+            return NoEscape(r"\noindent{{\large\textbf{{{}}}}}".format(self.content))
         elif self.level == 5:
-            return NoEscape(r"\noindent{{\large \textbf{{{}}}}}".format(self.content))
+            return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(self.content))
 
 
 class MarkNewLine(MarkContainer):
