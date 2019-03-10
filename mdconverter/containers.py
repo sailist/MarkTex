@@ -1,4 +1,4 @@
-from pylatex import Figure, Section,Subsection, Itemize,Enumerate, Tabular
+from pylatex import Figure, Section,Subsection, Itemize,Enumerate, Tabular,Subsubsection
 from img_tools import transimg, image_downloader
 from PIL import Image
 from pylatex.utils import bold,italic
@@ -39,7 +39,7 @@ class MarkSection(MarkContainer):
         elif self.level == 2:
             return Subsection(self.content,label=False)
         elif self.level == 3:
-            return Subsection(self.content,label=False)
+            return Subsubsection(self.content,label=False)
         elif self.level == 4:
             return NoEscape(r"\noindent{{\large\textbf{{{}}}}}".format(self.content))
         elif self.level == 5:
