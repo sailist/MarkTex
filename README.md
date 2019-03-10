@@ -5,6 +5,22 @@
 
 What is lacking now is not beautiful enough. In the next version,I will add more function and beautify it.
 
+## dependency
+```
+pylatex
+matplotlib
+urllib
+```
+
+## how2use
+```python 
+from mdconverter.example import fullExample
+from mdconverter import excu
+
+doc = excu(fullExample.full)# type:str
+print(doc)
+```
+
 ## example
 Full example is given in the file ./example/fullExample.py
 

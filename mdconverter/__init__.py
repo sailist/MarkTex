@@ -11,4 +11,5 @@ def excu(text):
 
     mdoc.content += parseforeach(lines)
     # lines = _sub_Bold_Itali(lines)
-    print(mdoc.toLabex())
+    return mdoc.toLabex()
+
