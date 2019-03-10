@@ -1,12 +1,10 @@
-from pylatex import Figure,Document,Section,Subsection,Subsubsection,Package,Itemize,Enumerate,frames,Tabular,NoEscape
-from imgconvert import transimg
-
+from pylatex import Figure, Section,Subsection, Itemize,Enumerate, Tabular
+from img_tools import transimg, image_downloader
 from PIL import Image
-from pylatex.utils import bold,italic,dumps_list
+from pylatex.utils import bold,italic
 from .environments import CodeEnvironment,QuoteEnvironment,Center,Text
 from .utils import *
-
-
+from .parser import *
 # line = re.sub(markBold,texbold,line)
 # line = re.sub
 
@@ -77,7 +75,7 @@ class MarkImg(MarkContainer):
     def toLatex(self):
         f = Figure(position='h!')
         # f.add_caption(self.caption)
-        self.content = urllib_download(self.content)
+        self.content = image_downloader(self.content)
         self.content = transimg(self.content)
         try:
             Image.open(self.content).verify()
@@ -150,14 +148,10 @@ class MarkQuote(MarkContainer):
 
     def toLatex(self):
         q = QuoteEnvironment()
-        for i in self.content:
-            if re.search(mark2newline,i):
-                rows = excuInlineText(i)
-                for j in rows:
-                    q.append(MarkNormal(j).toLatex())
-            else:
-                q.append(i)
-            q.append(MarkNewLine().toLatex())
+        items = parseforeach(self.content)
+
+        for i in items:
+            q.append(i.toLatex())
         return q
 
 class MarkItem(MarkContainer):
@@ -186,9 +180,10 @@ class MarkEnum(MarkContainer):
         for i in self.content:
             if re.search(mark2newline,i):
                 rows = excuInlineText(i)
-                for j in rows:
-                    e.add_item(MarkNormal(j).toLatex())
-            e.add_item(NoEscape(i))
+                rows = "".join([MarkNormal(j).toLatex().strip() for j in rows])
+                e.add_item(NoEscape(rows))
+            else:
+                e.add_item(NoEscape(i))
         return e
 
 class MarkFomula(MarkContainer):
@@ -203,7 +198,8 @@ class MarkCode(MarkContainer):
         self.content = code
     def toLatex(self):
         c = CodeEnvironment(options=[NoEscape("language={[ANSI]C++}"), NoEscape("keywordstyle=\color{blue!70}"), NoEscape("commentstyle=\color{red!50!green!50!blue!50}"), NoEscape("escapeinside=``"), NoEscape(r"basicstyle=\tiny")])
-        c.append(NoEscape("\n".join(self.content)))
+
+        c.append(NoEscape("\n"+"\n".join(self.content)))
         return c
 
 class MarkNormal(MarkContainer):
@@ -252,3 +248,61 @@ class MarkNormal(MarkContainer):
 
 def toImg(row):
     return MarkImg(row).toLatex().dumps()
+
+
+def parseforeach(lines):
+    line_index = 0
+    line_len = len(lines)
+    markItemlist = []
+    while line_index<line_len:
+        line = lines[line_index]
+        # print(line)
+        k = None
+        # result = re.search(, line)
+        if re.search(markToc,line):
+            k = MarkToc(line)
+            pass
+        elif re.search(markSection,line):
+            k = MarkSection(line)
+            pass
+        elif re.search(markQuote,line):##TODO 对于连续的 >不会有层次
+            start,end = findBound(markQuote,lines,line_index)
+            k = MarkQuote(lines[start:end+1])
+            line_index = end
+            pass
+        elif re.search(markImg,line):
+            k = MarkImg(line)
+            pass
+        elif re.search(markTable,line):
+            start, end = findBound(markTable, lines, line_index)
+            k = MarkTable(lines[start:end+1])
+            line_index = end
+            pass
+        elif re.search(markItem,line):
+            start, end = findBound(markItem, lines, line_index)
+            k = MarkItem(lines[start:end+1])
+            line_index = end
+            pass
+        elif re.search(markEnum,line):
+            start, end = findBound(markEnum, lines, line_index)
+            k = MarkEnum(lines[start:end+1])
+            line_index = end
+            pass
+        elif re.search(markCode,line):
+            codeTemplate,start,end = findCodeBound(lines,line_index)
+            # print("\n".join(lines[start+1:end]))
+            k = MarkCode(codeTemplate,lines[start+1:end+1])
+            line_index = end+1 #因为返回的是```的上一行
+        elif re.search(markLine,line):
+            k = MarkHLine(line)
+        else:
+            k = MarkNormal(line)
+        # print(k.toLatex())
+        if len(line)>0:
+            markItemlist.append(k)
+            markItemlist.append(MarkNewLine())
+
+        line_index += 1
+
+    return markItemlist
+

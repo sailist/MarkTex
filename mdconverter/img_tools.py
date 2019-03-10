@@ -1,3 +1,5 @@
+import hashlib
+
 from matplotlib import pyplot as plt
 import os
 from hashlib import md5
@@ -27,7 +29,7 @@ def transimg(img_path):
 
     img = plt.imread(img_path)
     plt.imsave(output_img_path,img)
-    _remove(img_path)
+    # _remove(img_path)
     # im = Image.open()
     return output_img_path
     # except:
@@ -37,3 +39,21 @@ def _remove(fpath):
     os.remove(fpath)
 
 # print(transimg(r"C:\E\jupyter_notebook\myTool\latexTool\img\9d9dbbca7fcc7dea8560db657ca70830.jpg"))
+def image_downloader(url, suffix ="jpg", default_path ="./img"):
+    if os.path.exists(url) and os.path.isfile(url):
+        return url
+
+    os.makedirs(default_path,exist_ok=True)
+    from urllib.request import urlretrieve
+    mmd = hashlib.md5()
+    mmd.update(url.encode())
+    fname = "{}/{}.{}".format(default_path,mmd.hexdigest(),suffix)
+
+    fname = os.path.abspath(fname)
+    if os.path.exists(fname):
+        return fname
+    try:
+        urlretrieve(url, fname)
+    except:
+        print(url)
+    return fname

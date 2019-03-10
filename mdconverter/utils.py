@@ -1,6 +1,4 @@
-import re,os
-import hashlib
-
+import re
 from pylatex.utils import NoEscape,escape_latex
 
 markToc = re.compile(r"(@\[[Tt][Oo][Cc]\])")
@@ -13,9 +11,9 @@ latexShortLine = re.compile(r"{-}+")
 
 markBold = re.compile(r"\*{2}(.*?)\*{2}")
 markItali = re.compile(r"\*{1}(.*)\*{1}")
-markItem = re.compile(r"^ - (.*)")
-markEnum = re.compile(r"^ [1-9]+\. (.*)")
-markQuote = re.compile(r"^>+(.*)")
+markItem = re.compile(r"^[ ]*-[ ]*(.*)")
+markEnum = re.compile(r"^[ ]*[1-9]+\.[ ]*(.*)")
+markQuote = re.compile(r"^>[ ]*(.*)")
 
 markTable = re.compile(r"^(\|.*\|+)")
 markTableContent = re.compile(r"\|([^\|]*)")
@@ -27,22 +25,6 @@ markInline = re.compile(r"`(.*)`")
 markCode = re.compile(r"^```(.*)")
 
 markLink = re.compile(r"\[(.*)\]\((.*)\)")
-
-def urllib_download(url,suffix = "jpg",default_path = "./img"):
-    if os.path.exists(url) and os.path.isfile(url):
-        return url
-
-    os.makedirs(default_path,exist_ok=True)
-    from urllib.request import urlretrieve
-    mmd = hashlib.md5()
-    mmd.update(url.encode())
-    fname = "{}/{}.{}".format(default_path,mmd.hexdigest(),suffix)
-
-    fname = os.path.abspath(fname)
-    if os.path.exists(fname):
-        return fname
-    urlretrieve(url, fname)
-    return fname
 
 
 def newLine(match):
