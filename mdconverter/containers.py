@@ -111,7 +111,7 @@ class MarkTable(MarkContainer):
 
 
     def toLatex(self):
-
+        self.max_col-=1
 
         option = "|"+r"p{{{:.1f}\textwidth}}<{{\centering}}|".format(1.0/self.max_col)*self.max_col
         t = Tabular(option)
@@ -122,7 +122,7 @@ class MarkTable(MarkContainer):
                     rows = excuInlineText(ii[i])
                     rows = [MarkNormal(r).toLatex().__str__() for r in rows]
                     ii[i] = NoEscape("".join(rows))
-
+            ii = ii[:-1]
             t.add_row(ii)
             t.add_hline()
         c = Center()
