@@ -161,13 +161,10 @@ class MarkItem(MarkContainer):
         # print(rows)
     def toLatex(self):
         e = Itemize()
-        for i in self.content:
-            if re.search(mark2newline,i):
-                rows = excuInlineText(i)
-                rows = "".join([MarkNormal(j).toLatex() for j in rows])
-                e.add_item(NoEscape(rows))
-            else:
-                e.add_item(NoEscape(i))
+
+        items = parseforeach(self.content,False)
+        for i in items:
+            e.add_item(i.toLatex())
         return e
 
 class MarkEnum(MarkContainer):
@@ -177,13 +174,11 @@ class MarkEnum(MarkContainer):
 
     def toLatex(self):
         e = Enumerate()
-        for i in self.content:
-            if re.search(mark2newline,i):
-                rows = excuInlineText(i)
-                rows = "".join([MarkNormal(j).toLatex().strip() for j in rows])
-                e.add_item(NoEscape(rows))
-            else:
-                e.add_item(NoEscape(i))
+
+        items = parseforeach(self.content, False)
+        for i in items:
+            e.add_item(i.toLatex())
+
         return e
 
 class MarkFomula(MarkContainer):
@@ -250,7 +245,7 @@ def toImg(row):
     return MarkImg(row).toLatex().dumps()
 
 
-def parseforeach(lines):
+def parseforeach(lines,add_empty_line = True):
     line_index = 0
     line_len = len(lines)
     markItemlist = []
@@ -265,6 +260,8 @@ def parseforeach(lines):
         elif re.search(markSection,line):
             k = MarkSection(line)
             pass
+        elif re.search(markLine,line):
+            k = MarkHLine(line)
         elif re.search(markQuote,line):##TODO 对于连续的 >不会有层次
             start,end = findBound(markQuote,lines,line_index)
             k = MarkQuote(lines[start:end+1])
@@ -293,14 +290,13 @@ def parseforeach(lines):
             # print("\n".join(lines[start+1:end]))
             k = MarkCode(codeTemplate,lines[start+1:end+1])
             line_index = end+1 #因为返回的是```的上一行
-        elif re.search(markLine,line):
-            k = MarkHLine(line)
         else:
             k = MarkNormal(line)
         # print(k.toLatex())
         if len(line)>0:
             markItemlist.append(k)
-            markItemlist.append(MarkNewLine())
+            if add_empty_line:
+                markItemlist.append(MarkNewLine())
 
         line_index += 1
 
