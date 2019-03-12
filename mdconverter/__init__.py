@@ -12,7 +12,7 @@ def _excu(text):
 
     mdoc = MarkDocument()
 
-    mdoc.content += parseforeach(lines)
+    mdoc.content += parseforeach(lines,True)
     # lines = _sub_Bold_Itali(lines)
     return mdoc.toLabex()
 

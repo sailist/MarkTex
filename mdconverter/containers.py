@@ -1,4 +1,4 @@
-from pylatex import Figure, Section,Subsection, Itemize,Enumerate, Tabular,Subsubsection
+from pylatex import Figure, Section,Subsection, Itemize,Enumerate, Tabular,Subsubsection,Document
 from img_tools import transimg, image_downloader
 from PIL import Image
 from pylatex.utils import bold,italic
@@ -148,7 +148,7 @@ class MarkQuote(MarkContainer):
 
     def toLatex(self):
         q = QuoteEnvironment()
-        items = parseforeach(self.content)
+        items = parseforeach(self.content,True)
 
         for i in items:
             q.append(i.toLatex())
@@ -245,7 +245,7 @@ def toImg(row):
     return MarkImg(row).toLatex().dumps()
 
 
-def parseforeach(lines,add_empty_line = True):
+def parseforeach(lines,add_empty_line = False):
     line_index = 0
     line_len = len(lines)
     markItemlist = []
