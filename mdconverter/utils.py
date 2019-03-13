@@ -49,3 +49,4 @@ def herf(adict,*,escape = True):
     if escape:
         content = escape_latex(adict["content"])
     return NoEscape(r"\href{{{}}}{{{}}}".format(adict["url"],content))
+

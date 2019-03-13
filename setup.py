@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='mdconverter',
-    version='0.1.dev1',
+    version='0.2.dev1',
     description='convert markdown 2 latex code perfactly,support Chinese Language',
     url='https://github.com/sailist/md2latex',
     author='hzYang',
