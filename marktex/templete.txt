@@ -1,0 +1,48 @@
+doc = MarkDown()
+
+
+
+with MarkDown() as doc:
+    with doc.create(Paragraph()) as p:
+    with doc.create(Quote()) as p:
+    with doc.create(Itemize()) as p:
+    with doc.create(Enumerate()) as p:
+    with doc.create(Formula()) as p:
+    with doc.create(Coded()) as p:
+
+    doc.append("")
+
+    #6种环境
+    p = Paragraph()
+    q = Quote()
+    l = Itemize()
+    e = Enumerate()
+    f = Formula()
+    c = Code()
+
+
+    t.add_text("")
+    t.add_bold("")
+    t.add_italic("")
+    t.add_footnote("","")
+    t.add_formula("")
+    t.add_link("","")
+    t.add_code("")
+
+    t.add_text(Text(""))
+    t.add_text(Bold(""))
+    t.add_text(Italic(""))
+    t.add_text(Footnote("",""))
+    t.add_text(Formula()) #Formula可以设置行内行外
+    t.add_text(Link("",""))
+    t.add_text(Code("")) #注意这里添加的所有换行符会被替换掉
+
+    t.append(Section(level,""))
+    t.new_line()
+    t.append(Image()) #只能按行加入
+    t.append(Table())
+    t.append(Formula())
+
+    t.create_toc()
+
+

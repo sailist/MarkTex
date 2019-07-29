@@ -1,10 +1,10 @@
 from setuptools import setup
 
 setup(
-    name='mdconverter',
+    name='marktex',
     version='0.2.dev1',
     description='convert markdown 2 latex code perfactly,support Chinese Language',
-    url='https://github.com/sailist/md2latex',
+    url='https://github.com/sailist/MarkTex',
     author='hzYang',
     author_email='sailist@outlook.com',
     license='MIT',
@@ -19,5 +19,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     keywords='markdown latex convert',
-    packages=['mdconverter'],
+    packages=['marktex'],
 )

@@ -1,0 +1,42 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{xcolor}
+\usepackage{lastpage}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage[colorlinks,linkcolor=blue]{hyperref}
+\usepackage[noframe]{showframe}
+
+\definecolor{shadecolor}{gray}{0.9}
+\definecolor{aliceblue}{rgb}{0.94, 0.97, 1.0}
+\CTEXsetup[format={\Large\bfseries}]{section}
+\definecolor{gainsboro}{rgb}{0.86, 0.86, 0.86}
+\newenvironment{text}{}{}
+\titleformat{\section}[block]{\LARGE\bfseries}{第\arabic{section}章}{1em}{}[]
+\titleformat{\subsection}[block]{\Large\bfseries}{\arabic{subsection}}{1em}{}[]
+\titleformat{\subsubsection}[block]{\large\bfseries}{\arabic{subsection}-\arabic{subsubsection}}{1em}{}[]
+\renewenvironment{shaded}{
+                     \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}
+                     \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}
+                    {\endMakeFramed}
+                
+
+\begin{document}
+\normalsize
+\begin{text}
+
+
+\end{text}
+\begin{equation}
+F(X_i)=K+\frac{a}{b}
+\end{equation}
+\begin{text}
+
+
+
+
+\end{text}
+\end{document}
