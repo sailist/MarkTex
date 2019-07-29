@@ -1,21 +1,25 @@
-from marktex import *
-from marktex import config
+from marktex.markast.document import Document
+from marktex.markast.environment import *
+from marktex.markast.line import *
+from marktex.markast.token import *
 from marktex.markast.parser import Scanner
-from marktex.texrender.texutils import *
 from marktex.markast.utils import ImageTool,CleanTool
+from marktex.texrender.texutils import *
 from marktex.texrender import texparam
+from marktex import config
 
-from pylatex.utils import bold,italic,escape_latex,dumps_list
-from pylatex.base_classes import Arguments
-from pylatex import NoEscape,NewLine as TNewLine,Center,Command
+from pylatex.utils import bold,italic,escape_latex
+from pylatex import NoEscape,Center
 from pylatex import Document as TDoc,Section as TSection,Subsection,Subsubsection
 from pylatex import Itemize as TItem,Enumerate as TEnum,Tabular,Math
+
+import os
 
 # \usepackage[colorlinks=false,urlbordercolor=linkgray,pdfborderstyle={/S/U/W 1}]{hyperref}
 class MarkTex(TDoc):
 
 
-    def __init__(self,doc:Document,texconfig = None, default_filepath='default_filepath',image_dir = None):
+    def __init__(self,doc:Document,default_filepath,image_dir = None,texconfig = None):
         super().__init__(default_filepath, documentclass="ctexart", document_options="UTF8",
                          inputenc=None, fontenc=None, lmodern=False, textcomp=False)
 
@@ -25,7 +29,7 @@ class MarkTex(TDoc):
 
         if image_dir is None:
             image_dir = "./"
-        self.image_dir = image_dir
+        self.image_dir = os.path.abspath(image_dir)
         self.doc = doc
         self.has_toc = False
 
@@ -35,13 +39,26 @@ class MarkTex(TDoc):
 
 
     @staticmethod
-    def convert_from_file(fpath):
+    def convert_from_file(fpath,image_dir=None):
+        '''
+
+        :param fpath:markdown文件的目录
+        :param image_dir: markdown中的网络图片和本地图片在转换中都会被统一哈希命名并输出到一个目录
+            默认是markdown文件所在的目录下的"./images"下
+        :return:
+        '''
+        fpre,_ = os.path.split(fpath)
+        if image_dir is None:
+            image_dir = os.path.join(fpre,"images")
+        os.makedirs(image_dir,exist_ok=True)
+
         with open(fpath,encoding="utf-8") as f:
             lines = f.readlines()
-            lines = [i.strip() for i in lines]
+            lines = [i.strip("\n") for i in lines]
 
         doc = Scanner().analyse(lines)
-        mark = MarkTex(doc)
+        filepath = os.path.join(fpre,"example")
+        mark = MarkTex(doc,default_filepath=filepath,image_dir=image_dir)
         mark.convert()
         return mark
 
@@ -50,7 +67,8 @@ class MarkTex(TDoc):
         if doc.has_toc:
             self.append(tablecontent())
 
-        for envi in doc.content:
+        for i,envi in enumerate(doc.content):
+            print(f"\rConverting...{i*100/len(doc.content):.3f}%.",end="\0",flush=True)
             if isinstance(envi,Quote):
                 envi = self.fromQuote(envi)
             elif isinstance(envi,Paragraph):
@@ -70,6 +88,7 @@ class MarkTex(TDoc):
             else:
                 raise Exception(f"Doc error {envi},{envi.__class__.__name__}")
             self.append(envi)
+        print(f"\rConverting...100%.")
 
     def fromToken(self,s:Token):
         s = escape_latex(s.string)
@@ -257,10 +276,9 @@ class MarkTex(TDoc):
 
     def fromCode(self,s:Code):
         code = [self.fromRawLine(c) for c in s.code]
-        c = CodeEnvironment(self.config)
+        c = CodeEnvironment(s.code_style,self.config)
         for line in code:
             c.append(line)
-
         return c
 
     def fromTable(self,s:Table):
@@ -298,6 +316,11 @@ class MarkTex(TDoc):
         string = super().dumps()
         string = CleanTool.clean_comment(string)
         return string
+
+    def generate_tex(self, filepath=None):
+        super().generate_tex(filepath)
+
+        print(f"File is output in {os.path.abspath(filepath)}.tex and images is in {self.image_dir}.")
 
 
 

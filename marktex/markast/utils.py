@@ -333,23 +333,33 @@ class LineParser:
 
 class ImageTool:
     @staticmethod
-    def hashmove(path:str,fdir:str)->str:
-        size = os.path.getsize(path)
-        mtime = os.path.getmtime(path)
+    def equal(a,b):
+        return os.path.getsize(a) == os.path.getsize(b) and \
+               os.path.getmtime(a) == os.path.getmtime(b)
+
+
+    @staticmethod
+    def hashmove(pref:str, fdir:str)->str:
+        pref = os.path.abspath(pref)
+        size = os.path.getsize(pref)
+        mtime = os.path.getmtime(pref)
         mmd = md5()
         mmd.update(str(size+mtime).encode())
 
-        _,ext = os.path.splitext(path)
-        fname = os.path.join(fdir,f"{mmd.hexdigest()}{ext}")
-        if os.path.exists(fname):
-            fname = fname.replace("\\", "/")
-            return fname
-        else:
-            shutil.copy2(path,fname)
+        _,ext = os.path.splitext(pref)
+        newf = os.path.join(fdir,f"{mmd.hexdigest()}{ext}")
+        newf = os.path.abspath(newf)
 
-        fname = os.path.abspath(fname)
-        fname = fname.replace("\\","/")
-        return fname
+        if os.path.exists(newf) and ImageTool.equal(pref, newf):
+            print(f"Have cache, checked.")
+            newf = newf.replace("\\", "/")
+            return newf
+        else:
+            shutil.copy2(pref, newf)
+
+        print(f"Image is local file, move it \tfrom:{pref}\tto:{newf}")
+        newf = newf.replace("\\","/")
+        return newf
 
 
     @staticmethod
@@ -361,13 +371,12 @@ class ImageTool:
         :param fdir:
         :return:
         '''
+        print(f"\rCheck th Image:{url}.")
         if os.path.exists(url) and os.path.isfile(url):
             return ImageTool.hashmove(url,fdir)
 
         os.makedirs(fdir, exist_ok=True)
         from urllib.request import urlretrieve
-
-
 
         mmd = md5()
         mmd.update(url.encode())
@@ -375,6 +384,7 @@ class ImageTool:
         fname = os.path.abspath(fname)
 
         if os.path.exists(fname):
+            print(f"Have cache, checked.")
             fname = fname.replace("\\", "/")
             return fname
         try:
@@ -382,6 +392,7 @@ class ImageTool:
         except:
             print(f"Error when download:{url}.")
 
+        print(f"Download in {fname}.")
         fname = fname.replace("\\", "/")
         return fname
 

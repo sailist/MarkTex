@@ -1,6 +1,6 @@
 from pylatex import NoEscape,Package,Command
-from marktex import config
 from pylatex.base_classes import Environment
+from marktex import config
 from marktex.texrender import texparam
 
 
@@ -29,10 +29,20 @@ class CodeEnvironment(Environment):
 
     cpp = "C++"
 
-    def __init__(self,mode="Python",texconfig = None,**kwargs):
+    code_style_dict = {
+        "cpp": "C++"
+
+    }
+
+
+    def __init__(self,mode=None,texconfig = None,**kwargs):
         if texconfig is None:
             texconfig = config
+        if mode is None or len(mode.strip()) == 0:
+            mode = "Tex"
 
+        if mode.lower() in CodeEnvironment.code_style_dict:
+            mode = CodeEnvironment.code_style_dict[mode]
 
         options = [NoEscape(f"language={{{mode.capitalize()}}}"),
                    NoEscape(r"keywordstyle=\color{blue!70}"),

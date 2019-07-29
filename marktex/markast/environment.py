@@ -91,8 +91,16 @@ class Formula(Environment):
 
 class Code(Environment):
     #code:list[RawLine]
+
+
     def initial(self):
-        self.code_style = ExtractTool.codeType(self.buffer[0])
+        code_style = ExtractTool.codeType(self.buffer[0])
+
+
+        if len(code_style) == 0:
+            code_style = "Tex"
+        self.code_style = code_style
+
         self.code = self.buffer[1:]
         self.code = [RawLine(i) for i in self.code]
         pass

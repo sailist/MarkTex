@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='marktex',
-    version='0.2.dev1',
+    version='0.5.dev1',
     description='convert markdown 2 latex code perfactly,support Chinese Language',
     url='https://github.com/sailist/MarkTex',
     author='hzYang',
@@ -19,5 +19,5 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     keywords='markdown latex convert',
-    packages=['marktex'],
+    packages=['marktex',"marktex/markast","marktex/texrender","marktex/example"],
 )
