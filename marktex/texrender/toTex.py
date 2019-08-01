@@ -2,6 +2,7 @@ from marktex.markast.document import Document
 from marktex.markast.environment import *
 from marktex.markast.line import *
 from marktex.markast.token import *
+from marktex.markast.xmls import *
 from marktex.markast.parser import Scanner
 from marktex.markast.utils import ImageTool,CleanTool
 from marktex.texrender.texutils import *
@@ -19,16 +20,20 @@ import os
 class MarkTex(TDoc):
 
 
-    def __init__(self,doc:Document,default_filepath,image_dir = None,texconfig = None):
-        super().__init__(default_filepath, documentclass="ctexart", document_options="UTF8",
+    def __init__(self,doc:Document,output_dir = None,texconfig = None):
+        super().__init__("", documentclass="ctexart", document_options="UTF8",
                          inputenc=None, fontenc=None, lmodern=False, textcomp=False)
 
         if texconfig is None:
             texconfig = config
         self.config = texconfig
 
-        if image_dir is None:
-            image_dir = "./"
+        if output_dir is None:
+            output_dir = "./"
+
+        image_dir = os.path.join(output_dir,"images")
+
+        self.output_dir = output_dir
         self.image_dir = os.path.abspath(image_dir)
         self.doc = doc
         self.has_toc = False
@@ -36,10 +41,8 @@ class MarkTex(TDoc):
         self.packages |= texparam.build_basic_package(self.config)
         self.preamble.extend(texparam.build_basic_preamble(self.config))
 
-
-
     @staticmethod
-    def convert_from_file(fpath,image_dir=None):
+    def convert_file(fpath, output_dir=None):
         '''
 
         :param fpath:markdown文件的目录
@@ -48,17 +51,13 @@ class MarkTex(TDoc):
         :return:
         '''
         fpre,_ = os.path.split(fpath)
-        if image_dir is None:
-            image_dir = os.path.join(fpre,"images")
-        os.makedirs(image_dir,exist_ok=True)
+        if output_dir is None:
+            output_dir = fpre
+        os.makedirs(output_dir,exist_ok=True)
 
-        with open(fpath,encoding="utf-8") as f:
-            lines = f.readlines()
-            lines = [i.strip("\n") for i in lines]
+        doc = Scanner.analyse_file(fpath)
 
-        doc = Scanner().analyse(lines)
-        filepath = os.path.join(fpre,"example")
-        mark = MarkTex(doc,default_filepath=filepath,image_dir=image_dir)
+        mark = MarkTex(doc,output_dir=output_dir)
         mark.convert()
         return mark
 
@@ -110,7 +109,6 @@ class MarkTex(TDoc):
 
     def fromInCode(self,s:InCode):
         s = escape_latex(s.string)
-
         return NoEscape(rf"\adjustbox{{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}}{{\small{{{s}}}}}")
     
     def fromInFormula(self,s:InFormula):
@@ -149,6 +147,12 @@ class MarkTex(TDoc):
 
         link = s.link
         link = ImageTool.verify(link,self.image_dir)
+
+        if config.give_rele_path:
+            link = os.path.relpath(link,self.output_dir)
+
+        link = link .replace("\\", "/")
+
         c = Center()
         t = Text()
         t.append(NoEscape(
@@ -159,12 +163,24 @@ class MarkTex(TDoc):
         c.append(t)
         return c
 
+    def fromXML(self,token:XML):
+        if isinstance(token,XMLTitle):
+            self.preamble.append(NoEscape(rf"\title{{{token.content}}}"))
+            return NoEscape("")
+        elif isinstance(token,XMLAuthor):
+            self.preamble.append(NoEscape(rf"\author{{{token.content}}}"))
+            return NoEscape("")
+        elif isinstance(token,XMLSub):
+            return NoEscape(rf"$_{{{token.content}}}$")
+
     def fromTokenLine(self,s:TokenLine):
         tokens = s.tokens
         strs = []
         for token in tokens:
             if isinstance(token,Bold):
                 token = self.fromBold(token)
+            elif isinstance(token,XML):
+                token = self.fromXML(token)
             elif isinstance(token,Italic):
                 token = self.fromItalic(token)
             elif isinstance(token,DeleteLine):
@@ -317,10 +333,15 @@ class MarkTex(TDoc):
         string = CleanTool.clean_comment(string)
         return string
 
-    def generate_tex(self, filepath=None):
+    def generate_tex(self, filename=None):
+        '''
+        输入文件名即可，保存路径在输入时已经确定好了
+        :param filename:
+        :return:
+        '''
+        filepath = os.path.join(self.output_dir,filename)
         super().generate_tex(filepath)
-
-        print(f"File is output in {os.path.abspath(filepath)}.tex and images is in {self.image_dir}.")
+        print(f"File is output in {os.path.abspath(filepath)}.tex and images is in {os.path.abspath(self.image_dir)}.")
 
 
 

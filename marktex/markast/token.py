@@ -5,9 +5,9 @@ class Token: #可以作为 行内的部分出现
     def __init__(self,s) -> None:
         super().__init__()
         self.string = s
-        self.initial(s)
+        self.initial()
 
-    def initial(self,s):
+    def initial(self):
         pass
 
     def __str__(self) -> str:
@@ -18,7 +18,7 @@ class Token: #可以作为 行内的部分出现
 
 class Bold(Token):
 
-    def initial(self, s):
+    def initial(self):
         self.string = ExtractTool.bold(self.string)
 
     def __len__(self):
@@ -28,7 +28,7 @@ class Bold(Token):
         return f"Bold({self.string})"
 
 class Italic(Token):
-    def initial(self, s):
+    def initial(self):
         self.string = ExtractTool.italic(self.string)
 
     def __len__(self):
@@ -38,7 +38,7 @@ class Italic(Token):
         return f"Italic({self.string})"
 
 class InFormula(Token):
-    def initial(self, s):
+    def initial(self):
         self.string = ExtractTool.informula(self.string)
 
     def __str__(self) -> str:
@@ -48,7 +48,7 @@ class InFormula(Token):
         return len(self.string)
 
 class InCode(Token):
-    def initial(self, s):
+    def initial(self):
         self.string = ExtractTool.incode(self.string)
 
     def __str__(self) -> str:
@@ -56,7 +56,7 @@ class InCode(Token):
 
 class Hyperlink(Token):
 
-    def initial(self, s):
+    def initial(self):
         self.desc,self.link = ExtractTool.hyperlink(self.string)
 
     def __str__(self) -> str:
@@ -67,7 +67,7 @@ class Hyperlink(Token):
 
 class Footnote(Token):
 
-    def initial(self, s):
+    def initial(self):
         self.label = ExtractTool.footnote(self.string)
 
     def __str__(self) -> str:
@@ -80,9 +80,9 @@ class InImage(Token):
     pass
 
 class UnderLine(Token):
-    def initial(self, s):
+    def initial(self):
         self.string = ExtractTool.underline(self.string)
 
 class DeleteLine(Token):
-    def initial(self, s):
+    def initial(self):
         self.string = ExtractTool.deleteline(self.string)

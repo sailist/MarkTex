@@ -99,3 +99,11 @@ code_font_size = small
 has_number_left = True
 #序号的字体大小
 code_number_size = small
+
+
+'''tools setting'''
+image_download_retry_time = 10
+# 在尝试重试次数达到上限后，是否等待手动下载该文件放到目录
+# wait_manully_if_all_failed = False
+# 在tex文件里添加图片的时候，使用相对路径还是绝对路径
+give_rele_path = True

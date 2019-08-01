@@ -97,8 +97,3 @@ class CheckList(Environment):
 
 def tablecontent():
     return NoEscape("\\tableofcontents\n\\newpage")
-
-def foo(s:[str])->list:
-    s.append(1)
-    return [s]
-

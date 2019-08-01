@@ -1,13 +1,17 @@
-from setuptools import setup
+from setuptools import setup,find_packages
 
 setup(
     name='marktex',
-    version='0.5.dev1',
+    version='0.7.0.dev1',
     description='convert markdown 2 latex code perfactly,support Chinese Language',
     url='https://github.com/sailist/MarkTex',
     author='hzYang',
     author_email='sailist@outlook.com',
     license='MIT',
+    include_package_data = True,
+    install_requires = [
+      "pylatex",
+    ],
     classifiers=[
         'Development Status :: 3 - Alpha',
         'Intended Audience :: Developers',
@@ -19,5 +23,10 @@ setup(
         'Programming Language :: Python :: 3.5',
     ],
     keywords='markdown latex convert',
-    packages=['marktex',"marktex/markast","marktex/texrender","marktex/example"],
+    packages=find_packages(),
+    entry_points={
+        'console_scripts':[
+            'marktex = marktex.marktex:main'
+        ]
+      },
 )

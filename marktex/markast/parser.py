@@ -9,7 +9,16 @@ class Scanner:
         self.doc = Document()
         self.lp = LineParser()
 
+    @staticmethod
+    def analyse_file(fname:str):
+        with open(fname,"r",encoding="utf-8") as f:
+            lines = f.readlines()
+
+        return Scanner().analyse(lines)
+
     def analyse(self,lines:list):
+        lines = [i.strip("\n") for i in lines]
+
         index = 0
         size = len(lines)
         doc = self.doc

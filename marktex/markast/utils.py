@@ -1,4 +1,5 @@
-import re,os,shutil
+import re,os,shutil,imghdr
+from marktex import config
 from urllib.parse import urljoin
 from hashlib import md5
 
@@ -13,9 +14,10 @@ re_bold = re.compile(r"\*\*([^*\n]*)\*\*") # 加粗
 re_italic = re.compile(r"\*([^*\n]*)\*") # 斜体
 re_delete = re.compile(r"~~([^~\n]*)~~") # 删除线
 re_underline = re.compile(r"__([^_\n]*)__") # 下划线
-re_xml = re.compile(r"<[^\\>\n]+>[^<>]*<\\[^\\>\n]+>") # xml标签（只支持一级标签
 
-re_list = re.compile("^ *- *(.*)") # 列表
+re_xml = re.compile(r"<([^/>\n]+)>([^<>]*)</([^/>\n]+)>") # xml标签（只支持一级标签
+
+re_list = re.compile("^ *[-+] *(.*)") # 列表
 re_enum = re.compile("^ *[0-9]+\. *(.*)") # enum
 
 re_ilink = re.compile("(!?)\[([^[\n]*)\]\(([^(\n]*)\)") # link and image
@@ -42,11 +44,39 @@ re_formula_tail = re.compile("\$\$$") # formula
 re_all = re.compile(r"(\*\*[^*]*\*\*|" #bold
                     r"\*[^*]*\*|" #italic
                     r"~~[^~]*~~|" #
+                    r"<[^\\>\n]+>[^<>]*<\\[^\\>\n]+>|" #
                     r"__[^_]*__|" #deleteline
                     r"\[\^[^[^]+\]|" #footnote
                     r"!?\[[^[\n]*\]\([^(\n]*\)|" #link or image
                     r"`[^`\n]*`|" # code 
                     r"\$[^$\n]*\$)") # formula
+
+
+_request_headers_dict = {"User-Agent" : "Mozilla/5.0 (Windows; U; Windows NT 5.1; zh-CN; rv:1.9.1.6) ",
+  "Accept" : "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+  "Accept-Language" : "en-us",
+  "Connection" : "keep-alive",
+  "Accept-Charset" : "GB2312,utf-8;q=0.7,*;q=0.7"
+                         }
+
+
+class XMLTool:
+
+    def analyse(self,s):
+        from marktex.markast.xmls import xml_dict
+
+        match_xml = re.search(re_xml,s)
+        if match_xml is None:
+            raise Exception(f"Match error {s}")
+
+        tagl,content,tagr = match_xml.group(1),match_xml.group(2),match_xml.group(3)
+
+        if tagl != tagr:
+            raise Exception(f"Xml format Error {s}")
+
+
+
+        return xml_dict[tagl](tagl,content)
 
 
 class ScanTool:
@@ -126,6 +156,10 @@ class MatchTool:
     @staticmethod
     def match_underline(token):
         return re.search(re_underline, token)
+
+    @staticmethod
+    def match_xml(token):
+        return re.search(re_xml,token)
 
     @staticmethod
     def match_footnote(token):
@@ -279,6 +313,12 @@ class LineParser:
                 tline.append(token)
                 continue
 
+            match = MatchTool.match_xml(token)
+            if match is not None:
+                token = XMLTool().analyse(token)
+                tline.append(token)
+                continue
+
             match = MatchTool.match_italic(token)
             if match is not None:
                 token = Italic(token)
@@ -371,30 +411,61 @@ class ImageTool:
         :param fdir:
         :return:
         '''
-        print(f"\rCheck th Image:{url}.")
+        print(f"\rCheck Image:{url}.")
+        os.makedirs(fdir, exist_ok=True)
         if os.path.exists(url) and os.path.isfile(url):
             return ImageTool.hashmove(url,fdir)
 
-        os.makedirs(fdir, exist_ok=True)
-        from urllib.request import urlretrieve
 
+        # from urllib.request import urlretrieve
+        import requests
         mmd = md5()
         mmd.update(url.encode())
-        fname = os.path.join(fdir,f"{mmd.hexdigest()}.jpg")
-        fname = os.path.abspath(fname)
 
-        if os.path.exists(fname):
+        fpre = os.path.join(f"{mmd.hexdigest()}")
+
+        fs = os.listdir(fdir)
+        prefs = [os.path.splitext(f)[0] for f in fs]
+
+        # fname = os.path.abspath(fname)
+        if fpre in prefs:
             print(f"Have cache, checked.")
-            fname = fname.replace("\\", "/")
+            i = prefs.index(fpre)
+            fname = os.path.join(fdir,fs[i])
             return fname
-        try:
-            urlretrieve(url, fname)
-        except:
-            print(f"Error when download:{url}.")
+        else:
+            print("Image have't download, downloading...")
 
-        print(f"Download in {fname}.")
-        fname = fname.replace("\\", "/")
-        return fname
+        for i in range(config.image_download_retry_time):
+            fs = os.listdir(fdir)
+            prefs = [os.path.splitext(f)[0] for f in fs]
+
+            # fname = os.path.abspath(fname)
+            if fpre in prefs:
+                print(f"Have cache, checked.")
+                i = prefs.index(fpre)
+                fname = os.path.join(fdir, fs[i])
+                return fname
+
+            try:
+                response = requests.get(url,headers=_request_headers_dict,timeout=5,stream=True)
+                if response.status_code == 200:
+                    ext = imghdr.what(None, response.content)
+                    fname = os.path.join(fdir, f"{fpre}.{ext}")
+                    with open(fname, "wb") as w:
+                        w.write(response.content)
+
+                    return fname
+            except:
+                print(f"\r\ttimeout retry {i+1}/{config.image_download_retry_time}, "
+                      f"you can manually download and save it in {fdir} with name {fpre}.[ext]",end="\0",flush=True)
+
+        raise Exception(f"Error when dowanlod:{url}")
+
+        # except:
+        #     print(f"Error when download:{url}.")
+
+
 
 if __name__ == "__main__":
     print(ImageTool.verify(r"https://f12.baidu.com/it/u=430466972,3036851607&fm=76",r"D:\Web"))

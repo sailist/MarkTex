@@ -10,7 +10,7 @@ pip install marktex -i https://pypi.python.org/pypi
 ```python
 from marktex.texrender import MarkTex
 
-doc = MarkTex.convert_from_file("path/of/markdownfile","path/of/output_image/dir")
+doc = MarkTex.convert_file("path/of/markdownfile","path/of/output_image/dir")
 doc.generate_tex()
 ```
 
