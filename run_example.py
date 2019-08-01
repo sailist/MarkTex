@@ -7,9 +7,9 @@ from marktex.texrender.toTex import MarkTex
 
 from marktex.markast.parser import Scanner
 
-# doc = MarkTex.convert_file("./总知识点.md")
+doc = MarkTex.convert_file("./marktex/example/example.md")
 # doc.generate_tex("test")
 
 
-doc = Scanner.analyse_file("./marktex/example/example.md")
-print(doc)
+# doc = Scanner.analyse_file("./marktex/example/example.md")
+# print(doc)

@@ -44,7 +44,7 @@ re_formula_tail = re.compile("\$\$$") # formula
 re_all = re.compile(r"(\*\*[^*]*\*\*|" #bold
                     r"\*[^*]*\*|" #italic
                     r"~~[^~]*~~|" #
-                    r"<[^\\>\n]+>[^<>]*<\\[^\\>\n]+>|" #
+                    r"<[^/>\n]+>[^<>]*</[^/>\n]+>|" #
                     r"__[^_]*__|" #deleteline
                     r"\[\^[^[^]+\]|" #footnote
                     r"!?\[[^[\n]*\]\([^(\n]*\)|" #link or image
@@ -70,13 +70,11 @@ class XMLTool:
             raise Exception(f"Match error {s}")
 
         tagl,content,tagr = match_xml.group(1),match_xml.group(2),match_xml.group(3)
-
         if tagl != tagr:
             raise Exception(f"Xml format Error {s}")
 
-
-
-        return xml_dict[tagl](tagl,content)
+        res = xml_dict[tagl](tagl,content)
+        return res
 
 
 class ScanTool:
@@ -139,6 +137,7 @@ class MatchTool:
                                   lambda s: f"@@@{s.group(0)}@@@",
                                   line)
         buffer = sub_line.split("@@@")
+
         return buffer
 
     @staticmethod
@@ -305,7 +304,6 @@ class LineParser:
         tline = TokenLine()
 
         for token in buffer:
-
 
             match = MatchTool.match_bold(token)
             if match is not None:

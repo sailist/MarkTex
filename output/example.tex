@@ -3,6 +3,7 @@
 \usepackage[table]{xcolor}
 \usepackage{booktabs}
 \usepackage{pifont}
+\usepackage{fixltx2e}
 \usepackage{ulem}
 \usepackage{amssymb}
 \usepackage{colortbl}
@@ -43,13 +44,23 @@ subsubsection/format = \Large\bfseries}
 \definecolor{tabletopgray}{rgb}{0.937,0.952,0.96}
 \definecolor{tablerowgray}{gray}{0.968}
 \definecolor{tablelinegray}{gray}{0.827}
+\title{这里写标题}
 
 \begin{document}
 \normalsize
 \tableofcontents
 \newpage
 \begin{marktext}
-\section{特性}
+
+
+
+
+
+
+
+
+
+\section{特性\textsubscript{下标在这里}}
 
 
 \end{marktext}
@@ -68,7 +79,7 @@ subsubsection/format = \Large\bfseries}
 \begin{marktext}
 
 
-\section{效果演示$_1$}
+\section{效果演示}
 
 
 
@@ -175,12 +186,6 @@ A&B&C&D\\
 \begin{marktext}
 
 
-\begin{itemize}
-\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$] checked
-\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\scriptsize \ding{56}}}$\square$] failed
-\item[$\square$] not checked
-\end{itemize}
-
 \subsection{图片}
 
 
@@ -189,7 +194,7 @@ A&B&C&D\\
 
 \begin{center}
 \begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{C:/E/jupyter_notebook/marktex/output/images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
 \end{marktext}
 \end{center}
 
@@ -211,7 +216,7 @@ A&B&C&D\\
 代码使用Listings，按\href{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}{wiki{-}Listings}的说法，主流的各种语言都支持。
 \begin{center}
 \begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{C:/E/jupyter_notebook/marktex/output/images/53bb9cd2ced62c6673f39073ca9397b7.png}\vspace{\baselineskip}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/53bb9cd2ced62c6673f39073ca9397b7.png}\vspace{\baselineskip}
 \end{marktext}
 \end{center}
 \end{marktext}
@@ -301,7 +306,7 @@ F(x_i) = wx_i+b\\
 图片：
 \begin{center}
 \begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{C:/E/jupyter_notebook/marktex/output/images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
 \end{marktext}
 \end{center}
 

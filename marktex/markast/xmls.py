@@ -30,6 +30,11 @@ class XMLSub(XML):
     pass
 
 @xml
+class XMLSuper(XML):
+    _xml_tag = "super"
+    pass
+
+@xml
 class XMLTitle(XML):
     _xml_tag = "title"
     pass

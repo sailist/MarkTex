@@ -130,6 +130,7 @@ class MarkTex(TDoc):
 
     def fromSection(self,s:Section):
         level,content = s.level,s.content
+        content = self.fromTokenLine(s.content)
         if s.level == 1:
             return TSection(content,label=False)
         elif level == 2:
@@ -171,7 +172,10 @@ class MarkTex(TDoc):
             self.preamble.append(NoEscape(rf"\author{{{token.content}}}"))
             return NoEscape("")
         elif isinstance(token,XMLSub):
-            return NoEscape(rf"$_{{{token.content}}}$")
+            return NoEscape(rf"\textsubscript{{{token.content}}}")
+        elif isinstance(token,XMLSuper):
+            return NoEscape(rf"\textsuperscript{{{token.content}}}")
+
 
     def fromTokenLine(self,s:TokenLine):
         tokens = s.tokens

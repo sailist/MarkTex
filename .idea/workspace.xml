@@ -2,22 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/marktex/markast/xmls.py" />
-      <change beforePath="" afterPath="$PROJECT_DIR$/marktex/marktex.py" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change beforePath="$PROJECT_DIR$/marktex/config.py" afterPath="$PROJECT_DIR$/marktex/config.py" />
-      <change beforePath="$PROJECT_DIR$/marktex/example/__init__.py" afterPath="$PROJECT_DIR$/marktex/example/__init__.py" />
       <change beforePath="$PROJECT_DIR$/marktex/example/example.md" afterPath="$PROJECT_DIR$/marktex/example/example.md" />
-      <change beforePath="$PROJECT_DIR$/marktex/example/image/1c59f8ef2aa3c5e527a22b7c258489d6.jpg" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/marktex/example/image/53bb9cd2ced62c6673f39073ca9397b7.jpg" afterPath="" />
       <change beforePath="$PROJECT_DIR$/marktex/markast/parser.py" afterPath="$PROJECT_DIR$/marktex/markast/parser.py" />
-      <change beforePath="$PROJECT_DIR$/marktex/markast/token.py" afterPath="$PROJECT_DIR$/marktex/markast/token.py" />
       <change beforePath="$PROJECT_DIR$/marktex/markast/utils.py" afterPath="$PROJECT_DIR$/marktex/markast/utils.py" />
-      <change beforePath="$PROJECT_DIR$/marktex/texrender/texutils.py" afterPath="$PROJECT_DIR$/marktex/texrender/texutils.py" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/xmls.py" afterPath="$PROJECT_DIR$/marktex/markast/xmls.py" />
+      <change beforePath="$PROJECT_DIR$/marktex/marktex.py" afterPath="$PROJECT_DIR$/marktex/marktex.py" />
+      <change beforePath="$PROJECT_DIR$/marktex/texrender/texparam.py" afterPath="$PROJECT_DIR$/marktex/texrender/texparam.py" />
       <change beforePath="$PROJECT_DIR$/marktex/texrender/toTex.py" afterPath="$PROJECT_DIR$/marktex/texrender/toTex.py" />
-      <change beforePath="$PROJECT_DIR$/output/example.tex" afterPath="$PROJECT_DIR$/output/example.tex" />
-      <change beforePath="$PROJECT_DIR$/publish.cmd" afterPath="$PROJECT_DIR$/publish.cmd" />
       <change beforePath="$PROJECT_DIR$/run_example.py" afterPath="$PROJECT_DIR$/run_example.py" />
       <change beforePath="$PROJECT_DIR$/setup.py" afterPath="$PROJECT_DIR$/setup.py" />
     </list>
@@ -32,16 +25,36 @@
     <SUITE FILE_PATH="coverage/marktex$xmls.coverage" NAME="xmls Coverage Results" MODIFIED="1564620854210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/marktex/markast" />
     <SUITE FILE_PATH="coverage/marktex$test.coverage" NAME="test Coverage Results" MODIFIED="1564311486823" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/marktex$utils.coverage" NAME="utils Coverage Results" MODIFIED="1564112640188" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/marktex" />
-    <SUITE FILE_PATH="coverage/marktex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1564625500657" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/marktex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1564631248111" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/marktex$testpylatex.coverage" NAME="testpylatex Coverage Results" MODIFIED="1564108266938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="utils.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="run_example.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/run_example.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="196">
+              <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="texparam.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/marktex/texrender/texparam.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="utils.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marktex/markast/utils.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
-              <caret line="414" column="40" lean-forward="false" selection-start-line="414" selection-start-column="40" selection-end-line="414" selection-end-column="40" />
+            <state relative-caret-position="197">
+              <caret line="397" column="51" lean-forward="false" selection-start-line="397" selection-start-column="51" selection-end-line="397" selection-end-column="51" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -52,8 +65,8 @@
       <file leaf-file-name="toTex.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marktex/texrender/toTex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="148" column="26" lean-forward="true" selection-start-line="148" selection-start-column="26" selection-end-line="148" selection-end-column="26" />
+            <state relative-caret-position="276">
+              <caret line="176" column="13" lean-forward="false" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
@@ -61,31 +74,37 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="302">
+                <caret line="184" column="6" lean-forward="true" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="example.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/marktex/example/example.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="140">
+                <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="marktex.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marktex/marktex.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="619">
-              <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="token.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/marktex/markast/token.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="336">
-              <caret line="12" column="22" lean-forward="false" selection-start-line="12" selection-start-column="22" selection-end-line="12" selection-end-column="22" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="__init__.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/marktex/texrender/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="26" lean-forward="false" selection-start-line="0" selection-start-column="26" selection-end-line="0" selection-end-column="26" />
+            <state relative-caret-position="280">
+              <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
               <folding />
             </state>
           </provider>
@@ -94,8 +113,8 @@
       <file leaf-file-name="parser.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marktex/markast/parser.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="197">
+              <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
               <folding>
                 <element signature="e#0#65#0" expanded="true" />
               </folding>
@@ -106,18 +125,8 @@
       <file leaf-file-name="line.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marktex/markast/line.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="475">
-              <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="config.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/marktex/config.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1063">
-              <caret line="98" column="22" lean-forward="false" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
+            <state relative-caret-position="166">
+              <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
               <folding />
             </state>
           </provider>
@@ -126,21 +135,9 @@
       <file leaf-file-name="xmls.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/marktex/markast/xmls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+            <state relative-caret-position="250">
+              <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="texparam.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/marktex/texrender/texparam.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -156,12 +153,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>fromInC</find>
-      <find>fromImage</find>
-      <find>fromForm</find>
-      <find>fromQu</find>
-      <find>Quote</find>
-      <find>pri</find>
       <find>fromFor</find>
       <find>fromIt</find>
       <find>In</find>
@@ -175,17 +166,23 @@
       <find>under</find>
       <find>DeleteLi</find>
       <find>prin</find>
-      <find>fromSe</find>
       <find>New</find>
       <find>gene</find>
       <find>fromCo</find>
       <find>conver</find>
       <find>fromCode</find>
       <find>fromIm</find>
-      <find>from</find>
       <find>Line</find>
       <find>make</find>
       <find>fromIma</find>
+      <find>fromX</find>
+      <find>L</find>
+      <find>from</find>
+      <find>fromSe</find>
+      <find>pri</find>
+      <find>isin</find>
+      <find>xml</find>
+      <find>fromXm</find>
     </findStrings>
     <replaceStrings>
       <replace>ScanTool</replace>
@@ -214,27 +211,27 @@
         <option value="$PROJECT_DIR$/marktex/example/table_example.md" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/marktex/__init__.py" />
-        <option value="$PROJECT_DIR$/marktex/texrender/texparam.py" />
         <option value="$PROJECT_DIR$/marktex/markast/line.py" />
         <option value="$PROJECT_DIR$/marktex/markast/document.py" />
         <option value="$PROJECT_DIR$/build/lib/marktex/texrender/toTex.py" />
         <option value="$PROJECT_DIR$/marktex/markast/environment.py" />
         <option value="$PROJECT_DIR$/marktex/texrender/__init__.py" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/MANIFEST.in" />
         <option value="$PROJECT_DIR$/marktex/config.py" />
         <option value="$PROJECT_DIR$/marktex/example/example.md" />
         <option value="$PROJECT_DIR$/marktex/example/__init__.py" />
-        <option value="$PROJECT_DIR$/marktex/markast/parser.py" />
-        <option value="$PROJECT_DIR$/run_example.py" />
         <option value="$PROJECT_DIR$/marktex/markast/token.py" />
         <option value="$PROJECT_DIR$/marktex/texrender/texutils.py" />
         <option value="$PROJECT_DIR$/output/example.tex" />
         <option value="$PROJECT_DIR$/setup.py" />
-        <option value="$PROJECT_DIR$/marktex/markast/xmls.py" />
         <option value="$PROJECT_DIR$/marktex/marktex.py" />
-        <option value="$PROJECT_DIR$/marktex/texrender/toTex.py" />
+        <option value="$PROJECT_DIR$/run_example.py" />
+        <option value="$PROJECT_DIR$/marktex/markast/parser.py" />
         <option value="$PROJECT_DIR$/marktex/markast/utils.py" />
+        <option value="$PROJECT_DIR$/marktex/texrender/texparam.py" />
+        <option value="$PROJECT_DIR$/marktex/markast/xmls.py" />
+        <option value="$PROJECT_DIR$/marktex/texrender/toTex.py" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -303,6 +300,12 @@
               <item name="marktex" type="b2602c69:ProjectViewProjectNode" />
               <item name="marktex" type="462c0819:PsiDirectoryNode" />
               <item name="marktex" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="marktex" type="b2602c69:ProjectViewProjectNode" />
+              <item name="marktex" type="462c0819:PsiDirectoryNode" />
+              <item name="marktex" type="462c0819:PsiDirectoryNode" />
+              <item name="example" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="marktex" type="b2602c69:ProjectViewProjectNode" />
@@ -489,8 +492,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289941" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289941" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3289941" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289941" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3234341" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -694,17 +697,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marktex/example/example.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="140">
-            <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/AppData/Local/Programs/Python/Python36/Lib/collections/__init__.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1521">
@@ -721,17 +713,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="392">
-            <caret line="32" column="8" lean-forward="false" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="8" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/MANIFEST.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -745,16 +726,6 @@
         <state relative-caret-position="0">
           <caret line="0" column="33" lean-forward="false" selection-start-line="0" selection-start-column="33" selection-end-line="0" selection-end-column="33" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/run_example.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="24" lean-forward="false" selection-start-line="10" selection-start-column="24" selection-end-line="10" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#39#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -790,46 +761,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marktex/texrender/texparam.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/marktex/markast/parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#65#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/marktex/markast/line.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="475">
-          <caret line="30" column="0" lean-forward="false" selection-start-line="30" selection-start-column="0" selection-end-line="30" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/marktex/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1063">
           <caret line="98" column="22" lean-forward="false" selection-start-line="98" selection-start-column="22" selection-end-line="98" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/marktex/markast/xmls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -852,29 +787,93 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/marktex/marktex.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="619">
-          <caret line="51" column="21" lean-forward="true" selection-start-line="51" selection-start-column="21" selection-end-line="51" selection-end-column="21" />
+        <state relative-caret-position="280">
+          <caret line="46" column="26" lean-forward="false" selection-start-line="46" selection-start-column="26" selection-end-line="46" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/marktex/texrender/toTex.py">
+    <entry file="file://$PROJECT_DIR$/marktex/example/example.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="140">
+            <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/marktex/markast/parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="148" column="26" lean-forward="true" selection-start-line="148" selection-start-column="26" selection-end-line="148" selection-end-column="26" />
+        <state relative-caret-position="197">
+          <caret line="37" column="42" lean-forward="false" selection-start-line="37" selection-start-column="42" selection-end-line="37" selection-end-column="42" />
           <folding>
-            <element signature="e#0#45#0" expanded="true" />
+            <element signature="e#0#65#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/marktex/markast/utils.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="414" column="40" lean-forward="false" selection-start-line="414" selection-start-column="40" selection-end-line="414" selection-end-column="40" />
+        <state relative-caret-position="197">
+          <caret line="397" column="51" lean-forward="false" selection-start-line="397" selection-start-column="51" selection-end-line="397" selection-end-column="51" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/marktex/markast/line.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/run_example.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="196">
+          <caret line="14" column="12" lean-forward="false" selection-start-line="14" selection-start-column="12" selection-end-line="14" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/marktex/texrender/texparam.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="25" column="17" lean-forward="false" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/marktex/markast/xmls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="32" column="6" lean-forward="false" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/marktex/texrender/toTex.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="276">
+          <caret line="176" column="13" lean-forward="false" selection-start-line="176" selection-start-column="13" selection-end-line="176" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="302">
+            <caret line="184" column="6" lean-forward="true" selection-start-line="184" selection-start-column="6" selection-end-line="184" selection-end-column="6" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

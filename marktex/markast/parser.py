@@ -35,7 +35,6 @@ class Scanner:
                 cur.append_raw(Section(line))
             elif ScanTool.isCode(line):#在环境内处理√
                 cur = doc.change(Document.code)
-
                 cur.append_raw(lines[index])
                 index += 1
                 while index<size and not ScanTool.isCode(lines[index]):

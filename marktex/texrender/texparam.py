@@ -26,6 +26,7 @@ def build_basic_package(c = None):
                 Package("lastpage"),
                 Package("booktabs"),
                 Package("pifont"),
+                Package("fixltx2e"), #用于文本环境的下标
                 Package("ulem"),
                 Package("amssymb"),
                 Package("colortbl"),

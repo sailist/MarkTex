@@ -20,6 +20,24 @@ from marktex.example import run_example
 run_example("./output/")
 ```
 
+
+你也可以通过命令行运行：
+
+输出到对应文件的 "文件名" 所在的目录下：
+```bash
+marktex a.md b.md ...
+```
+
+输出到一个同一的文件夹下：
+```bash
+marktex a.md b.md ... -o "path"
+```
+
+指定输出到各自文件夹，必须保证路径个数和文件个数相同：
+```bash
+marktex a.md b.md ... -e "pathfora" "pathforb" ...
+```
+
 ## 特性介绍
 具体可以参考[example.md](./marktex/example/example.md)
 其pdf输出效果可以参考
@@ -155,13 +173,16 @@ int main(){
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111650548.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111702763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111713133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
 
 ## TODOs
- [x] 删除线和下划线的添加
- [x] 复选框的识别
- [x] 表格的美化
- [x] 目录
+ [x] 2019年7月29日:删除线和下划线的添加
+ [x] 2019年7月29日:复选框的识别
+ [x] 2019年7月29日:目录
+ [x] 2019年7月30日:表格的美化
+ [x] 2019年8月1日:支持xml标签的识别
+ > 目前支持 `<title>`,`<author>`,`<sub>`,`<super>`，目前可以统一被分析到markdown的目录树，不过没有考虑好转换成tex的方式。
+ 
+ [x] 2019年8月1日:图片相对路径的优化，更改了类的参数，图片将统一放到tex文件所在路径的`images`路径下，并在tex文件内统一使用相对路径进行表示
  [] 封面
  [] 水印
  [] 正式支持四级和五级标题
- [] 图片相对路径的优化
  [] 代码环境美化
- [] 可定制化
+ [] 参数可定制化

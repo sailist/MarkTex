@@ -3,35 +3,37 @@ import argparse,sys,os
 
 APP_DESC="""
 MarkTex is used to convert markdown document into tex format.
-"""
-print(APP_DESC)
-if len(sys.argv) == 1:
-    sys.argv.append('--help')
-parser = argparse.ArgumentParser()
-'''
+
 输出位置可以选择：
 - 在各自的md文件下 default，最低优先级
 - 统一输出到一个目录下 -o "path" ，第二优先级
 - 在各自给定的目录下 -e "",优先级最高
-'''
+
+输出到对应文件的 "文件名" 所在的目录下：
+    marktex a.md b.md ...
+
+输出到一个同一的文件夹下：
+    marktex a.md b.md ... -o "path"
+
+指定输出到各自文件夹，必须保证路径个数和文件个数相同：
+    marktex a.md b.md ... -e "pathfora" "pathforb" ...
+    
+"""
+if len(sys.argv) == 1:
+    sys.argv.append('--help')
+parser = argparse.ArgumentParser()
+
 parser.add_argument('mdfiles', metavar='mdfiles', type=str, nargs='+',
                     help='place markdown path')
-parser.add_argument('-o','--output',type=str,default=None,help="download video quality : 1 for the standard-definition; 3 for the super-definition")
-# parser.add_argument('-d','--dir', default=None,help="print more debuging information")
-parser.add_argument('-e','--every',help="保存流媒体文件到指定位置",nargs="*")
-# parser.add_argument('-c','--config',default=0,help="读取~/.danmu.fm配置,请~/.danmu.fm指定数据库")
-# parser.add_argument('url',metavar='URL',nargs='+', help="zhubo page URL (http://www.douyutv.com/*/)")
+parser.add_argument('-o','--output',type=str,default=None,help="指定统一路径")
+parser.add_argument('-e','--every',help="为每个文件分配路径",nargs="*")
 args = parser.parse_args()
-# 获取对应参数只需要args.quality,args.url之类.
-# url = (args.url)[0]
-# print(url)
 
 
 
 every = args.every
 mdfiles = args.mdfiles
 output = args.output
-print(args)
 output_paths = []
 
 if every is not None:
