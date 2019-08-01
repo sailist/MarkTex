@@ -58,6 +58,9 @@
 
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190726170401866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
 
+相对路径：
+![](./exampleimage.png)
+
 ## 公式
 公式不支持中文，并且没有编号
 $$

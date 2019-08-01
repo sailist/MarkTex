@@ -1,4 +1,5 @@
-from marktex.markast.environment import *
+# from marktex.markast.environment import *
+from .environment import *
 
 class Document:
     paragraph = "Paragraph"

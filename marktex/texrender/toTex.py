@@ -20,7 +20,7 @@ import os
 class MarkTex(TDoc):
 
 
-    def __init__(self,doc:Document,output_dir = None,texconfig = None):
+    def __init__(self,doc:Document,input_dir,output_dir = None,texconfig = None):
         super().__init__("", documentclass="ctexart", document_options="UTF8",
                          inputenc=None, fontenc=None, lmodern=False, textcomp=False)
 
@@ -28,6 +28,7 @@ class MarkTex(TDoc):
             texconfig = config
         self.config = texconfig
 
+        self.input_dir = input_dir
         if output_dir is None:
             output_dir = "./"
 
@@ -57,7 +58,8 @@ class MarkTex(TDoc):
 
         doc = Scanner.analyse_file(fpath)
 
-        mark = MarkTex(doc,output_dir=output_dir)
+        input_dir,_ = os.path.split(fpath)
+        mark = MarkTex(doc,input_dir=input_dir,output_dir=output_dir)
         mark.convert()
         return mark
 
@@ -145,9 +147,11 @@ class MarkTex(TDoc):
             return NoEscape(r"\\\noindent{{\textbf{{{}}}}}\\".format(content))
     
     def fromImage(self,s:Image):
-
+        # cur_dir = os.getcwd() #markdown的相对路径，一定是针对那个markdown的，
+        # os.chdir(self.input_dir)
         link = s.link
-        link = ImageTool.verify(link,self.image_dir)
+        link = ImageTool.verify(link,self.image_dir,self.input_dir)
+        # os.chdir(cur_dir)
 
         if config.give_rele_path:
             link = os.path.relpath(link,self.output_dir)

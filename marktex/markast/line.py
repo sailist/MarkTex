@@ -1,5 +1,5 @@
-from marktex.markast.utils import ExtractTool
-from marktex.markast.token import Footnote
+from .utils import ExtractTool
+from .token import Footnote
 
 class Line: #表示单独成行,默认不进行任何处理
 

@@ -1,4 +1,4 @@
-from marktex.markast.utils import ExtractTool
+from .utils import ExtractTool
 from marktex.markast.line import RawLine,NewLine
 
 class Environment:

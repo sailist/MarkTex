@@ -401,7 +401,7 @@ class ImageTool:
 
 
     @staticmethod
-    def verify(url:str,fdir:str):
+    def verify(url:str,fdir:str,rel_path):
         '''
         如果是本地图片，那么就将其hash后移动到fdir中，hash值与文件大小、修改时间有关
         如果是网络图片，那么直接根据url得到hash值，下载到fdir中
@@ -411,8 +411,10 @@ class ImageTool:
         '''
         print(f"\rCheck Image:{url}.")
         os.makedirs(fdir, exist_ok=True)
-        if os.path.exists(url) and os.path.isfile(url):
-            return ImageTool.hashmove(url,fdir)
+        path_like = os.path.join(rel_path,url)
+        print(path_like)
+        if os.path.exists(path_like ) and os.path.isfile(path_like ):
+            return ImageTool.hashmove(path_like ,fdir)
 
 
         # from urllib.request import urlretrieve
@@ -465,5 +467,3 @@ class ImageTool:
 
 
 
-if __name__ == "__main__":
-    print(ImageTool.verify(r"https://f12.baidu.com/it/u=430466972,3036851607&fm=76",r"D:\Web"))
