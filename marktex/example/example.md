@@ -29,6 +29,8 @@
 
 
 
+
+
 ## 表格
 支持一般的文本格式，暂时不支持表格内图片。另外，表格取消了浮动（float），因此不支持对表格的描述（caption），不过在Markdown中也没有对表格的描述，因此也不算功能不完善。
 
@@ -101,3 +103,9 @@ int main(){
 > 图片：
 > ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190726170401866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
 > 
+
+# 新特性-引入其他Markdown文档
+
+<include>./table_example.md</include>
+
+<include>./formula_example.md</include>

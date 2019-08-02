@@ -34,6 +34,12 @@ class XMLSuper(XML):
     _xml_tag = "super"
     pass
 
+
+@xml
+class XMLInclude(XML):
+    _xml_tag = "include"
+    pass
+
 @xml
 class XMLTitle(XML):
     _xml_tag = "title"

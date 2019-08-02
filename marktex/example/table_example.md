@@ -8,5 +8,3 @@
 |sample text | sample text|
 |--|--|
 |c|d|
-
-## 长表格（演示自动调整间距）

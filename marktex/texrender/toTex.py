@@ -20,9 +20,11 @@ import os
 class MarkTex(TDoc):
 
 
-    def __init__(self,doc:Document,input_dir,output_dir = None,texconfig = None):
+    def __init__(self,doc:Document,input_dir,output_dir = None,texconfig = None,subdoc = False):
         super().__init__("", documentclass="ctexart", document_options="UTF8",
                          inputenc=None, fontenc=None, lmodern=False, textcomp=False)
+        self.subdoc = subdoc
+
 
         if texconfig is None:
             texconfig = config
@@ -65,7 +67,7 @@ class MarkTex(TDoc):
 
     def convert(self):
         doc = self.doc
-        if doc.has_toc:
+        if doc.has_toc and not self.subdoc:
             self.append(tablecontent())
 
         for i,envi in enumerate(doc.content):
@@ -179,7 +181,12 @@ class MarkTex(TDoc):
             return NoEscape(rf"\textsubscript{{{token.content}}}")
         elif isinstance(token,XMLSuper):
             return NoEscape(rf"\textsuperscript{{{token.content}}}")
-
+        elif isinstance(token,XMLInclude):
+            cur_dir = os.getcwd()
+            os.chdir(self.input_dir)
+            doc = MarkTex.convert_file(token.content)
+            os.chdir(cur_dir)
+            return NoEscape(doc.dumps_content())
 
     def fromTokenLine(self,s:TokenLine):
         tokens = s.tokens
