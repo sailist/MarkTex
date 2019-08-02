@@ -113,78 +113,6 @@ subsubsection/format = \Large\bfseries}
 
 
 
-\subsection{引入其他文档}
-
-
-
-
-\normalsize
-\begin{marktext}
-
-
-\subsection{简单表格}
-
-
-\end{marktext}
-\begin{center}
-\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
-\arrayrulecolor{tablelinegray!75}
-\rowcolors{2}{tablerowgray}{white}
-\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
-\hline
-\rowcolor{tabletopgray}
-\textbf{a}&\textbf{b}\\
-\hline
-c&d\\
-\hline
-\end{tabular}
-\end{center}
-\begin{marktext}
-
-
-\subsection{普通表格}
-
-
-\end{marktext}
-\begin{center}
-\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
-\arrayrulecolor{tablelinegray!75}
-\rowcolors{2}{tablerowgray}{white}
-\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
-\hline
-\rowcolor{tabletopgray}
-\textbf{sample text }&\textbf{ sample text}\\
-\hline
-c&d\\
-\hline
-\end{tabular}
-\end{center}
-\begin{marktext}
-
-
-\subsection{长表格（演示自动调整间距）}
-
-
-\end{marktext}
-
-
-\normalsize
-
-
-\[
-f(x_i)=ax_i+b\\
-\]
-
-
-\begin{shaded}
-\[
-F(x_i) = wx_i+b\\
-\]
-
-
-\end{shaded}
-
-
 
 
 
@@ -395,10 +323,79 @@ F(x_i) = wx_i+b\\
 \end{center}
 
 
+
+
 \end{marktext}
+
+
+\end{shaded}
+\begin{marktext}
+
+
+\section{新特性{-}引入其他Markdown文档}
+
+
+
+
+\normalsize
+\begin{marktext}
+
+
+\subsection{简单表格}
+
+
+\end{marktext}
+\begin{center}
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
+\arrayrulecolor{tablelinegray!75}
+\rowcolors{2}{tablerowgray}{white}
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
+\hline
+\rowcolor{tabletopgray}
+\textbf{a}&\textbf{b}\\
+\hline
+c&d\\
+\hline
+\end{tabular}
+\end{center}
+\begin{marktext}
+
+
+\subsection{普通表格}
+
+
+\end{marktext}
+\begin{center}
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
+\arrayrulecolor{tablelinegray!75}
+\rowcolors{2}{tablerowgray}{white}
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
+\hline
+\rowcolor{tabletopgray}
+\textbf{sample text }&\textbf{ sample text}\\
+\hline
+c&d\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\normalsize
+
+
+\[
+f(x_i)=ax_i+b\\
+\]
+
+
+\begin{shaded}
+\[
+F(x_i) = wx_i+b\\
+\]
 
 
 \end{shaded}
 
 
+\end{marktext}
 \end{document}
