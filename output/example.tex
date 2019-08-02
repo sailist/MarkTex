@@ -109,6 +109,14 @@ subsubsection/format = \Large\bfseries}
 \\\noindent{\textbf{五级标题}}\\
 
 
+\subsection{脚注}
+
+
+
+
+可以支持脚注格式\footnote{这里是脚注的内容}
+
+
 
 
 
@@ -194,7 +202,15 @@ A&B&C&D\\
 
 \begin{center}
 \begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.jpg}\vspace{\baselineskip}
+\end{marktext}
+\end{center}
+
+
+相对路径：
+\begin{center}
+\begin{marktext}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/17d353012390f9f83be4ee990a4dfbdc.png}\vspace{\baselineskip}
 \end{marktext}
 \end{center}
 
@@ -216,7 +232,7 @@ A&B&C&D\\
 代码使用Listings，按\href{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}{wiki{-}Listings}的说法，主流的各种语言都支持。
 \begin{center}
 \begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/53bb9cd2ced62c6673f39073ca9397b7.png}\vspace{\baselineskip}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/53bb9cd2ced62c6673f39073ca9397b7.jpg}\vspace{\baselineskip}
 \end{marktext}
 \end{center}
 \end{marktext}
@@ -306,15 +322,86 @@ F(x_i) = wx_i+b\\
 图片：
 \begin{center}
 \begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.jpg}\vspace{\baselineskip}
 \end{marktext}
 \end{center}
+
+
 
 
 \end{marktext}
 
 
 \end{shaded}
+\begin{marktext}
 
 
+\section{新特性{-}引入其他Markdown文档}
+
+
+
+
+\normalsize
+\begin{marktext}
+
+
+\subsection{简单表格}
+
+
+\end{marktext}
+\begin{center}
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
+\arrayrulecolor{tablelinegray!75}
+\rowcolors{2}{tablerowgray}{white}
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
+\hline
+\rowcolor{tabletopgray}
+\textbf{a}&\textbf{b}\\
+\hline
+c&d\\
+\hline
+\end{tabular}
+\end{center}
+\begin{marktext}
+
+
+\subsection{普通表格}
+
+
+\end{marktext}
+\begin{center}
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
+\arrayrulecolor{tablelinegray!75}
+\rowcolors{2}{tablerowgray}{white}
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
+\hline
+\rowcolor{tabletopgray}
+\textbf{sample text }&\textbf{ sample text}\\
+\hline
+c&d\\
+\hline
+\end{tabular}
+\end{center}
+
+
+\normalsize
+
+
+\[
+f(x_i)=ax_i+b\\
+\]
+
+
+\begin{shaded}
+\[
+F(x_i) = wx_i+b\\
+\]
+
+
+\end{shaded}
+
+
+
+
+\end{marktext}
 \end{document}

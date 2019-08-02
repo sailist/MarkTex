@@ -123,9 +123,9 @@ class MarkTex(TDoc):
         return NoEscape(rf"\href{{{link}}}{{{desc}}}")
 
     def fromFootnote(self,s:Footnote):
-        s = f"[{s}]"
+        s = self.doc.footnote[s.label]
         s = escape_latex(s)
-        return NoEscape(s)
+        return NoEscape(rf"\footnote{{{s}}}")
     
     def fromInImage(self,s:InImage):
         s = f"[ImageError]"

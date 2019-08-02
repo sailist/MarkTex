@@ -27,8 +27,11 @@
 #### 四级标题
 ##### 五级标题
 
+## 脚注
 
+可以支持脚注格式[^label]
 
+[^label]:这里是脚注的内容
 
 
 ## 表格
@@ -109,3 +112,4 @@ int main(){
 <include>./table_example.md</include>
 
 <include>./formula_example.md</include>
+
