@@ -142,11 +142,11 @@ class MarkTex(TDoc):
         elif level == 3:
             return Subsubsection(content,label=False)
         elif level == 4:
-            return NoEscape(r"\\\noindent{{\large\textbf{{{}}}}}\\".format(content))
+            return NoEscape(r"\noindent{{\large\textbf{{{}}}}}".format(content))
             # TODO 使用paragraph还需要一些其他的包括字体在内的设置
             # return NoEscape(rf"\paragraph{{\textbf{{{content}}}}}\\")
         elif level == 5:
-            return NoEscape(r"\\\noindent{{\textbf{{{}}}}}\\".format(content))
+            return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(content))
     
     def fromImage(self,s:Image):
         # cur_dir = os.getcwd() #markdown的相对路径，一定是针对那个markdown的，

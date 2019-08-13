@@ -1,39 +1,47 @@
 import argparse,sys,os
-
+from argparse import RawDescriptionHelpFormatter
 
 APP_DESC="""
 MarkTex is used to convert markdown document into tex format.
 
-输出位置可以选择：
-- 在各自的md文件下 default，最低优先级
-- 统一输出到一个目录下 -o "path" ，第二优先级
-- 在各自给定的目录下 -e "",优先级最高
-
-输出到对应文件的 "文件名" 所在的目录下：
-    marktex a.md b.md ...
-
-输出到一个同一的文件夹下：
-    marktex a.md b.md ... -o "path"
-
-指定输出到各自文件夹，必须保证路径个数和文件个数相同：
-    marktex a.md b.md ... -e "pathfora" "pathforb" ...
-    
+You can choose the output dir from:
+- output to the dir of every md file, the default option.
+- output to a single dir use -o "path" option.
+- assign every path use -e "path1" "path2" option.    
 """
+
+example = '''
+e.g:
+Output to the dir the md file is:\n\tmarktex a.md ../b.md /dir/c.md ...
+Assign every path:\n\tmarktex a.md b.md ... -o "path"
+Assign every path (be sure the number of the dir options must be equal to markdown files):\n\tmarktex a.md b.md ... -e "patha" "pathb" ...
+'''
 if len(sys.argv) == 1:
     sys.argv.append('--help')
-parser = argparse.ArgumentParser()
+parser = argparse.ArgumentParser(
+    prog="marktex",
+    description="test desc",
+    # usage=APP_DESC,
+    epilog=example,formatter_class=RawDescriptionHelpFormatter)
 
 parser.add_argument('mdfiles', metavar='mdfiles', type=str, nargs='+',
                     help='place markdown path')
-parser.add_argument('-o','--output',type=str,default=None,help="指定统一路径")
-parser.add_argument('-e','--every',help="为每个文件分配路径",nargs="*")
+parser.add_argument('-o',
+                    '--output',
+                    dest="out",
+                    action="store",
+                    type=str,
+                    default=None,
+                    help="指定统一路径")
+
+parser.add_argument('-e','--each',help="为每个文件分配路径",nargs="*")
 args = parser.parse_args()
 
+print(args)
 
-
-every = args.every
+every = args.each
 mdfiles = args.mdfiles
-output = args.output
+output = args.out
 output_paths = []
 
 if every is not None:
