@@ -47,17 +47,17 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ```bash
  [toc]
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111128148.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/toc.png)
 ### 特性介绍
 ```bash
-# 特性
+# 特性<sub>下标在这里</sub>
 - 支持目前主流的所有markdown语法（目前，脚注和xml标签暂时不支持）
 - 额外添加了下划线语法（`__下划线__`）
 - 表格自动调整列宽
 - 复选框支持三种
-- 无论是本地图片还是网络图片，都能够支持
+- 无论是本地图片还是网络图片，都能够支持。
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111240926.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/feature.png)
 ### 文字效果与五级标题
 ```bash
 # 效果演示
@@ -72,12 +72,14 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ## 二级标题
 
 ### 三级标题
-目录最多支持到三级标题
+目录编号支持到三级标题，可以通过修改latex文件或者直接更改模板来完成。
+
 #### 四级标题
 ##### 五级标题
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111253193.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/effect.png)
+
 ### 表格
 可以完美的自适应表格列宽（测试效果良好，不排除特例），不过暂时不支持表格内插入图片
 ```bash
@@ -96,20 +98,25 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 |A|B|C|D|
 |A|B|C|D|
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111347680.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111401625.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/table.png)
+
 ### 列表、序号、复选框
 ```bash
 ## 列表和序号/itemize&enumerate
 - 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
+- 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
+- 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
 
 1. 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
+2. 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
+3. 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
 
  [x] 支持
  [√] 三种
  [] 复选框格式
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111436171.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/list.png)
+
 ### 图片
 图片支持网络图片和本地图片，会被统一的哈希命名后存放到自定义的图片目录下
 ```bash
@@ -119,7 +126,9 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190726170401866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
 ```
 
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111446599.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/img1.png)
+![在这里插入图片描述](./src/img2.png)
+
 ### 公式
 ```bash
 
@@ -129,26 +138,27 @@ $$
 f(x_i)=ax_i+b
 $$
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111522892.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/fomular.png)
+
 
 ### 代码
+
 ```bash
-## 代码
-代码使用Listings，按[wiki-Listings](https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings)的说法，主流的各种语言都支持。
-![在这里插入图片描述](https://img-blog.csdnimg.cn/2019072617073535.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 [Code Highlighting with minted](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted) 
+```
 ```python
 if __name__ == "__main__":
 	print("hello world!")
 ```
-
 ```cpp
 #include<stdio.h>
 int main(){
 	printf("hello world")
 	return 0;
 }
-
 ```
+
+![](./src/code.png)
 
 ### 引用
 ```bash
@@ -170,7 +180,25 @@ int main(){
 > ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190726170401866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
 > 
 ```
-![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111650548.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111702763.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)![在这里插入图片描述](https://img-blog.csdnimg.cn/20190729111713133.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
+![在这里插入图片描述](./src/quote.png)
+
+![在这里插入图片描述](./src/quote2.png)
+
+### 新特性
+```bash
+# 新特性-引入其他Markdown文档
+
+非常酷的特性！可以使用特殊的html标签来引入其他的MarkDown！
+
+<include>./table_example.md</include>
+
+<include>./formula_example.md</include>
+
+```
+
+![](./src/newf.png)
+
+![](./src/newf2.png)
 
 ## TODOs
  [x] 2019年7月29日:删除线和下划线的添加
@@ -181,13 +209,14 @@ int main(){
  > 目前支持 `<title>`,`<author>`,`<sub>`,`<super>`，目前可以统一被分析到markdown的目录树，不过没有考虑好转换成tex的方式。
  
  [x] 2019年8月1日:图片相对路径的优化，更改了类的参数，图片将统一放到tex文件所在路径的`images`路径下，并在tex文件内统一使用相对路径进行表示
- [] 封面（虽然支持title和author标签，但是暂时没有添加相应的功能
+ [x] 封面
  [x] 2019年8月2日：通过引入<include>标签，支持多个markdown文件合并
  [] 水印
  [] 正式支持四级和五级标题
- [] 代码环境美化
- [] 参数可定制化
- [] 支持加粗、斜体、...嵌套
+ [x] 代码环境美化(2019年10月25日完成)
+ [x] 参数可定制化(可以通过修改tex模板来完成,2019年10月25日)
+ [] 支持加粗、斜体、...这些语法的嵌套
+ [] 添加对MarkDown直接支持但是LaTeX不支持的符号的转换如（θ）
  
  ## Markdown规范
  目前支持的全部语法可以在[example.md](./marktex/example/example.md)中参考

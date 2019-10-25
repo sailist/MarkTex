@@ -83,6 +83,12 @@
 	number = \arabic{section}.\arabic{subsection}.\arabic{subsubsection},
 	format = \Large\bfseries,
 	},
+    paragraph = {
+	format = \large\bfseries,
+	},
+    subparagraph = {
+	format = \large\bfseries,
+	},
 }
 
 \setlength{\parindent}{2em}%设置首行缩进
@@ -137,7 +143,7 @@ boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt}
 \item
 复选框支持三种
 \item
-无论是本地图片还是网络图片，都能够支持
+无论是本地图片还是网络图片，都能够支持。
 \end{itemize}
 
 
@@ -167,9 +173,15 @@ boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt}
 \subsubsection{三级标题}
 
 
-目录最多支持到三级标题
-\noindent{\large\textbf{四级标题}}
-\noindent{\textbf{五级标题}}
+目录编号支持到三级标题，可以通过修改latex文件或者直接更改模板来完成。
+
+
+\paragraph{四级标题}
+
+
+\subparagraph{五级标题}
+
+
 
 
 \subsection{脚注}
@@ -269,7 +281,7 @@ A&B&C&D\\
 \subsection{图片}
 
 
-和表格一样，取消了浮动，因此暂时不支持对图片的描述。不过本项目支持网络图片，会在转换的时候自动下载到本地。
+和表格一样，取消了浮动，因此暂时不支持对图片的描述。不过本项目支持网络图片，会在转换的时候自动下载到本地，同时如果是非JPG或者PNG格式的图片，会转换为PNG格式。
 
 
 \begin{center}
@@ -298,10 +310,9 @@ A&B&C&D\\
 \subsection{代码}
 
 
-代码使用tcolorbox和minted，基本支持所有主流语言。
-\begin{center}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/53bb9cd2ced62c6673f39073ca9397b7.png}\vspace{\baselineskip}
-\end{center}
+代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 \href{https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted}{Code Highlighting with minted}
+
+
 
 
 \begin{langbox}[Python]
@@ -411,6 +422,9 @@ F(x_i) = wx_i+b\\
 
 
 
+非常酷的特性！可以使用特殊的html标签来引入其他的MarkDown！
+
+
 \normalsize
 
 
@@ -469,8 +483,6 @@ F(x_i) = wx_i+b\\
 
 
 \end{markquote}
-
-
 
 
 

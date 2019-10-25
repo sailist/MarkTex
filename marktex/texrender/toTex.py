@@ -13,6 +13,7 @@ from marktex import config
 from pylatex.utils import bold,italic,escape_latex
 from pylatex import NoEscape,Center
 from pylatex import Document as TDoc,Section as TSection,Subsection,Subsubsection
+from pylatex.section import Paragraph as TParagraph,Subparagraph
 from pylatex import Itemize as TItem,Enumerate as TEnum,Tabular,Math
 
 import os
@@ -153,12 +154,14 @@ class MarkTex(TDoc):
         elif level == 3:
             return Subsubsection(content,label=False)
         elif level == 4:
-            return NoEscape(r"\noindent{{\large\textbf{{{}}}}}".format(content))
+            return TParagraph(content,label=False)
+            # return NoEscape(r"\noindent{{\large\textbf{{{}}}}}".format(content))
             # TODO 使用paragraph还需要一些其他的包括字体在内的设置
             # return NoEscape(rf"\paragraph{{\textbf{{{content}}}}}\\")
         elif level == 5:
-            return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(content.strip()))
-    
+            # return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(content.strip()))
+            return Subparagraph(content,label=False)
+
     def fromImage(self,s:Image):
         # cur_dir = os.getcwd() #markdown的相对路径，一定是针对那个markdown的，
         # os.chdir(self.input_dir)
