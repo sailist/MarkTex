@@ -1,0 +1,86 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{lastpage}
+\usepackage[table]{xcolor}
+\usepackage{booktabs}
+\usepackage{pifont}
+\usepackage{fixltx2e}
+\usepackage{ulem}
+\usepackage{amssymb}
+\usepackage{colortbl}
+\usepackage{framed}
+\usepackage{color}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{graphics}
+\usepackage[noframe]{showframe}
+\usepackage[left=3.17cm,right=3.17cm,top=2.54cm,bottom=2.54cm]{geometry}
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue,anchorcolor=blue,citecolor=green]{hyperref}
+\usepackage{ragged2e}
+
+\newenvironment{marktext}{}{}
+\renewenvironment{shaded}{
+                     \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}
+                     \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}
+                    {\endMakeFramed}
+                
+\newlength\tablewidth
+\ctexset{
+section/number = 第\chinese{section}章,
+subsection/number = \arabic{subsection},
+subsubsection/number = \arabic{subsection}.\arabic{subsubsection},
+section/format = \LARGE\bfseries,
+subsection/format = \zihao{3}\bfseries,
+subsubsection/format = \Large\bfseries}
+\definecolor{aliceblue}{rgb}{0.94,0.97,1.0}
+\definecolor{linkblue}{rgb}{0.4,0.67,0.87}
+\definecolor{shadecolor}{rgb}{0.93,0.94,0.95}
+\definecolor{gainsboro}{rgb}{0.86,0.86,0.86}
+\definecolor{bordergray}{gray}{0.87}
+\definecolor{tabletopgray}{rgb}{0.937,0.952,0.96}
+\definecolor{tablerowgray}{gray}{0.968}
+\definecolor{tablelinegray}{gray}{0.827}
+
+\begin{document}
+\normalsize
+\begin{marktext}
+
+
+\subsection{简单表格}
+
+\end{marktext}
+\begin{center}
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
+\arrayrulecolor{tablelinegray!75}
+\rowcolors{2}{tablerowgray}{white}
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
+\hline
+\rowcolor{tabletopgray}
+\textbf{a}&\textbf{b}\\
+\hline
+c&d\\
+\hline
+\end{tabular}
+\end{center}
+\begin{marktext}
+
+
+\subsection{普通表格}
+
+
+\end{marktext}
+\begin{center}
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
+\arrayrulecolor{tablelinegray!75}
+\rowcolors{2}{tablerowgray}{white}
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}
+\hline
+\rowcolor{tabletopgray}
+\textbf{sample text }&\textbf{ sample text}\\
+\hline
+c&d\\
+\hline
+\end{tabular}
+\end{center}
+\end{document}

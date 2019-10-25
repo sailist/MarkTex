@@ -5,7 +5,8 @@ from hashlib import md5
 
 re_command = re.compile(r"%$")
 
-re_toc = re.compile(r"^\[TOC\]") # 目录
+re_toc = re.compile(r"^@?\[[Tt][Oo][Cc]\]") # 目录
+re_maketitle = re.compile(r"^@?\[maketitle\]") # 目录
 re_section = re.compile(r"^(#+)(.*)") # 章节
 re_multibox = re.compile(r"^ ?\[([x√]?)\] (.*)") # 章节
 # re_section = re.compile(r"^(#+)(.*)") # 章节
@@ -26,7 +27,7 @@ re_image = re.compile("^!\[([^[\n]*)\]\(([^(\n]*)\)") # image
 re_quote = re.compile("^>(.*)") # quote
 re_quote_envi = re.compile("^>* *([^ ]*)")
 re_quote_flag = re.compile("^>*")
-
+re_split_rule = re.compile("^-{3,}\n?$")
 
 re_footnote = re.compile(r"\[\^([^[^]+)\]") #footnote
 re_footnote_tail = re.compile(r"^\[\^(.+)\]:(.*)") #footnote
@@ -35,7 +36,7 @@ re_table = re.compile("^\|(.*\|)+") # table
 re_table_content = re.compile(r"(?=\|([^|\n]*)\|)")
 
 re_incode = re.compile("`([^`\n]*)`") # inline code
-re_code = re.compile("^```(.*)") # code
+re_code = re.compile("^ *```(.*)") # code
 
 re_informula = re.compile("\$([^$\n]*)\$") # inline formula
 re_formula = re.compile("^\$\$") # formula
@@ -85,6 +86,14 @@ class ScanTool:
     @staticmethod
     def isToc(line):
         return re.search(re_toc, line)
+
+    @staticmethod
+    def isMakeTitle(line):
+        return re.search(re_maketitle,line.lower())
+
+    @staticmethod
+    def isSplitLine(line):
+        return re.search(re_split_rule,line)
 
     @staticmethod
     def isSection(line):
@@ -360,7 +369,7 @@ class LineParser:
                     token = Hyperlink(token)
                     tline.append(token)
                 else:
-                    token = InImage("InImage(can't be put inline.)")
+                    token = InImage(token)
                     tline.append(token)
                 continue
 
@@ -385,6 +394,17 @@ class ImageTool:
         mmd.update(str(size+mtime).encode())
 
         _,ext = os.path.splitext(pref)
+        if ext.lower() not in ["jpg","png"]:
+            ext = "png"
+            import matplotlib.pyplot as plt
+            pimg = plt.imread(pref)
+            newf = os.path.join(fdir, f"{mmd.hexdigest()}.{ext}")
+            newf = os.path.abspath(newf)
+            plt.imsave(newf,pimg)
+            newf = newf.replace("\\", "/")
+            return newf
+
+
         newf = os.path.join(fdir,f"{mmd.hexdigest()}{ext}")
         newf = os.path.abspath(newf)
 
@@ -394,6 +414,7 @@ class ImageTool:
             return newf
         else:
             shutil.copy2(pref, newf)
+
 
         print(f"Image is local file, move it \tfrom:{pref}\tto:{newf}")
         newf = newf.replace("\\","/")
@@ -413,7 +434,7 @@ class ImageTool:
         os.makedirs(fdir, exist_ok=True)
         path_like = os.path.join(rel_path,url)
         print(path_like)
-        if os.path.exists(path_like ) and os.path.isfile(path_like ):
+        if os.path.exists(path_like) and os.path.isfile(path_like):
             return ImageTool.hashmove(path_like ,fdir)
 
 
@@ -451,11 +472,22 @@ class ImageTool:
                 response = requests.get(url,headers=_request_headers_dict,timeout=5,stream=True)
                 if response.status_code == 200:
                     ext = imghdr.what(None, response.content)
-                    fname = os.path.join(fdir, f"{fpre}.{ext}")
-                    with open(fname, "wb") as w:
-                        w.write(response.content)
+                    if ext not in ["jpg","png"]:
+                        tempf = os.path.join(fdir, f"temp.{ext}")
+                        with open(tempf, "wb") as w:
+                            w.write(response.content)
+                        import matplotlib.pyplot as plt
+                        tmpi = plt.imread(tempf)
 
-                    return fname
+                        fname = os.path.join(fdir, f"{fpre}.png")
+                        plt.imsave(fname,tmpi)
+                        return fname
+                    else:
+                        fname = os.path.join(fdir, f"{fpre}.{ext}")
+                        with open(fname, "wb") as w:
+                            w.write(response.content)
+
+                        return fname
             except:
                 print(f"\r\ttimeout retry {i+1}/{config.image_download_retry_time}, "
                       f"you can manually download and save it in {fdir} with name {fpre}.[ext]",end="\0",flush=True)

@@ -49,4 +49,3 @@ class XMLTitle(XML):
 class XMLAuthor(XML):
     _xml_tag = "author"
     pass
-

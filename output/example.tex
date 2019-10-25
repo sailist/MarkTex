@@ -1,56 +1,120 @@
-\documentclass[UTF8]{ctexart}
+\documentclass{article}
 \usepackage{lastpage}
-\usepackage[table]{xcolor}
-\usepackage{booktabs}
-\usepackage{pifont}
-\usepackage{fixltx2e}
-\usepackage{ulem}
-\usepackage{amssymb}
-\usepackage{colortbl}
-\usepackage{framed}
-\usepackage{color}
-\usepackage{adjustbox}
-\usepackage{array}
-\usepackage{titlesec}
-\usepackage{graphicx}
-\usepackage{graphics}
-\usepackage[noframe]{showframe}
-\usepackage[left=3.17cm,right=3.17cm,top=2.54cm,bottom=2.54cm]{geometry}
-\usepackage[colorlinks,linkcolor=black,urlcolor=blue,anchorcolor=blue,citecolor=green]{hyperref}
 \usepackage{ragged2e}
+\usepackage{pifont}
 \usepackage{amsmath}
-\usepackage{listings}
-\usepackage{xcolor}
 
-\newenvironment{marktext}{}{}
-\renewenvironment{shaded}{
-                     \def\FrameCommand{\fboxsep=\FrameSep \colorbox{shadecolor}}
-                     \MakeFramed{\advance\hsize-\width \FrameRestore\FrameRestore}}
-                    {\endMakeFramed}
-                
-\newlength\tablewidth
+\usepackage{amsmath}%提供数学公式支持
+
+\usepackage{graphics}%用于添加图片
+\usepackage{graphicx}%加强插图命令
+\newcommand{\figpath}[1]{contents/fig/#1}
+
+\usepackage{fontspec}%用于配置字体
+\usepackage[table]{xcolor}%用于各种颜色环境
+\usepackage{enumitem}%用于定制list和enum
+\usepackage{float}%用于控制Float环境，添加H参数（强制放在Here）
+\usepackage[colorlinks,linkcolor=airforceblue,urlcolor=blue,anchorcolor=blue,citecolor=green]{hyperref}%用于超链接，另外添加该包目录会自动添加引用。
+
+\usepackage[most]{tcolorbox}%用于添加各种边框支持
+\usepackage[cache=true,outputdir=./out]{minted}%如果不保留临时文件就设置cache=false,如果输出设置了其他目录那么outputdir参数也有手动指定，否则会报错。
+\tcbuselibrary{minted}%加载tcolorbox的代码风格
+
+\usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}%用于控制版式
+\usepackage{appendix}%用于控制附加文件
+\usepackage{ifthen}
+
+\usepackage{pdfpages}%用于支持插入其他pdf页
+\usepackage{booktabs}%目前用于给表格添加 \toprule \midrule 等命令
+\usepackage{marginnote} %用于边注
+\usepackage[pagestyles,toctitles]{titlesec} %用于标题格式DIY
+% \usepackage{fancyhdr}%用于排版页眉页脚
+\usepackage{ragged2e} % 用于对齐
+\usepackage{fixltx2e} %用于文本环境的下标
+\usepackage{ulem} %用于好看的下划线、波浪线等修饰
+\usepackage{pifont} %数学符号
+\usepackage{amssymb} %数学符号
+
+
+
+\definecolor{langback}{RGB}{245,244,250}
+\definecolor{langbacktitle}{RGB}{235,233,245}
+\definecolor{langtitle}{RGB}{177,177,177}
+\definecolor{langno}{RGB}{202,202,202}
+\tcbset{arc=1mm}
+\renewcommand{\theFancyVerbLine}{\sffamily\textcolor{langno}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}}%重定义行号的格式
+\newtcblisting{langbox}[1][tex]{%参考自https://reishin.me/tmux/ 的代码框样式
+    arc=1mm,
+    colframe=langbacktitle,
+    colbacktitle=langbacktitle,
+    coltitle=langtitle,
+    fonttitle=\bfseries\sffamily,
+    lefttitle=1mm,toptitle=0.5mm,bottomtitle=0.5mm,
+    title = Code,
+    drop shadow,
+    listing engine=minted,
+    minted style=colorful,
+    minted language=#1,
+    minted options={fontsize=\small,breaklines,autogobble,linenos,numbersep=2mm,xleftmargin=1mm},
+    colback=langback,listing only,
+    bottomrule=0mm,leftrule=0mm,toprule=0mm,rightrule=0mm,
+    enhanced,
+    % overlay={\begin{tcbclipinterior}\fill[langback] (frame.south west)rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}
+}
+
+\definecolor{boxback}{RGB}{245,246,250}
+\newtcolorbox{markquote}{
+    colback=boxback,fonttitle=\sffamily\bfseries,arc=0pt,
+    boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt,
+    drop shadow,enhanced
+}
+
+\usepackage[UTF8,fontset=windowsnew,heading=true]{ctex}
 \ctexset{
-section/number = 第\chinese{section}章,
-subsection/number = \arabic{subsection},
-subsubsection/number = \arabic{subsection}.\arabic{subsubsection},
-section/format = \LARGE\bfseries,
-subsection/format = \zihao{3}\bfseries,
-subsubsection/format = \Large\bfseries}
-\definecolor{aliceblue}{rgb}{0.94,0.97,1.0}
-\definecolor{linkblue}{rgb}{0.4,0.67,0.87}
-\definecolor{shadecolor}{rgb}{0.93,0.94,0.95}
-\definecolor{gainsboro}{rgb}{0.86,0.86,0.86}
-\definecolor{bordergray}{gray}{0.87}
-\definecolor{tabletopgray}{rgb}{0.937,0.952,0.96}
-\definecolor{tablerowgray}{gray}{0.968}
-\definecolor{tablelinegray}{gray}{0.827}
-\title{这里写标题}
+	section = {
+	number = 第\chinese{section}章,
+	format = \zihao{3}\bfseries,
+	},
+	subsection = {
+	number = \arabic{section}.\arabic{subsection},
+	format = \Large\bfseries
+	},
+	subsubsection = {
+	number = \arabic{section}.\arabic{subsection}.\arabic{subsubsection},
+	format = \Large\bfseries,
+	},
+}
+
+\setlength{\parindent}{2em}%设置首行缩进
+\linespread{1.3}%设置行距
+
+\setlength{\parskip}{0.5em}%设置段间距
+\setcounter{tocdepth}{4}%设置目录级数
+\setcounter{secnumdepth}{3}
+
+
+\newtcbox{\inlang}[1][red]{on line,
+arc=0pt,outer arc=0pt,colback=#1!10!white,colframe=#1!50!black,
+boxsep=0pt,left=1pt,right=1pt,top=2pt,bottom=2pt,
+boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt}
+
+\newlength\tablewidth
+
+
+\definecolor{tablelinegray}{RGB}{221,221,221}
+\definecolor{tablerowgray}{RGB}{247,247,247}
+\definecolor{tabletopgray}{RGB}{245,246,250}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+
+
+\title{MarkTex特性说明}
+\author{sailist}
 
 \begin{document}
 \normalsize
+\maketitle
 \tableofcontents
 \newpage
-\begin{marktext}
 
 
 
@@ -63,7 +127,6 @@ subsubsection/format = \Large\bfseries}
 \section{特性\textsubscript{下标在这里}}
 
 
-\end{marktext}
 \begin{itemize}
 \item
 支持目前主流的所有markdown语法（目前，脚注和xml标签暂时不支持）
@@ -76,7 +139,7 @@ subsubsection/format = \Large\bfseries}
 \item
 无论是本地图片还是网络图片，都能够支持
 \end{itemize}
-\begin{marktext}
+
 
 
 \section{效果演示}
@@ -90,7 +153,7 @@ subsubsection/format = \Large\bfseries}
 \subsection{普通文本}
 
 
-支持一般的文本和\textbf{加粗}，\textit{斜体}，\adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{行内代码}}，和$InLine Formula$，\href{http://github.com}{超链接}，注意公式暂时不支持中文。
+支持一般的文本和\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}，和 $InLine Formula$ ，\href{http://github.com}{超链接}，注意公式暂时不支持中文。
 
 
 \sout{删除线},\underline{下划线}
@@ -105,8 +168,8 @@ subsubsection/format = \Large\bfseries}
 
 
 目录最多支持到三级标题
-\\\noindent{\large\textbf{四级标题}}\\
-\\\noindent{\textbf{五级标题}}\\
+\noindent{\large\textbf{四级标题}}
+\noindent{\textbf{五级标题}}
 
 
 \subsection{脚注}
@@ -127,7 +190,6 @@ subsubsection/format = \Large\bfseries}
 支持一般的文本格式，暂时不支持表格内图片。另外，表格取消了浮动（float），因此不支持对表格的描述（caption），不过在Markdown中也没有对表格的描述，因此也不算功能不完善。
 
 
-\end{marktext}
 \begin{center}
 \setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
 \arrayrulecolor{tablelinegray!75}
@@ -139,12 +201,13 @@ subsubsection/format = \Large\bfseries}
 \hline
  \textbf{Table Bold} &  \textit{Table Italic}\\
 \hline
- \adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{Table Code}} &  $Table Formula$\\
+ \inlang{\small{Table Code}} &   $Table Formula$ \\
 \hline
 \href{http:///www.github.com}{Table line}&Table Text\\
 \hline
 \end{tabular}
 \end{center}
+
 
 
 \begin{center}
@@ -164,23 +227,32 @@ A&B&C&D\\
 \hline
 \end{tabular}
 \end{center}
-\begin{marktext}
+
 
 
 \subsection{列表和序号/itemize\&enumerate}
 
 
-\end{marktext}
 \begin{itemize}
 \item
-支持\textbf{加粗}，\textit{斜体}，\adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{行内代码}},$Inline Formula$，\href{http:///www.github.com}{超链接}
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
+\item
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
+\item
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
 \end{itemize}
+
 
 
 \begin{enumerate}
 \item
-支持\textbf{加粗}，\textit{斜体}，\adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{行内代码}},$Inline Formula$，\href{http:///www.github.com}{超链接}
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
+\item
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
+\item
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
 \end{enumerate}
+
 
 
 \begin{itemize}
@@ -191,7 +263,7 @@ A&B&C&D\\
 \item[$\square$]
 复选框格式
 \end{itemize}
-\begin{marktext}
+
 
 
 \subsection{图片}
@@ -201,17 +273,13 @@ A&B&C&D\\
 
 
 \begin{center}
-\begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.jpg}\vspace{\baselineskip}
-\end{marktext}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
 \end{center}
 
 
 相对路径：
 \begin{center}
-\begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/17d353012390f9f83be4ee990a4dfbdc.png}\vspace{\baselineskip}
-\end{marktext}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/ef84f157872e22d7cffcae03a00ea530.png}\vspace{\baselineskip}
 \end{center}
 
 
@@ -219,60 +287,61 @@ A&B&C&D\\
 
 
 公式不支持中文，并且没有编号
-\end{marktext}
+
+
 \[
 \\ f(x_i)=ax_i+b\\ \\
 \]
-\begin{marktext}
+
 
 
 \subsection{代码}
 
 
-代码使用Listings，按\href{https://en.wikibooks.org/wiki/LaTeX/Source_Code_Listings}{wiki{-}Listings}的说法，主流的各种语言都支持。
+代码使用tcolorbox和minted，基本支持所有主流语言。
 \begin{center}
-\begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/53bb9cd2ced62c6673f39073ca9397b7.jpg}\vspace{\baselineskip}
-\end{marktext}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/53bb9cd2ced62c6673f39073ca9397b7.png}\vspace{\baselineskip}
 \end{center}
-\end{marktext}
-\begin{lstlisting}[language={Python},keywordstyle=\color{blue!70},frame=shadowbox,showstringspaces=false,commentstyle=\color{red!50!green!50!blue!50},escapeinside=``,numbers=left,numberstyle=\small,basicstyle=\small]
+
+
+\begin{langbox}[Python]
 if __name__ == "__main__":
-	print("hello world!")
-\end{lstlisting}
+    print("hello world!")
+\end{langbox}
 
 
-\begin{lstlisting}[language={C++},keywordstyle=\color{blue!70},frame=shadowbox,showstringspaces=false,commentstyle=\color{red!50!green!50!blue!50},escapeinside=``,numbers=left,numberstyle=\small,basicstyle=\small]
+
+\begin{langbox}[C++]
 #include<stdio.h>
 int main(){
-	printf("hello world")
-	return 0;
+    printf("hello world")
+    return 0;
 }
 
-\end{lstlisting}
-\begin{marktext}
+\end{langbox}
+
 
 
 \subsection{引用}
 
 
-\end{marktext}
-\begin{shaded}
-\begin{marktext}
+\begin{markquote}
+
 引用内环境和普通文本基本一致，但是不支持标题。
-演示\textbf{加粗}，\textit{斜体}，\adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{行内代码}},$Inline Formula$，\href{http:///www.github.com}{超链接}
-\end{marktext}
+演示\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
+
+
 
 
 \begin{itemize}
 \item
-支持\textbf{加粗}，\textit{斜体}，\adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{行内代码}},$Inline Formula$，\href{http:///www.github.com}{超链接}
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
 \end{itemize}
 
 
 \begin{enumerate}
 \item
-支持\textbf{加粗}，\textit{斜体}，\adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{行内代码}},$Inline Formula$，\href{http:///www.github.com}{超链接}
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}
 \end{enumerate}
 
 
@@ -280,13 +349,16 @@ int main(){
 
 
 
-\end{shaded}
+
+\end{markquote}
 
 
-\begin{shaded}
-\begin{marktext}
+
+\begin{markquote}
+
 表格：
-\end{marktext}
+
+
 
 
 \begin{center}
@@ -300,7 +372,7 @@ int main(){
 \hline
  \textbf{Table Bold} &  \textit{Table Italic}\\
 \hline
- \adjustbox{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}{\small{Table Code}} &  $Table Formula$\\
+ \inlang{\small{Table Code}} &   $Table Formula$ \\
 \hline
 \href{http:///www.github.com}{Table line}&Table Text\\
 \hline
@@ -308,9 +380,10 @@ int main(){
 \end{center}
 
 
-\begin{marktext}
+
 公式：
-\end{marktext}
+
+
 
 
 \[
@@ -318,22 +391,19 @@ F(x_i) = wx_i+b\\
 \]
 
 
-\begin{marktext}
+
 图片：
 \begin{center}
-\begin{marktext}
-\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.jpg}\vspace{\baselineskip}
-\end{marktext}
+\vspace{\baselineskip}\includegraphics[width=0.8\textwidth]{images/1c59f8ef2aa3c5e527a22b7c258489d6.png}\vspace{\baselineskip}
 \end{center}
 
 
 
 
-\end{marktext}
 
 
-\end{shaded}
-\begin{marktext}
+\end{markquote}
+
 
 
 \section{新特性{-}引入其他Markdown文档}
@@ -342,13 +412,12 @@ F(x_i) = wx_i+b\\
 
 
 \normalsize
-\begin{marktext}
+
 
 
 \subsection{简单表格}
 
 
-\end{marktext}
 \begin{center}
 \setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
 \arrayrulecolor{tablelinegray!75}
@@ -362,13 +431,12 @@ c&d\\
 \hline
 \end{tabular}
 \end{center}
-\begin{marktext}
+
 
 
 \subsection{普通表格}
 
 
-\end{marktext}
 \begin{center}
 \setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}
 \arrayrulecolor{tablelinegray!75}
@@ -387,21 +455,23 @@ c&d\\
 \normalsize
 
 
+
 \[
 f(x_i)=ax_i+b\\
 \]
 
 
-\begin{shaded}
+
+\begin{markquote}
 \[
 F(x_i) = wx_i+b\\
 \]
 
 
-\end{shaded}
+\end{markquote}
 
 
 
 
-\end{marktext}
+
 \end{document}

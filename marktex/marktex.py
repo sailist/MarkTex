@@ -34,6 +34,13 @@ parser.add_argument('-o',
                     default=None,
                     help="指定统一路径")
 
+parser.add_argument('-r',
+                    '--raw',
+                    dest="raw_text",
+                    action="store_true",
+                    default=False,
+                    help="输出纯字符串")
+
 parser.add_argument('-e','--each',help="为每个文件分配路径",nargs="*")
 args = parser.parse_args()
 
@@ -43,7 +50,7 @@ every = args.each
 mdfiles = args.mdfiles
 output = args.out
 output_paths = []
-
+raw = args.raw_text
 if every is not None:
     if len(every) != len(mdfiles):
         print("you ues -e option, the number of outputdirs must be equal to markdown files.")
@@ -58,11 +65,21 @@ else:
         output_paths.append(mdpath)
 
 from marktex.texrender.toTex import MarkTex
+from marktex.rawrender.toRaw import MarkRaw
+
 for mdfile,opath in zip(mdfiles,output_paths):
     _,fname = os.path.split(mdfile)
     fpre,_ = os.path.splitext(fname)
-    doc = MarkTex.convert_file(mdfile,opath)
-    doc.generate_tex(fpre)
+    if raw:
+        fpre, _ = os.path.split(mdfile)
+        if opath is None:
+            output_dir = fpre
+        os.makedirs(opath, exist_ok=True)
+        doc = MarkRaw.convert_file(mdfile,opath)
+        doc.generate_txt(fpre)
+    else:
+        doc = MarkTex.convert_file(mdfile,opath)
+        doc.generate_tex(fpre)
 
 print(f"[info*]convert finished.")
 exit(0)

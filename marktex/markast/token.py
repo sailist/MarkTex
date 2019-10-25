@@ -77,7 +77,13 @@ class Footnote(Token):
         return 1
 
 class InImage(Token):
-    pass
+    def initial(self):
+        self.desc, self.link = ExtractTool.image(self.string)
+    def __str__(self) -> str:
+        return f"Hyperlink({self.desc};{self.link})"
+
+    def __len__(self):
+        return len(self.desc)
 
 class UnderLine(Token):
     def initial(self):

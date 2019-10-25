@@ -28,8 +28,12 @@ class Scanner:
             line = lines[index].strip()
             if ScanTool.isBlank(line):#由doc处理√
                 doc.new_line()
+            elif ScanTool.isSplitLine(line):
+                pass
             elif ScanTool.isToc(line):#由doc处理√
                 doc.open_toc()
+            elif ScanTool.isMakeTitle(line):#由doc处理√
+                doc.make_title()
             elif ScanTool.isSection(line):#在Line内处理√
                 cur = doc.change(Document.paragraph)
                 cur.append_raw(Section(line))

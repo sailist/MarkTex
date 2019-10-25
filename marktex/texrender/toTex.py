@@ -1,4 +1,5 @@
 from marktex.markast.document import Document
+
 from marktex.markast.environment import *
 from marktex.markast.line import *
 from marktex.markast.token import *
@@ -20,11 +21,10 @@ import os
 class MarkTex(TDoc):
 
 
-    def __init__(self,doc:Document,input_dir,output_dir = None,texconfig = None,subdoc = False):
-        super().__init__("", documentclass="ctexart", document_options="UTF8",
+    def __init__(self,doc:Document,input_dir,output_dir = None,texconfig = None,subdoc = False,templete = None):
+        super().__init__("", documentclass="article",
                          inputenc=None, fontenc=None, lmodern=False, textcomp=False)
         self.subdoc = subdoc
-
 
         if texconfig is None:
             texconfig = config
@@ -41,8 +41,9 @@ class MarkTex(TDoc):
         self.doc = doc
         self.has_toc = False
 
-        self.packages |= texparam.build_basic_package(self.config)
-        self.preamble.extend(texparam.build_basic_preamble(self.config))
+        if templete is None:
+            with open(config.marktemp_path,encoding="utf-8") as f:
+                self.preamble.append(NoEscape("".join(f.readlines())))
 
     @staticmethod
     def convert_file(fpath, output_dir=None):
@@ -67,6 +68,9 @@ class MarkTex(TDoc):
 
     def convert(self):
         doc = self.doc
+        if doc.has_maketitle:
+            self.append(maketitle())
+
         if doc.has_toc and not self.subdoc:
             self.append(tablecontent())
 
@@ -113,10 +117,10 @@ class MarkTex(TDoc):
 
     def fromInCode(self,s:InCode):
         s = escape_latex(s.string)
-        return NoEscape(rf"\adjustbox{{margin=1pt 1pt 1pt 2pt,bgcolor=aliceblue}}{{\small{{{s}}}}}")
+        return NoEscape(rf"\inlang{{\small{{{s}}}}}")
     
     def fromInFormula(self,s:InFormula):
-        return NoEscape(f"${s.string}$")
+        return NoEscape(f" ${s.string}$ ")
     
     def fromHyperlink(self,s:Hyperlink):
         desc,link = escape_latex(s.desc),s.link
@@ -128,9 +132,16 @@ class MarkTex(TDoc):
         return NoEscape(rf"\footnote{{{s}}}")
     
     def fromInImage(self,s:InImage):
-        s = f"[ImageError]"
-        s = escape_latex(s)
-        return NoEscape(s)
+        link = s.link
+        link = ImageTool.verify(link, self.image_dir, self.input_dir)
+        # os.chdir(cur_dir)
+
+        if config.give_rele_path:
+            link = os.path.relpath(link, self.output_dir)
+
+        link = link.replace("\\", "/")
+
+        return NoEscape(rf"\includegraphics[height=1em]{{{link}}}")
 
     def fromSection(self,s:Section):
         level,content = s.level,s.content
@@ -146,7 +157,7 @@ class MarkTex(TDoc):
             # TODO 使用paragraph还需要一些其他的包括字体在内的设置
             # return NoEscape(rf"\paragraph{{\textbf{{{content}}}}}\\")
         elif level == 5:
-            return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(content))
+            return NoEscape(r"\noindent{{\textbf{{{}}}}}".format(content.strip()))
     
     def fromImage(self,s:Image):
         # cur_dir = os.getcwd() #markdown的相对路径，一定是针对那个markdown的，
@@ -161,32 +172,13 @@ class MarkTex(TDoc):
         link = link .replace("\\", "/")
 
         c = Center()
-        t = Text()
-        t.append(NoEscape(
+        c.append(NoEscape(
             rf"\vspace{{\baselineskip}}"
             rf"\includegraphics[width=0.8\textwidth]{{{link}}}"
             rf"\vspace{{\baselineskip}}"))
-
-        c.append(t)
         return c
 
-    def fromXML(self,token:XML):
-        if isinstance(token,XMLTitle):
-            self.preamble.append(NoEscape(rf"\title{{{token.content}}}"))
-            return NoEscape("")
-        elif isinstance(token,XMLAuthor):
-            self.preamble.append(NoEscape(rf"\author{{{token.content}}}"))
-            return NoEscape("")
-        elif isinstance(token,XMLSub):
-            return NoEscape(rf"\textsubscript{{{token.content}}}")
-        elif isinstance(token,XMLSuper):
-            return NoEscape(rf"\textsuperscript{{{token.content}}}")
-        elif isinstance(token,XMLInclude):
-            cur_dir = os.getcwd()
-            os.chdir(self.input_dir)
-            doc = MarkTex.convert_file(token.content)
-            os.chdir(cur_dir)
-            return NoEscape(doc.dumps_content())
+
 
     def fromTokenLine(self,s:TokenLine):
         tokens = s.tokens
@@ -232,6 +224,7 @@ class MarkTex(TDoc):
     def fromParagraph(self,s:Paragraph):
         t = Text()
         # Section / NewLine / TokenLine / Image
+        empty = True
         for line in s.buffer:
             if isinstance(line,Section):
                 line = self.fromSection(line)
@@ -244,8 +237,9 @@ class MarkTex(TDoc):
             else:
                 raise Exception(f"Paragraph line error {line} is {line.__class__}")
             t.append(line)
+            empty = False
 
-        if t.empty:
+        if empty:
             return NoEscape("\n")
         return t
 
@@ -309,7 +303,9 @@ class MarkTex(TDoc):
         code = [self.fromRawLine(c) for c in s.code]
         c = CodeEnvironment(s.code_style,self.config)
         for line in code:
-            c.append(line)
+            line = line.replace("\t","    ")
+            c.append(NoEscape(line))
+
         return c
 
     def fromTable(self,s:Table):
@@ -342,6 +338,24 @@ class MarkTex(TDoc):
 
         c.append(t)
         return c
+
+    def fromXML(self,token:XML):
+        if isinstance(token,XMLTitle):
+            self.preamble.append(NoEscape(rf"\title{{{token.content}}}"))
+            return NoEscape("")
+        elif isinstance(token,XMLAuthor):
+            self.preamble.append(NoEscape(rf"\author{{{token.content}}}"))
+            return NoEscape("")
+        elif isinstance(token,XMLSub):
+            return NoEscape(rf"\textsubscript{{{token.content}}}")
+        elif isinstance(token,XMLSuper):
+            return NoEscape(rf"\textsuperscript{{{token.content}}}")
+        elif isinstance(token,XMLInclude):
+            cur_dir = os.getcwd()
+            os.chdir(self.input_dir)
+            doc = MarkTex.convert_file(token.content)
+            os.chdir(cur_dir)
+            return NoEscape(doc.dumps_content())
 
     def dumps(self):
         string = super().dumps()

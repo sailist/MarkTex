@@ -24,6 +24,7 @@ class Document:
 
     def __init__(self):
         self.has_toc = False
+        self.has_maketitle = False
         self.content = [] #list[Environment]
         self.cur = None
         self.cur_mode = None
@@ -36,6 +37,9 @@ class Document:
 
     def open_toc(self):
         self.has_toc = True
+
+    def make_title(self):
+        self.has_maketitle = True
 
     def new_line(self):
         cur = self.change(Document.paragraph)

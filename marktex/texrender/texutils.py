@@ -1,31 +1,70 @@
 from pylatex import NoEscape,Package,Command
-from pylatex.base_classes import Environment
+from pylatex.base_classes import Environment,Container
 from marktex import config
 from marktex.texrender import texparam
 
+class Text(Container):
+    """A class that represents a section."""
 
-class Text(Environment):
-    _latex_name = "marktext"
+    #: A section should normally start in its own paragraph
+    end_paragraph = True
 
-    def __init__(self, *, options=None, arguments=None, start_arguments=None, **kwargs):
-        super().__init__(options=options, arguments=arguments, start_arguments=start_arguments, **kwargs)
-        self.empty = True
+    #: Default prefix to use with Marker
+    marker_prefix = "sec"
 
-    def append(self, item):
-        super().append(item)
-        if not isinstance(item,str):
-            self.empty = False
-        else:
-            if len(item.strip())>0:
-                self.empty = False
+    #: Number the sections when the section element is compatible,
+    #: by changing the `~.Section` class default all
+    #: subclasses will also have the new default.
+    numbering = True
+
+    def __init__(self,**kwargs):
+        """
+        Args
+        ----
+        title: str
+            The section title.
+        numbering: bool
+            Add a number before the section title.
+        label: Label or bool or str
+            Can set a label manually or use a boolean to set
+            preference between automatic or no label
+        """
+        super().__init__(**kwargs)
+
+    def dumps(self):
+        """Represent the section as a string in LaTeX syntax.
+
+        Returns
+        -------
+        str
+
+        """
+        string = '%\n' + self.dumps_content()
+        return string
+
+
+#
+# class Text(Environment):
+#     _latex_name = "marktext"
+#
+#     def __init__(self, *, options=None, arguments=None, start_arguments=None, **kwargs):
+#         super().__init__(options=options, arguments=arguments, start_arguments=start_arguments, **kwargs)
+#         self.empty = True
+#
+#     def append(self, item):
+#         super().append(item)
+#         if not isinstance(item,str):
+#             self.empty = False
+#         else:
+#             if len(item.strip())>0:
+#                 self.empty = False
 
 
 class Equation(Environment):
     _latex_name = "equation"
 
 class CodeEnvironment(Environment):
-    _latex_name = "lstlisting"
-    packages = [Package("listings"),Package("xcolor")]
+    _latex_name = "langbox"
 
     cpp = "C++"
 
@@ -33,8 +72,6 @@ class CodeEnvironment(Environment):
         "cpp": "C++"
 
     }
-
-
     def __init__(self,mode=None,texconfig = None,**kwargs):
         if texconfig is None:
             texconfig = config
@@ -44,19 +81,12 @@ class CodeEnvironment(Environment):
         if mode.lower() in CodeEnvironment.code_style_dict:
             mode = CodeEnvironment.code_style_dict[mode]
 
-        options = [NoEscape(f"language={{{mode.capitalize()}}}"),
-                   NoEscape(r"keywordstyle=\color{blue!70}"),
-                   NoEscape(r"frame=shadowbox"),
-                   NoEscape(r"showstringspaces=false"),
-                   NoEscape(r"commentstyle=\color{red!50!green!50!blue!50}"),
-                   NoEscape(r"escapeinside=``"),]
-
-        options.extend(texparam.build_code_envi_options(texconfig))
+        options = [NoEscape(f"{mode.capitalize()}")]
         super().__init__(options=options, arguments=None, start_arguments=None, **kwargs)
 
+
 class QuoteEnvironment(Environment):
-    _latex_name = "shaded"
-    packages = [Package("showframe","noframe"),Package("framed")]
+    _latex_name = "markquote"
 
 class TColorBox(Environment):
     _latex_name = "tcolorbox"
@@ -97,3 +127,15 @@ class CheckList(Environment):
 
 def tablecontent():
     return NoEscape("\\tableofcontents\n\\newpage")
+
+def maketitle():
+    return NoEscape(r"\maketitle")
+
+def print_markenv():
+    with open(config.marktemp_path,encoding="utf-8") as f:
+        for l in f:
+            print(l)
+
+def create_markenvf(fn):
+    import shutil
+    shutil.copy(config.marktemp_path,fn)
