@@ -4,16 +4,6 @@
     <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/example/example.md" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/example/example.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markenv.tex" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markenv.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/texrender/toTex.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/toTex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/example.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/example.tex" beforeDir="false" afterPath="$PROJECT_DIR$/output/example.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.aux" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.out" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.out" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.toc" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.toc" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -261,7 +251,7 @@
       <workItem from="1571839642588" duration="1649000" />
       <workItem from="1571925658666" duration="87000" />
       <workItem from="1571965128793" duration="636000" />
-      <workItem from="1571986580957" duration="10735000" />
+      <workItem from="1571986580957" duration="10994000" />
     </task>
     <servers />
   </component>

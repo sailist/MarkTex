@@ -1,5 +1,6 @@
 # MarkTex
-MarkTex是将Markdown内容转换为Latex文档的Python库。
+MarkTex是将Markdown内容转换为Latex文档的Python库，如果熟悉一些LaTeX的话，那么该库应该是当前最好最美观排版最舒适可定制性最强的Markdown转PDF的方案。
+
 
 ## 使用方式
 ```bash
@@ -218,8 +219,8 @@ int main(){
  [] 支持加粗、斜体、...这些语法的嵌套
  [] 添加对MarkDown直接支持但是LaTeX不支持的符号的转换如（θ）
  
- ## Markdown规范
- 目前支持的全部语法可以在[example.md](./marktex/example/example.md)中参考
+ ## 注意
+ 最新支持的全部语法可以在[example.md](./marktex/example/example.md)中参考，相应的效果可以查看[example.pdf](./output/out/example.pdf)，README中因为比较麻烦，更新可能不会很及时。
  
  另外有一些小的规范需要注意，否则转换可能会出错：
  - 引用环境会一直保持知道碰到第一行空行，因此单纯的不使用引用标记 > 是不好用的，需要空行
