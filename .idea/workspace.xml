@@ -4,6 +4,7 @@
     <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -251,7 +252,8 @@
       <workItem from="1571839642588" duration="1649000" />
       <workItem from="1571925658666" duration="87000" />
       <workItem from="1571965128793" duration="636000" />
-      <workItem from="1571986580957" duration="10994000" />
+      <workItem from="1571986580957" duration="11442000" />
+      <workItem from="1572051918547" duration="1058000" />
     </task>
     <servers />
   </component>
