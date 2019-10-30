@@ -142,7 +142,7 @@ class MarkTex(TDoc):
 
         link = link.replace("\\", "/")
 
-        return NoEscape(rf"\includegraphics[height=1em]{{{link}}}")
+        return NoEscape(rf"\raisebox{{-0.5mm}}{{\includegraphics[height=1em]{{{link}}}}}")
 
     def fromSection(self,s:Section):
         level,content = s.level,s.content
@@ -356,9 +356,18 @@ class MarkTex(TDoc):
         elif isinstance(token,XMLInclude):
             cur_dir = os.getcwd()
             os.chdir(self.input_dir)
-            doc = MarkTex.convert_file(token.content)
-            os.chdir(cur_dir)
-            return NoEscape(doc.dumps_content())
+            if token.content.endswith("md"):
+                doc = MarkTex.convert_file(token.content)
+                os.chdir(cur_dir)
+                return NoEscape(doc.dumps_content())
+            elif token.content.endswith("tex"):
+                with open(token.content,encoding="utf-8") as f:
+                    lines = "".join(f.readlines())
+                    os.chdir(cur_dir)
+                    return NoEscape(lines)
+            raise Exception("format not support")
+
+
 
     def dumps(self):
         string = super().dumps()
