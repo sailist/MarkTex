@@ -1,19 +1,23 @@
-\contentsline {section}{\numberline {第一章}特性\textsubscript {下标在这里}}{2}{section.1}% 
-\contentsline {section}{\numberline {第二章}效果演示}{2}{section.2}% 
-\contentsline {subsection}{\numberline {2.1}普通文本}{2}{subsection.2.1}% 
-\contentsline {subsection}{\numberline {2.2}二级标题}{2}{subsection.2.2}% 
-\contentsline {subsubsection}{\numberline {2.2.1}三级标题}{2}{subsubsection.2.2.1}% 
-\contentsline {paragraph}{四级标题}{2}{section*.1}% 
-\contentsline {subparagraph}{五级标题}{2}{section*.1}% 
-\contentsline {subsection}{\numberline {2.3}脚注}{2}{subsection.2.3}% 
-\contentsline {subsection}{\numberline {2.4}表格}{3}{subsection.2.4}% 
-\contentsline {subsection}{\numberline {2.5}列表和序号/itemize\&enumerate}{3}{subsection.2.5}% 
-\contentsline {subsection}{\numberline {2.6}图片}{3}{subsection.2.6}% 
-\contentsline {subsubsection}{\numberline {2.6.1}行内图片}{4}{subsubsection.2.6.1}% 
-\contentsline {subsubsection}{\numberline {2.6.2}行间图片}{4}{subsubsection.2.6.2}% 
-\contentsline {subsection}{\numberline {2.7}公式}{5}{subsection.2.7}% 
-\contentsline {subsection}{\numberline {2.8}代码}{5}{subsection.2.8}% 
-\contentsline {subsection}{\numberline {2.9}引用}{6}{subsection.2.9}% 
-\contentsline {section}{\numberline {第三章}新特性{-}引入其他Markdown文档}{6}{section.3}% 
-\contentsline {subsection}{\numberline {3.1}简单表格}{7}{subsection.3.1}% 
-\contentsline {subsection}{\numberline {3.2}普通表格}{7}{subsection.3.2}% 
+\contentsline {section}{\numberline {第一章}特性\textsubscript {下标在这里}}{3}{section.1}% 
+\contentsline {section}{\numberline {第二章}效果演示}{3}{section.2}% 
+\contentsline {subsection}{\numberline {2.1}普通文本}{3}{subsection.2.1}% 
+\contentsline {subsection}{\numberline {2.2}二级标题}{3}{subsection.2.2}% 
+\contentsline {subsubsection}{\numberline {2.2.1}三级标题}{3}{subsubsection.2.2.1}% 
+\contentsline {paragraph}{四级标题}{3}{section*.1}% 
+\contentsline {subparagraph}{五级标题}{3}{section*.1}% 
+\contentsline {subsection}{\numberline {2.3}脚注}{3}{subsection.2.3}% 
+\contentsline {subsection}{\numberline {2.4}表格}{4}{subsection.2.4}% 
+\contentsline {subsection}{\numberline {2.5}列表和序号/itemize\&enumerate}{4}{subsection.2.5}% 
+\contentsline {subsection}{\numberline {2.6}图片}{4}{subsection.2.6}% 
+\contentsline {subsubsection}{\numberline {2.6.1}行内图片}{5}{subsubsection.2.6.1}% 
+\contentsline {subsubsection}{\numberline {2.6.2}行间图片}{5}{subsubsection.2.6.2}% 
+\contentsline {subsection}{\numberline {2.7}公式}{6}{subsection.2.7}% 
+\contentsline {section}{\numberline {第三章}Tex文件插入}{6}{section.3}% 
+\contentsline {subsection}{\numberline {3.1}符号支持}{6}{subsection.3.1}% 
+\contentsline {subsubsection}{\numberline {3.1.1}希腊字母}{7}{subsubsection.3.1.1}% 
+\contentsline {subsubsection}{\numberline {3.1.2}运算符号}{7}{subsubsection.3.1.2}% 
+\contentsline {subsection}{\numberline {3.2}代码}{7}{subsection.3.2}% 
+\contentsline {subsection}{\numberline {3.3}引用}{8}{subsection.3.3}% 
+\contentsline {section}{\numberline {第四章}新特性{-}引入其他Markdown文档}{8}{section.4}% 
+\contentsline {subsection}{\numberline {4.1}简单表格}{9}{subsection.4.1}% 
+\contentsline {subsection}{\numberline {4.2}普通表格}{9}{subsection.4.2}% 

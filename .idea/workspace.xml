@@ -2,20 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/deployment.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/deployment.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marktex/example/texfile.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marktex/markast/chars.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/example/example.md" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/example/example.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/token.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markenv.tex" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markenv.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/texrender/texutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/texutils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/texrender/toTex.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/toTex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/example.tex" beforeDir="false" afterPath="$PROJECT_DIR$/output/example.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/images/temp.jpeg" beforeDir="false" afterPath="$PROJECT_DIR$/output/images/temp.jpeg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.aux" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.aux" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.out" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.synctex.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.toc" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/table.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -268,7 +270,10 @@
       <workItem from="1572095282143" duration="1198000" />
       <workItem from="1572097977442" duration="76000" />
       <workItem from="1572098604850" duration="1247000" />
-      <workItem from="1572415379532" duration="1558000" />
+      <workItem from="1572415379532" duration="2024000" />
+      <workItem from="1572755146701" duration="20000" />
+      <workItem from="1573285872230" duration="1560000" />
+      <workItem from="1573394044640" duration="9543000" />
     </task>
     <servers />
   </component>
@@ -288,18 +293,8 @@
       </map>
     </option>
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/run_example.py</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
-  </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/MarkTex$temp.coverage" NAME="temp Coverage Results" MODIFIED="1571661818171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1572416403049" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1573454812608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

@@ -11,6 +11,7 @@
 - 表格自动调整列宽
 - 复选框支持三种
 - 无论是本地图片还是网络图片，都能够支持。
+- 
 
 # 效果演示
 
@@ -85,6 +86,36 @@
 $$
 f(x_i)=ax_i+b
 $$
+
+
+<include>texfile.tex</include>
+
+## 符号支持
+符号的直接转换是比较方便的，做一个映射即可，但是符号可以存在于很多地方，甚至包括公式中，此时mathjax是可以识别的，但是latex不可以，这就导致了很多问题，一开始是做了一个折中，就是需要用户自己手动更改，但还是很麻烦，于是在[stackoverflow](https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters)上找到了解决方案，通过添加一个字体集的方式直接支持这些符号，目前支持的符号列举如下（可能支持更多符号，但没有经过测试）：
+
+### 希腊字母
+αβγδεζηθικλμνξοπρστυφχψω
+
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+
+### 运算符号
+±×÷∣∤
+
+⋅∘∗⊙⊕
+
+≤≥≠≈≡
+
+∑∏∐∈∉⊂⊃⊆⊇⊄
+
+∧∨∩∪∃∀∇
+
+⊥∠
+
+∞∘′
+
+∫∬∭
+
+↑↓←→↔↕
 
 ## 代码
 代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 [Code Highlighting with minted](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted) 

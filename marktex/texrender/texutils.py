@@ -43,23 +43,6 @@ class Text(Container):
         return string
 
 
-#
-# class Text(Environment):
-#     _latex_name = "marktext"
-#
-#     def __init__(self, *, options=None, arguments=None, start_arguments=None, **kwargs):
-#         super().__init__(options=options, arguments=arguments, start_arguments=start_arguments, **kwargs)
-#         self.empty = True
-#
-#     def append(self, item):
-#         super().append(item)
-#         if not isinstance(item,str):
-#             self.empty = False
-#         else:
-#             if len(item.strip())>0:
-#                 self.empty = False
-
-
 class Equation(Environment):
     _latex_name = "equation"
 

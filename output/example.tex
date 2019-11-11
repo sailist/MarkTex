@@ -35,6 +35,8 @@
 \usepackage{pifont} %数学符号
 \usepackage{amssymb} %数学符号
 
+\usepackage{fontspec}
+\setmainfont{DejaVu Serif}
 
 
 \definecolor{langback}{RGB}{245,244,250}
@@ -321,6 +323,59 @@ A&B&C&D\\
 \\ f(x_i)=ax_i+b\\ \\
 \]
 
+
+
+
+
+\section{Tex文件插入}
+可以通过使用include标签插入tex原文件，不过注意，不需要添加文档区，文档类等声明，插入的方式为完全将原文件复制粘贴到相应位置。
+
+也因此，这种方式下如果使用了额外声明的包等，需要更改模板文件。
+
+
+\subsection{符号支持}
+
+
+符号的直接转换是比较方便的，做一个映射即可，但是符号可以存在于很多地方，甚至包括公式中，此时mathjax是可以识别的，但是latex不可以，这就导致了很多问题，一开始是做了一个折中，就是需要用户自己手动更改，但还是很麻烦，于是在\href{https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters}{stackoverflow}上找到了解决方案，通过添加一个字体集的方式直接支持这些符号，目前支持的符号列举如下（可能支持更多符号，但没有经过测试）：
+
+
+\subsubsection{希腊字母}
+
+
+αβγδεζηθικλμνξοπρστυφχψω
+
+
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+
+
+\subsubsection{运算符号}
+
+
+±×÷∣∤
+
+
+⋅∘∗⊙⊕
+
+
+≤≥≠≈≡
+
+
+∑∏∐∈∉⊂⊃⊆⊇⊄
+
+
+∧∨∩∪∃∀∇
+
+
+⊥∠
+
+
+∞∘′
+
+
+∫∬∭
+
+
+↑↓←→↔↕
 
 
 \subsection{代码}

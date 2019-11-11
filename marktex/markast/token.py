@@ -1,11 +1,19 @@
-from marktex.markast.utils import ExtractTool
+from marktex.markast.utils import ExtractTool,SymbolTool
+from pylatex import NoEscape
 
 class Token: #可以作为 行内的部分出现
 
     def __init__(self,s) -> None:
         super().__init__()
+        self._parse_sym = True
         self.string = s
         self.initial()
+        # if self._parse_sym:
+        #     self._extract()
+
+    def _extract(self):
+        strlist = list(self.string)
+        self.string = NoEscape("".join([SymbolTool.parse(i) for i in strlist]))
 
     def initial(self):
         pass
@@ -49,6 +57,7 @@ class InFormula(Token):
 
 class InCode(Token):
     def initial(self):
+
         self.string = ExtractTool.incode(self.string)
 
     def __str__(self) -> str:
@@ -57,6 +66,7 @@ class InCode(Token):
 class Hyperlink(Token):
 
     def initial(self):
+        self._parse_sym = False
         self.desc,self.link = ExtractTool.hyperlink(self.string)
 
     def __str__(self) -> str:
@@ -68,6 +78,7 @@ class Hyperlink(Token):
 class Footnote(Token):
 
     def initial(self):
+        self._parse_sym = True
         self.label = ExtractTool.footnote(self.string)
 
     def __str__(self) -> str:
@@ -78,6 +89,7 @@ class Footnote(Token):
 
 class InImage(Token):
     def initial(self):
+        self._parse_sym = True
         self.desc, self.link = ExtractTool.image(self.string)
     def __str__(self) -> str:
         return f"Hyperlink({self.desc};{self.link})"

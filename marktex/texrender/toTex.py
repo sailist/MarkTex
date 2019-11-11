@@ -7,7 +7,6 @@ from marktex.markast.xmls import *
 from marktex.markast.parser import Scanner
 from marktex.markast.utils import ImageTool,CleanTool
 from marktex.texrender.texutils import *
-from marktex.texrender import texparam
 from marktex import config
 
 from pylatex.utils import bold,italic,escape_latex
@@ -17,11 +16,8 @@ from pylatex.section import Paragraph as TParagraph,Subparagraph
 from pylatex import Itemize as TItem,Enumerate as TEnum,Tabular,Math
 
 import os
-
 # \usepackage[colorlinks=false,urlbordercolor=linkgray,pdfborderstyle={/S/U/W 1}]{hyperref}
 class MarkTex(TDoc):
-
-
     def __init__(self,doc:Document,input_dir,output_dir = None,texconfig = None,subdoc = False,templete = None):
         super().__init__("", documentclass="article",
                          inputenc=None, fontenc=None, lmodern=False, textcomp=False)
@@ -181,8 +177,6 @@ class MarkTex(TDoc):
             rf"\vspace{{\baselineskip}}"))
         return c
 
-
-
     def fromTokenLine(self,s:TokenLine):
         tokens = s.tokens
         strs = []
@@ -216,7 +210,6 @@ class MarkTex(TDoc):
 
         strs = NoEscape("".join(strs))
         return strs
-
 
     def fromRawLine(self,s:RawLine):
         return NoEscape(s.s)
@@ -367,8 +360,6 @@ class MarkTex(TDoc):
                     return NoEscape(lines)
             raise Exception("format not support")
 
-
-
     def dumps(self):
         string = super().dumps()
         string = CleanTool.clean_comment(string)
@@ -383,6 +374,3 @@ class MarkTex(TDoc):
         filepath = os.path.join(self.output_dir,filename)
         super().generate_tex(filepath)
         print(f"File is output in {os.path.abspath(filepath)}.tex and images is in {os.path.abspath(self.image_dir)}.")
-
-
-
