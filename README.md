@@ -1,7 +1,7 @@
 # MarkTex
 MarkTex是将Markdown内容转换为Latex文档的Python库，如果熟悉一些LaTeX的话，那么该库应该是当前最好最美观排版最舒适可定制性最强的Markdown转PDF的方案。
 
-## 特性汇总
+# 特性汇总
 
 1. 支持markdown中基本上所有的特性：标题、代码、引用、目录、图片、表格、链接...
 1. 图片支持行内图片（会自动调整大小适应一行）和行间图片，支持使用本地相对路径和网络链接，会自动判断下载
@@ -9,28 +9,26 @@ MarkTex是将Markdown内容转换为Latex文档的Python库，如果熟悉一些
 3. 支持通过tex模板文件定制
 4. 支持在当前markdown中引入其他markdown和tex文件，实现很方便的协作
 5. 公式支持中文啦
-...
+6. 支持自定义额外解析串
+7. 语法树生成和代码转换完全分离，可以通过语法树自定义转换其他语言。
+8. ...
 
- 最新支持的全部语法可以在[example.md](./marktex/example/example.md)中参考，相应的效果可以查看[example.pdf](./output/out/example.pdf)，README中因为比较麻烦，更新可能不会很及时。
+> 最新支持的全部语法可以在[example.md](./marktex/example/example.md)中参考，相应的效果可以查看[example.pdf](./outputs/out/example.pdf)，README中因为比较麻烦，更新可能不会很及时。
 
-
-## 使用方式
+# 使用方式
 ```bash
-% 因为pip源刚上传，所以用国内源可能会找不到
-pip install marktex -i https://pypi.python.org/pypi
+pip install marktex
 ```
 
 ```python
-from marktex.texrender import MarkTex
-
-doc = MarkTex.convert_file("path/of/markdownfile","path/of/output_image/dir")
-doc.generate_tex()
+from marktex import api
+api.convert('mdpath1','mdpath2',...,output_dir='output_dir')
 ```
 
-目录`outoput/`下的例子可以通过以下代码生成
+目录`outoput/`下的例子可以通过以下代码生成，运行后会生成到程序运行文件的 output 目录下
 ```python
-from marktex.example import run_example
-run_example("./output/")
+from marktex.api import run_example
+run_example()
 ```
 
 
@@ -51,17 +49,18 @@ marktex a.md b.md ... -o "path"
 marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ```
 
-## 特性介绍
+# 特性介绍
 具体可以参考[example.md](./marktex/example/example.md)
 其pdf输出效果可以参考
-[example.pdf](./output/example.pdf)
+[example.pdf](./outputs/example.pdf)
 
-### 目录
+## 目录
 ```bash
  [toc]
 ```
 ![在这里插入图片描述](./src/toc.png)
-### 特性介绍
+
+## 特性介绍
 ```bash
 # 特性<sub>下标在这里</sub>
 - 支持目前主流的所有markdown语法（目前，脚注和xml标签暂时不支持）
@@ -71,7 +70,8 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 - 无论是本地图片还是网络图片，都能够支持。
 ```
 ![在这里插入图片描述](./src/feature.png)
-### 文字效果与五级标题
+
+## 文字效果与五级标题
 ```bash
 # 效果演示
 
@@ -93,7 +93,7 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 
 ![在这里插入图片描述](./src/effect.png)
 
-### 表格
+## 表格
 可以完美的自适应表格列宽（测试效果良好，不排除特例），不过暂时不支持表格内插入图片
 ```bash
 ## 表格
@@ -113,7 +113,7 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ```
 ![在这里插入图片描述](./src/table.png)
 
-### 列表、序号、复选框
+## 列表、序号、复选框
 ```bash
 ## 列表和序号/itemize&enumerate
 - 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
@@ -130,7 +130,7 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ```
 ![在这里插入图片描述](./src/list.png)
 
-### 图片
+## 图片
 图片支持网络图片和本地图片，会被统一的哈希命名后存放到自定义的图片目录下
 ```bash
 ## 图片
@@ -142,19 +142,67 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ![在这里插入图片描述](./src/img1.png)
 ![在这里插入图片描述](./src/img2.png)
 
-### 公式
-```bash
-
 ## 公式
-公式不支持中文，并且没有编号
+
+公式支持中文，但没有编号，如果要编号可以通过手动添加tag的方式
+
+### 行内公式
+$f(x) = x_{1} 中文$ 
+
+### 行间公式
 $$
-f(x_i)=ax_i+b
+使用函数 f(x_i)=ax_i+b \tag{1} 
 $$
+
+
+
+### 符号支持
+符号集在内部做了一个映射，可以将任意公式内外的符号均映射成为 LaTeX 中的符号。
+
+原本的解决方案为添加一个额外的符号字体集来解决（来自于[stackoverflow](https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters) ），目前的方案为两者优先采用映射方法，目前支持的符号列举如下（可能支持更多符号，但没有经过测试）：
+
+#### 希腊字母
+αβγδεζηθικλμνξοπρστυφχψω
+
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+
+
+**αβγδεζηθικλμνξοπρστυφχψω**
+
+`αβγδεζηθικλμνξοπρστυφχψω`
+
+$αβγδεζηθικλμνξοπρστυφχψω$
+
+$$αβγδεζηθικλμνξοπρστυφχψω$$
+
 ```
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
+```
+
+#### 运算符号
+±×÷∣∤
+
+⋅∘∗⊙⊕
+
+≤≥≠≈≡
+
+∑∏∐∈∉⊂⊃⊆⊇⊄
+
+∧∨∩∪∃∀∇
+
+⊥∠
+
+∞∘′
+
+∫∬∭
+
+↑↓←→↔↕
+
 ![在这里插入图片描述](./src/fomular.png)
+![在这里插入图片描述](./src/sign.png)
 
 
-### 代码
+## 代码
 
 ```bash
 代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 [Code Highlighting with minted](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted) 
@@ -173,7 +221,7 @@ int main(){
 
 ![](./src/code.png)
 
-### 引用
+## 引用
 ```bash
 ## 引用
 > 引用内环境和普通文本基本一致，但是不支持标题。
@@ -197,7 +245,7 @@ int main(){
 
 ![在这里插入图片描述](./src/quote2.png)
 
-### 新特性
+## 新特性
 ```bash
 # 新特性-引入其他Markdown文档
 
@@ -213,28 +261,3 @@ int main(){
 
 ![](./src/newf2.png)
 
-## TODOs
- [x] 2019年7月29日:删除线和下划线的添加
- [x] 2019年7月29日:复选框的识别
- [x] 2019年7月29日:目录
- [x] 2019年7月30日:表格的美化
- [x] 2019年8月1日:支持xml标签的识别
- > 目前支持 `<title>`,`<author>`,`<sub>`,`<super>`，目前可以统一被分析到markdown的目录树，不过没有考虑好转换成tex的方式。
- 
- [x] 2019年8月1日:图片相对路径的优化，更改了类的参数，图片将统一放到tex文件所在路径的`images`路径下，并在tex文件内统一使用相对路径进行表示
- [x] 封面
- [x] 2019年8月2日：通过引入<include>标签，支持多个markdown文件合并
- [] 水印
- [x] 2019年10月30日：正式支持四级和五级标题，已经通过paragraph和subparagraph来实现，但格式不是很好看，因此不推荐使用。
- [x] 代码环境美化(2019年10月25日完成)
- [x] 参数可定制化(可以通过修改tex模板来完成,2019年10月25日)
- [] 支持加粗、斜体、...这些语法的嵌套（放弃） 
- [] 添加对MarkDown直接支持但是LaTeX不支持的符号的转换如（θ）
- [x] 2019年10月30日:添加LaTeX混排，\<include\>标签内加入.md文件则引入md文件，加入.tex文件则引入tex文件，注意没有办法区分序言区，是完全复制粘贴的形式，使用方式请按照latex中include命令的使用方式，不要在文件中添加只在序言区生效的命令。
- [] 支持在线编译直接生成pdf（根据我的库[synctex](https://github.com/sailist/synctex)）
-[] 2019年11月11日：添加了对公式内中文的识别，公式内的中文通过外加\text命令能够显示。 
- ## 注意
-有一些小的规范需要注意，否则转换可能会出错：
- - 引用环境会一直保持知道碰到第一行空行，因此单纯的不使用引用标记 > 是不好用的，需要空行
- - 目前不支持基本Token的嵌套，也就是说，加粗，斜体，代码这些是不能嵌套使用的，如果嵌套，会按代码中处理的优先级处理
- 
