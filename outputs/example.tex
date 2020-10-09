@@ -1,0 +1,766 @@
+\documentclass{article}%
+\usepackage{lastpage}%
+\usepackage{ragged2e}%
+\usepackage{pifont}%
+\usepackage{graphicx}%
+\usepackage{amsmath}%
+%
+\usepackage{amsmath}%提供数学公式支持
+
+\usepackage{graphics}%用于添加图片
+\usepackage{graphicx}%加强插图命令
+\newcommand{\figpath}[1]{contents/fig/#1}
+
+\usepackage{fontspec}%用于配置字体
+\usepackage[table]{xcolor}%用于各种颜色环境
+\usepackage{enumitem}%用于定制list和enum
+\usepackage{float}%用于控制Float环境，添加H参数（强制放在Here）
+\usepackage[colorlinks,linkcolor=airforceblue,urlcolor=blue,anchorcolor=blue,citecolor=green]{hyperref}%用于超链接，另外添加该包目录会自动添加引用。
+
+\usepackage[most]{tcolorbox}%用于添加各种边框支持
+\usepackage[cache=true,outputdir=./out]{minted}%如果不保留临时文件就设置cache=false,如果输出设置了其他目录那么outputdir参数也有手动指定，否则会报错。
+\tcbuselibrary{minted}%加载tcolorbox的代码风格
+
+\usepackage[a4paper,left=3cm,right=3cm,top=3cm,bottom=3cm]{geometry}%用于控制版式
+\usepackage{appendix}%用于控制附加文件
+\usepackage{ifthen}
+
+\usepackage{pdfpages}%用于支持插入其他pdf页
+\usepackage{booktabs}%目前用于给表格添加 \toprule \midrule 等命令
+\usepackage{marginnote} %用于边注
+\usepackage[pagestyles,toctitles]{titlesec} %用于标题格式DIY
+% \usepackage{fancyhdr}%用于排版页眉页脚
+\usepackage{ragged2e} % 用于对齐
+%\usepackage{fixltx2e} %用于文本环境的下标 % 2015 版本后已经不再需要了
+\usepackage{ulem} %用于好看的下划线、波浪线等修饰
+\usepackage{pifont} %数学符号
+\usepackage{amssymb} %数学符号
+
+%\usepackage{fontspec}
+%\setmainfont{DejaVu Serif}
+
+
+\definecolor{langback}{RGB}{245,244,250}
+\definecolor{langbacktitle}{RGB}{235,233,245}
+\definecolor{langtitle}{RGB}{177,177,177}
+\definecolor{langno}{RGB}{202,202,202}
+\tcbset{arc=1mm}
+\renewcommand{\theFancyVerbLine}{\sffamily\textcolor{langno}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}}%重定义行号的格式
+\newtcblisting{langbox}[1][tex]{%参考自https://reishin.me/tmux/ 的代码框样式
+    arc=1mm,breakable,
+    colframe=langbacktitle,
+    colbacktitle=langbacktitle,
+    coltitle=langtitle,
+    fonttitle=\bfseries\sffamily,
+    lefttitle=1mm,toptitle=0.5mm,bottomtitle=0.5mm,
+    title = Code,
+    drop shadow,
+    listing engine=minted,
+    minted style=colorful,
+    minted language=#1,
+    minted options={fontsize=\small,breaklines,autogobble,linenos,numbersep=2mm,xleftmargin=1mm},
+    colback=langback,listing only,
+    bottomrule=0mm,leftrule=0mm,toprule=0mm,rightrule=0mm,
+    enhanced,
+    % overlay={\begin{tcbclipinterior}\fill[langback] (frame.south west)rectangle ([xshift=5mm]frame.north west);\end{tcbclipinterior}}
+}
+
+\definecolor{boxback}{RGB}{245,246,250}
+\newtcolorbox{markquote}{
+    colback=boxback,fonttitle=\sffamily\bfseries,arc=0pt,breakable,
+    boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt,
+    drop shadow,enhanced
+}
+
+\usepackage[UTF8,fontset=windowsnew,heading=true]{ctex}
+\ctexset{
+	section = {
+	number = 第\chinese{section}章,
+	format = \zihao{3}\bfseries,
+	},
+	subsection = {
+	number = \arabic{section}.\arabic{subsection},
+	format = \Large\bfseries
+	},
+	subsubsection = {
+	number = \arabic{section}.\arabic{subsection}.\arabic{subsubsection},
+	format = \Large\bfseries,
+	},
+    paragraph = {
+	format = \large\bfseries,
+	},
+    subparagraph = {
+	format = \large\bfseries,
+	},
+}
+
+\setlength{\parindent}{2em}%设置首行缩进
+\linespread{1.3}%设置行距
+
+\setlength{\parskip}{0.5em}%设置段间距
+\setcounter{tocdepth}{4}%设置目录级数
+\setcounter{secnumdepth}{3}
+
+
+\newtcbox{\inlang}[1][red]{on line,
+arc=0pt,outer arc=0pt,colback=#1!10!white,colframe=#1!50!black,
+boxsep=0pt,left=1pt,right=1pt,top=2pt,bottom=2pt,
+boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt}
+
+\newlength\tablewidth
+
+
+\definecolor{tablelinegray}{RGB}{221,221,221}
+\definecolor{tablerowgray}{RGB}{247,247,247}
+\definecolor{tabletopgray}{RGB}{245,246,250}
+\definecolor{airforceblue}{rgb}{0.36, 0.54, 0.66}
+
+%
+\title{MarkTex特性说明}%
+\author{sailist}%
+%
+\begin{document}%
+\normalsize%
+\maketitle%
+%
+\tableofcontents
+\newpage%
+
+%
+%
+%
+
+%
+
+%
+本文用于演示和测试转换后的效果%
+\section{基本特性\textsubscript{下标在这里}}%
+
+%
+
+%
+\begin{itemize}%
+\item%
+支持目前主流的所有markdown语法，包括脚注、xml%
+\item%
+额外添加了下划线语法（\inlang{\small{\_\_下划线\_\_}}）%
+\item%
+表格自动调整列宽%
+\item%
+复选框支持三种%
+\item%
+无论是本地图片还是网络图片，都能够支持。%
+\end{itemize}%
+%
+
+%
+
+%
+\section{各类文本和标题级别}%
+
+%
+支持一般的文本和\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}，和 $InLine Formula$ ，\href{http://github.com}{超链接}。%
+
+%
+同时，支持多级嵌套，包括\textbf{\textit{粗斜体}}，\textbf{\underline{粗体+下划线}}，\textit{\underline{斜体+下划线}}等等，\textbf{\textit{\underline{粗斜体+下划线}}}%
+
+%
+\sout{删除线},\underline{下划线}%
+
+%
+\subsection{二级标题}%
+
+%
+
+%
+\subsubsection{三级标题}%
+
+%
+目录编号支持到三级标题，可以通过修改latex文件或者直接更改模板来完成。%
+
+%
+\paragraph{四级标题}%
+
+%
+\subparagraph{五级标题}%
+
+%
+
+%
+\section{脚注}%
+
+%
+
+%
+可以支持脚注格式\footnote{这里是脚注的内容，新版支持在脚注中的部份字体，包括 \textbf{加粗}，\textit{斜体}等}%
+
+%
+%
+
+%
+
+%
+\section{表格}%
+
+%
+支持一般的文本格式，暂时不支持表格内图片。另外，表格取消了浮动（float），因此不支持对表格的描述（caption），不过在Markdown中也没有对表格的描述，因此也不算功能不完善。%
+
+%
+\begin{center}%
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}%
+\arrayrulecolor{tablelinegray!75}%
+\rowcolors{2}{tablerowgray}{white}%
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}%
+\hline%
+\rowcolor{tabletopgray}%
+\textbf{ColA}&\textbf{ ColB }\\%
+\hline%
+ \textbf{Table Bold} &  \textit{Table Italic}\\%
+\hline%
+ \inlang{\small{Table Code}} &   $Table Formula$ \\%
+\hline%
+\href{http:///www.github.com}{Table line}&Table Text\\%
+\hline%
+\end{tabular}%
+\end{center}%
+%
+
+%
+\begin{center}%
+\setlength\tablewidth{\dimexpr (\textwidth -8\tabcolsep)}%
+\arrayrulecolor{tablelinegray!75}%
+\rowcolors{2}{tablerowgray}{white}%
+\begin{tabular}{|p{0.077\tablewidth}<{\centering}|p{0.077\tablewidth}<{\centering}|p{0.077\tablewidth}<{\centering}|p{0.769\tablewidth}<{\centering}|}%
+\hline%
+\rowcolor{tabletopgray}%
+\textbf{A}&\textbf{B}&\textbf{C}&\textbf{Long Text Sample Long Text Sample Long Text Sample Long Text Sample Long Text Sample Long Text Sample }\\%
+\hline%
+A&B&C&D\\%
+\hline%
+A&B&C&D\\%
+\hline%
+A&B&C&D\\%
+\hline%
+\end{tabular}%
+\end{center}%
+%
+
+%
+\section{列表和序号/itemize\&enumerate}%
+
+%
+
+%
+支持无序号列表，序号列表，复选框%
+
+%
+\begin{itemize}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\end{itemize}%
+%
+
+%
+\begin{enumerate}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\end{enumerate}%
+%
+
+%
+\begin{itemize}%
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\scriptsize \ding{56}}}$\square$]%
+支持%
+\item[$\square$]%
+三种%
+\item[\rlap{\raisebox{0.3ex}{\hspace{0.4ex}\tiny \ding{52}}}$\square$]%
+复选框格式%
+\item[$\square$]%
+复选框格式%
+\end{itemize}%
+%
+
+%
+\section{图片}%
+
+%
+支持网络图片，会在转换的时候自动下载到本地，同时对非 JPG/PNG 格式的图片，会将其转换为PNG格式。所有的图片会被hash 后放置在 cacheimg\_dir 下，默认该目录为 <output\_dir>/imgs%
+
+%
+\subsection{行内图片}%
+
+%
+
+%
+最新版本添加了行内图片，如果没有换行，那么该图片会被人为是行内图片，会自动调整高度适应一行：\raisebox{-0.5mm}{\includegraphics[height=1em]{imgs/1c59f8ef2aa3c5e527a22b7c258489d6.png}}%
+
+%
+测试2：\raisebox{-0.5mm}{\includegraphics[height=1em]{imgs/23a8048a54a8f32cd7c0573a1e52f239.png}}图片之后%
+
+%
+\subsection{行间图片}%
+
+%
+
+%
+\begin{center}%
+
+
+\begin{figure}[H]%
+%
+\includegraphics[width=0.8\textwidth]{imgs/1c59f8ef2aa3c5e527a22b7c258489d6.png}%
+\caption{可以添加图片描述}%
+\end{figure}
+
+%
+\end{center}%
+
+%
+相对路径：%
+\begin{center}%
+
+
+\begin{figure}[H]%
+%
+\includegraphics[width=0.8\textwidth]{imgs/38c1cb2db4236befd1b8075f1cf21e34.png}%
+\end{figure}
+
+%
+\end{center}%
+
+%
+\section{公式}%
+
+%
+公式支持中文，但没有编号，如果要编号可以通过手动添加tag的方式%
+
+%
+\subsection{行内公式}%
+
+%
+ $f(x) = x\_\{1\} \text{中文}$ %
+
+%
+\subsection{行间公式}%
+
+%
+\[%
+\\ \text{使用函数} f(x_i)=ax_i+b \tag{1}\\ \\%
+\]%
+%
+
+%
+
+%
+
+%
+\subsection{符号支持}%
+
+%
+符号集在内部做了一个映射，可以将任意公式内外的符号均映射成为 LaTeX 中的符号。%
+
+%
+原本的解决方案为添加一个额外的符号字体集来解决（来自于\href{https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters}{stackoverflow}），目前的方案为两者优先采用映射方法，目前支持的符号列举如下（可能支持更多符号，但没有经过测试）：%
+
+%
+\subsubsection{希腊字母}%
+
+%
+$\alpha{}$$\beta{}$$\gamma{}$$\delta{}$$\varepsilon{}$$\zeta{}$$\eta{}$$\theta{}$$\imath{}$$\kappa{}$$\lambda{}$$\mu{}$$\vartheta{}$$\xi{}$$o{}$$\pi{}$$\rho{}$$\sigma{}$$\tau{}$$\upsilon{}$$\phi{}$$\chi{}$$\psi{}$$\omega{}$%
+
+%
+$A{}$$B{}$$\Gamma{}$$\triangle{}$$E{}$$Z{}$$H{}$$\Theta{}$$I{}$$K{}$$\wedge{}$$M{}$$N{}$$\Xi{}$$O{}$$\sqcap{}$$P{}$$\sum{}$$T{}$$Y{}$$\Phi{}$$X{}$$\Psi{}$$\Omega{}$%
+
+%
+ $\alpha{}\beta{}\gamma{}\delta{}\varepsilon{}\zeta{}\eta{}\theta{}\imath{}\kappa{}\lambda{}\mu{}\vartheta{}\xi{}o{}\pi{}\rho{}\sigma{}\tau{}\upsilon{}\phi{}\chi{}\psi{}\omega{}$ %
+
+%
+\[%
+\alpha{}\beta{}\gamma{}\delta{}\varepsilon{}\zeta{}\eta{}\theta{}\imath{}\kappa{}\lambda{}\mu{}\vartheta{}\xi{}o{}\pi{}\rho{}\sigma{}\tau{}\upsilon{}\phi{}\chi{}\psi{}\omega{}\\%
+\]%
+%
+\subsubsection{运算符号}%
+
+%
+$\pm{}$$\times{}$$\div{}$$|{}$$\not{|}{}$%
+
+%
+$\cdot{}$$unknown$$\ast{}$$\odot{}$$\oplus{}$%
+
+%
+$\leq{}$$\geq{}$$\neq{}$$\approx{}$$\equiv{}$%
+
+%
+$\sum{}$$\sqcap{}$$\amalg{}$$\in{}$$\notin{}$$\subset{}$$\supset{}$$\subseteq{}$$\supseteq{}$$\subset{}$$unknown$%
+
+%
+$\wedge{}$$\vee{}$$\cap{}$$\cup{}$$\exists{}$$\forall{}$$\triangledown{}$%
+
+%
+$\bot{}$$\angle{}$%
+
+%
+$\infty{}$$unknown$$'{}$%
+
+%
+$\int{}$$\iint{}$$\iiint{}$%
+
+%
+$\uparrow{}$$\downarrow{}$$\leftarrow{}$$\to{}$$\leftrightarrow{}$$\updownarrow{}$%
+
+%
+\section{代码}%
+
+%
+代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 \href{https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted}{Code Highlighting with minted} ，因此在添加代码环境的时候请注意标注在```后的代码语言和minted支持的相同，其中一部分minted和markdown中标识不相同的语言都做了映射（如markdown中是cpp但minted中是c++，以及javascrip和js），如果仍然存在转换错误，请手动调整语言类型或者提交错误给我由我来更新项目。%
+
+%
+\begin{langbox}[Python]%
+if __name__ == "__main__":%
+print("hello world!")%
+\end{langbox}%
+%
+
+%
+\begin{langbox}[C++]%
+#include<stdio.h>%
+int main(){%
+printf("hello world")%
+return 0;%
+}%
+%
+\end{langbox}%
+%
+
+%
+\section{引用}%
+
+%
+\begin{markquote}%
+引用内环境和普通文本基本一致，但是不支持标题，不支持代码。%
+
+%
+不支持代码。由于LaTeX中环境嵌套导致过长的代码使得pdf无法换页，因此我取消了在引用中行间代码的支持，在引用中检测到代码环境会从引用环境中跳出跳出。%
+
+%
+演示\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+
+%
+\begin{itemize}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\end{itemize}%
+
+%
+\begin{enumerate}%
+\item%
+支持\textbf{加粗}，\textit{斜体}，\inlang{\small{行内代码}}, $Inline Formula$ ，\href{http:///www.github.com}{超链接}%
+\end{enumerate}%
+
+%
+\begin{markquote}%
+
+%
+
+%
+新版 MarkTex 终于支持多级嵌套引用了！%
+
+%
+\begin{markquote}%
+\begin{markquote}%
+\begin{markquote}%
+\begin{markquote}%
+ $ f(x) = ax+b$ %
+
+%
+\end{markquote}%
+
+%
+\end{markquote}%
+
+%
+\end{markquote}%
+
+%
+\end{markquote}%
+
+%
+任意级别的嵌套完全没有问题！%
+
+%
+\end{markquote}%
+
+%
+
+%
+
+%
+\end{markquote}%
+%
+
+%
+\begin{markquote}%
+表格：%
+
+%
+\begin{center}%
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}%
+\arrayrulecolor{tablelinegray!75}%
+\rowcolors{2}{tablerowgray}{white}%
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}%
+\hline%
+\rowcolor{tabletopgray}%
+\textbf{ColA}&\textbf{ ColB }\\%
+\hline%
+ \textbf{Table Bold} &  \textit{Table Italic}\\%
+\hline%
+ \inlang{\small{Table Code}} &   $Table Formula$ \\%
+\hline%
+\href{http:///www.github.com}{Table line}&Table Text\\%
+\hline%
+\end{tabular}%
+\end{center}%
+
+%
+公式：%
+
+%
+\[%
+F(x_i) = wx_i+b\\%
+\]%
+
+%
+图片由于引用环境的问题，不支持浮动窗口，因此无法添加描述，描述会被忽略。%
+
+%
+\begin{center}%
+\includegraphics[width=0.8\textwidth]{imgs/1c59f8ef2aa3c5e527a22b7c258489d6.png}%
+\end{center}%
+
+%
+
+%
+
+%
+\end{markquote}%
+%
+
+%
+
+%
+
+%
+\section{新特性{-}include}%
+
+%
+
+%
+非常酷的特性！可以使用特殊的html标签来引入其他的 MarkDown 或者 LaTeX 文件！%
+\subsection{引入 Markdown 文档}%
+
+%
+
+%
+%
+%
+
+%
+\section{表格}%
+
+%
+支持一般的文本格式，暂时不支持表格内图片。另外，表格取消了浮动（float），因此不支持对表格的描述（caption），不过在Markdown中也没有对表格的描述，因此也不算功能不完善。%
+
+%
+
+%
+\begin{center}%
+\setlength\tablewidth{\dimexpr (\textwidth -4\tabcolsep)}%
+\arrayrulecolor{tablelinegray!75}%
+\rowcolors{2}{tablerowgray}{white}%
+\begin{tabular}{|p{0.500\tablewidth}<{\centering}|p{0.500\tablewidth}<{\centering}|}%
+\hline%
+\rowcolor{tabletopgray}%
+\textbf{ColA}&\textbf{ ColB }\\%
+\hline%
+ \textbf{Table Bold} &  \textit{Table Italic}\\%
+\hline%
+ \inlang{\small{Table Code}} &   $Table Formula$ \\%
+\hline%
+\href{http:///www.github.com}{Table line}&Table Text\\%
+\hline%
+\end{tabular}%
+\end{center}%
+
+%
+%
+
+%
+
+%
+\begin{center}%
+\setlength\tablewidth{\dimexpr (\textwidth -8\tabcolsep)}%
+\arrayrulecolor{tablelinegray!75}%
+\rowcolors{2}{tablerowgray}{white}%
+\begin{tabular}{|p{0.077\tablewidth}<{\centering}|p{0.077\tablewidth}<{\centering}|p{0.077\tablewidth}<{\centering}|p{0.769\tablewidth}<{\centering}|}%
+\hline%
+\rowcolor{tabletopgray}%
+\textbf{A}&\textbf{B}&\textbf{C}&\textbf{Long Text Sample Long Text Sample Long Text Sample Long Text Sample Long Text Sample Long Text Sample }\\%
+\hline%
+A&B&C&D\\%
+\hline%
+A&B&C&D\\%
+\hline%
+A&B&C&D\\%
+\hline%
+\end{tabular}%
+\end{center}%
+
+%
+%
+
+%
+%
+%
+
+%
+\section{公式}%
+
+%
+公式支持中文，但没有编号，如果要编号可以通过手动添加tag的方式%
+
+%
+\subsection{行内公式}%
+
+%
+ $f(x) = x\_\{1\} \text{中文}$ %
+
+%
+\subsection{行间公式}%
+
+%
+
+%
+\[%
+\\ \text{使用函数} f(x_i)=ax_i+b \tag{1}\\ \\%
+\]%
+
+%
+%
+
+%
+
+%
+
+%
+\subsection{符号支持}%
+
+%
+符号集在内部做了一个映射，可以将任意公式内外的符号均映射成为 LaTeX 中的符号。%
+
+%
+原本的解决方案为添加一个额外的符号字体集来解决（来自于\href{https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters}{stackoverflow} ），目前的方案为两者优先采用映射方法，目前支持的符号列举如下（可能支持更多符号，但没有经过测试）：%
+
+%
+\subsubsection{希腊字母}%
+
+%
+$\alpha{}$$\beta{}$$\gamma{}$$\delta{}$$\varepsilon{}$$\zeta{}$$\eta{}$$\theta{}$$\imath{}$$\kappa{}$$\lambda{}$$\mu{}$$\vartheta{}$$\xi{}$$o{}$$\pi{}$$\rho{}$$\sigma{}$$\tau{}$$\upsilon{}$$\phi{}$$\chi{}$$\psi{}$$\omega{}$%
+
+%
+$A{}$$B{}$$\Gamma{}$$\triangle{}$$E{}$$Z{}$$H{}$$\Theta{}$$I{}$$K{}$$\wedge{}$$M{}$$N{}$$\Xi{}$$O{}$$\sqcap{}$$P{}$$\sum{}$$T{}$$Y{}$$\Phi{}$$X{}$$\Psi{}$$\Omega{}$%
+
+%
+
+%
+\textbf{$\alpha{}$$\beta{}$$\gamma{}$$\delta{}$$\varepsilon{}$$\zeta{}$$\eta{}$$\theta{}$$\imath{}$$\kappa{}$$\lambda{}$$\mu{}$$\vartheta{}$$\xi{}$$o{}$$\pi{}$$\rho{}$$\sigma{}$$\tau{}$$\upsilon{}$$\phi{}$$\chi{}$$\psi{}$$\omega{}$}%
+
+%
+\inlang{\small{$\alpha{}$$\beta{}$$\gamma{}$$\delta{}$$\varepsilon{}$$\zeta{}$$\eta{}$$\theta{}$$\imath{}$$\kappa{}$$\lambda{}$$\mu{}$$\vartheta{}$$\xi{}$$o{}$$\pi{}$$\rho{}$$\sigma{}$$\tau{}$$\upsilon{}$$\phi{}$$\chi{}$$\psi{}$$\omega{}$}}%
+
+%
+ $\alpha{}\beta{}\gamma{}\delta{}\varepsilon{}\zeta{}\eta{}\theta{}\imath{}\kappa{}\lambda{}\mu{}\vartheta{}\xi{}o{}\pi{}\rho{}\sigma{}\tau{}\upsilon{}\phi{}\chi{}\psi{}\omega{}$ %
+
+%
+
+%
+\[%
+\alpha{}\beta{}\gamma{}\delta{}\varepsilon{}\zeta{}\eta{}\theta{}\imath{}\kappa{}\lambda{}\mu{}\vartheta{}\xi{}o{}\pi{}\rho{}\sigma{}\tau{}\upsilon{}\phi{}\chi{}\psi{}\omega{}\\%
+\]%
+
+%
+%
+
+%
+
+%
+\begin{langbox}[Tex]%
+ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ%
+\end{langbox}%
+
+%
+%
+
+%
+\subsubsection{运算符号}%
+
+%
+$\pm{}$$\times{}$$\div{}$$|{}$$\not{|}{}$%
+
+%
+$\cdot{}$$unknown$$\ast{}$$\odot{}$$\oplus{}$%
+
+%
+$\leq{}$$\geq{}$$\neq{}$$\approx{}$$\equiv{}$%
+
+%
+$\sum{}$$\sqcap{}$$\amalg{}$$\in{}$$\notin{}$$\subset{}$$\supset{}$$\subseteq{}$$\supseteq{}$$\subset{}$$unknown$%
+
+%
+$\wedge{}$$\vee{}$$\cap{}$$\cup{}$$\exists{}$$\forall{}$$\triangledown{}$%
+
+%
+$\bot{}$$\angle{}$%
+
+%
+$\infty{}$$unknown$$'{}$%
+
+%
+$\int{}$$\iint{}$$\iiint{}$%
+
+%
+$\uparrow{}$$\downarrow{}$$\leftarrow{}$$\to{}$$\leftrightarrow{}$$\updownarrow{}$
+
+%
+
+%
+%
+
+%
+\subsection{引入 LaTeX 文档}%
+
+%
+%
+
+%
+
+%
+可以通过使用include标签插入tex原文件，不过注意，不需要添加文档区，文档类等声明，插入的方式为完全将原文件复制粘贴到相应位置。
+%
+
+%
+
+%
+
+%
+也因此，这种方式下如果使用了额外声明的包等，需要更改模板文件。%
+
+%
+\end{document}
