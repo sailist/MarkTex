@@ -1,31 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MANIFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/MANIFEST.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/example/example.md" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/example/example.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/example/example.tex" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markast/chars.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markast/document.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/document.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markast/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markast/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/token.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markast/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/utils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markast/xmls.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/xmls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/markenv.tex" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markenv.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/marktex.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/marktex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/texrender/texparam.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/texparam.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/texrender/texutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/texutils.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/texrender/toTex.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/toTex.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/example.tex" beforeDir="false" afterPath="$PROJECT_DIR$/output/example.tex" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.aux" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.pdf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.synctex.gz" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.toc" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.toc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-    </list>
+    <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="fix this code" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -287,7 +263,16 @@
       <workItem from="1602071796580" duration="2432000" />
       <workItem from="1602078514280" duration="1104000" />
       <workItem from="1602121006921" duration="16365000" />
+      <workItem from="1602207873546" duration="345000" />
     </task>
+    <task id="LOCAL-00001" summary="fix this code">
+      <created>1602207956944</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1602207956944</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -298,12 +283,28 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="08x" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix this code" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix this code" />
   </component>
   <component name="WindowStateProjectService">
     <state x="661" y="252" width="598" height="536" key="find.popup" timestamp="1602168074181">
