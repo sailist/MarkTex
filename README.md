@@ -13,7 +13,7 @@ MarkTex是将Markdown内容转换为Latex文档的Python库，如果熟悉一些
 7. 语法树生成和代码转换完全分离，可以通过语法树自定义转换其他语言。
 8. ...
 
-> 最新支持的全部语法可以在[example.md](./marktex/example/example.md)中参考，相应的效果可以查看[example.pdf](./outputs/out/example.pdf)，README中因为比较麻烦，更新可能不会很及时。
+> 最新支持的全部语法可以在[example.md](./marktex/example/example.md)中参考，相应的效果可以查看[all_example.pdf](./outputs/out/all_example.pdf)，README中因为比较麻烦，更新可能不会很及时。
 
 # 使用方式
 ```bash
@@ -52,7 +52,7 @@ marktex a.md b.md ... -e "pathfora" "pathforb" ...
 # 特性介绍
 具体可以参考[example.md](./marktex/example/example.md)
 其pdf输出效果可以参考
-[example.pdf](./outputs/example.pdf)
+[all_example.pdf](./outputs/out/all_example.pdf)
 
 ## 目录
 ```bash
