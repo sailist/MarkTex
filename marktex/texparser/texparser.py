@@ -249,7 +249,9 @@ def de_xml(c: lines.XML):
 
 @regist_decoder(registed_token_decoder, tokens.Raw)
 def de_raw(s: tokens.Raw):
-    if isinstance(s.parent, lines.Raw):
+    if isinstance(s.parent, (lines.Raw, tokens.InFormula)):
+        return NoEscape(''.join(s.inner_token))
+    elif isinstance(s.parent.parent, (env.Formula)):
         return NoEscape(''.join(s.inner_token))
     else:  # 当 父节点不是 lines.Raw 时， Raw 中的字符需要 escape，如 InFormula，InCode
         return escape_latex(''.join(s.inner_token))
@@ -335,6 +337,16 @@ def de_sign(s: tokens.Sign):
     if isinstance(s.parent, tokens.InFormula) or isinstance(s.parent.parent, env.Formula):
         return NoEscape(tex_sign)
     return NoEscape('$' + tex_sign + '$')
+
+
+@regist_decoder(registed_token_decoder, tokens.TeXSign)
+def de_texsign(s: tokens.TeXSign):
+    return NoEscape('\\TeX')
+
+
+@regist_decoder(registed_token_decoder, tokens.LaTeXSign)
+def de_latexsign(s: tokens.LaTeXSign):
+    return NoEscape('\\LaTeX')
 
 
 def de_env(param: env.Environ):

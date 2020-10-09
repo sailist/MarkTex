@@ -209,6 +209,18 @@ class Sign(Token):
         return 'latin'
 
 
+@regist_func(registed_token)
+class TeXSign(Token):
+    ignore_nest = True
+    RE = re.compile(r'(\\TeX)')
+
+
+@regist_func(registed_token)
+class LaTeXSign(Token):
+    ignore_nest = True
+    RE = re.compile(r'(\\LaTeX)')
+
+
 def parse_tokens(params):
     for param in params:
         for line in param:

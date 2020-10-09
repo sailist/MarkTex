@@ -209,6 +209,7 @@ class Formula(Environ):
         lines = self.inner[:]
         lines = [re.sub(self.RE, '', l) for l in lines]
         lines = [re.sub(self.END_RE, '', l) for l in lines]
+        lines = [line.strip() for line in lines if len(line.strip()) > 0]
         self.children.extend(lines)
 
     @classmethod
