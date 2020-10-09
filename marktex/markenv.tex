@@ -40,7 +40,7 @@
 \tcbset{arc=1mm}
 \renewcommand{\theFancyVerbLine}{\sffamily\textcolor{langno}{\scriptsize\oldstylenums{\arabic{FancyVerbLine}}}}%重定义行号的格式
 \newtcblisting{langbox}[1][tex]{%参考自https://reishin.me/tmux/ 的代码框样式
-    arc=1mm,
+    arc=1mm,breakable,
     colframe=langbacktitle,
     colbacktitle=langbacktitle,
     coltitle=langtitle,
@@ -60,7 +60,7 @@
 
 \definecolor{boxback}{RGB}{245,246,250}
 \newtcolorbox{markquote}{
-    colback=boxback,fonttitle=\sffamily\bfseries,arc=0pt,
+    colback=boxback,fonttitle=\sffamily\bfseries,arc=0pt,breakable,
     boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt,
     drop shadow,enhanced
 }

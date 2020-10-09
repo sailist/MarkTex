@@ -16,6 +16,9 @@ from pylatex.section import Paragraph as TParagraph,Subparagraph
 from pylatex import Itemize as TItem,Enumerate as TEnum,Tabular,Math
 
 import os
+import re
+
+chchar = re.compile("([^\x00-\xff]+)")
 # \usepackage[colorlinks=false,urlbordercolor=linkgray,pdfborderstyle={/S/U/W 1}]{hyperref}
 class MarkTex(TDoc):
     def __init__(self,doc:Document,input_dir,output_dir = None,texconfig = None,subdoc = False,templete = None):
@@ -39,11 +42,12 @@ class MarkTex(TDoc):
         self.has_toc = False
 
         if templete is None:
-            with open(config.marktemp_path,encoding="utf-8") as f:
-                self.preamble.append(NoEscape("".join(f.readlines())))
+            templete = config.marktemp_path
+        with open(templete,encoding="utf-8") as f:
+            self.preamble.append(NoEscape("".join(f.readlines())))
 
     @staticmethod
-    def convert_file(fpath, output_dir=None):
+    def convert_file(fpath, templete=None,output_dir=None):
         '''
 
         :param fpath:markdown文件的目录
@@ -59,7 +63,7 @@ class MarkTex(TDoc):
         doc = Scanner.analyse_file(fpath)
 
         input_dir,_ = os.path.split(fpath)
-        mark = MarkTex(doc,input_dir=input_dir,output_dir=output_dir)
+        mark = MarkTex(doc,input_dir=input_dir,templete = templete,output_dir=output_dir)
         mark.convert()
         return mark
 
@@ -117,7 +121,8 @@ class MarkTex(TDoc):
         return NoEscape(rf"\inlang{{\small{{{s}}}}}")
     
     def fromInFormula(self,s:InFormula):
-        return NoEscape(f" ${s.string}$ ")
+        s = re.sub(chchar, lambda x: rf"\text{{{x.group(1)}}}", s.string)
+        return NoEscape(f" ${s}$ ")
     
     def fromHyperlink(self,s:Hyperlink):
         desc,link = escape_latex(s.desc),s.link
@@ -287,6 +292,7 @@ class MarkTex(TDoc):
 
         data = []
         for line in code:
+            line = re.sub(chchar,lambda x:rf"\text{{{x.group(1)}}}",line)
             data.append(NoEscape(f"{line}\\\\"))
 
         m = Math(data=data)
@@ -344,7 +350,9 @@ class MarkTex(TDoc):
             return NoEscape("")
         elif isinstance(token,XMLSub):
             return NoEscape(rf"\textsubscript{{{token.content}}}")
-        elif isinstance(token,XMLSuper):
+        elif isinstance(token, XMLSuper):
+            return NoEscape(rf"\textsuperscript{{{token.content}}}")
+        elif isinstance(token,XMLSup):
             return NoEscape(rf"\textsuperscript{{{token.content}}}")
         elif isinstance(token,XMLInclude):
             cur_dir = os.getcwd()

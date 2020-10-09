@@ -1,5 +1,3 @@
-from marktex.markast.token import Token
-
 xml_dict = {}
 
 def xml(fn):
@@ -32,6 +30,11 @@ class XMLSub(XML):
 @xml
 class XMLSuper(XML):
     _xml_tag = "super"
+    pass
+
+@xml
+class XMLSup(XML):
+    _xml_tag = "sup"
     pass
 
 

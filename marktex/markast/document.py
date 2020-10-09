@@ -1,4 +1,3 @@
-# from marktex.markast.environment import *
 from .environment import *
 
 class Document:

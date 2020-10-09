@@ -8,6 +8,7 @@ MarkTex是将Markdown内容转换为Latex文档的Python库，如果熟悉一些
 2. 表格自动调整列宽，且进行了相关美化，不会变丑
 3. 支持通过tex模板文件定制
 4. 支持在当前markdown中引入其他markdown和tex文件，实现很方便的协作
+5. 公式支持中文啦
 ...
 
  最新支持的全部语法可以在[example.md](./marktex/example/example.md)中参考，相应的效果可以查看[example.pdf](./output/out/example.pdf)，README中因为比较麻烦，更新可能不会很及时。
@@ -231,7 +232,7 @@ int main(){
  [] 添加对MarkDown直接支持但是LaTeX不支持的符号的转换如（θ）
  [x] 2019年10月30日:添加LaTeX混排，\<include\>标签内加入.md文件则引入md文件，加入.tex文件则引入tex文件，注意没有办法区分序言区，是完全复制粘贴的形式，使用方式请按照latex中include命令的使用方式，不要在文件中添加只在序言区生效的命令。
  [] 支持在线编译直接生成pdf（根据我的库[synctex](https://github.com/sailist/synctex)）
- 
+[] 2019年11月11日：添加了对公式内中文的识别，公式内的中文通过外加\text命令能够显示。 
  ## 注意
 有一些小的规范需要注意，否则转换可能会出错：
  - 引用环境会一直保持知道碰到第一行空行，因此单纯的不使用引用标记 > 是不好用的，需要空行

@@ -34,12 +34,22 @@ parser.add_argument('-o',
                     default=None,
                     help="指定统一路径")
 
+parser.add_argument('-t',
+                    '--templete',
+                    dest="tpf",
+                    action="store",
+                    type=str,
+                    default=None,
+                    help="指定模板")
+
 parser.add_argument('-r',
                     '--raw',
                     dest="raw_text",
                     action="store_true",
                     default=False,
                     help="输出纯字符串")
+
+
 
 parser.add_argument('-e','--each',help="为每个文件分配路径",nargs="*")
 args = parser.parse_args()
@@ -48,6 +58,7 @@ print(args)
 
 every = args.each
 mdfiles = args.mdfiles
+templete = args.tpf
 output = args.out
 output_paths = []
 raw = args.raw_text
@@ -78,7 +89,7 @@ for mdfile,opath in zip(mdfiles,output_paths):
         doc = MarkRaw.convert_file(mdfile,opath)
         doc.generate_txt(fpre)
     else:
-        doc = MarkTex.convert_file(mdfile,opath)
+        doc = MarkTex.convert_file(mdfile,templete,opath)
         doc.generate_tex(fpre)
 
 print(f"[info*]convert finished.")

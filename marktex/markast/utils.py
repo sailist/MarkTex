@@ -2,7 +2,6 @@ import re,os,shutil,imghdr
 from marktex import config
 from urllib.parse import urljoin
 from hashlib import md5
-from pylatex import NoEscape
 
 re_command = re.compile(r"%$")
 
@@ -272,104 +271,6 @@ class ExtractTool:
         key = match.group(1).strip()
         content = match.group(2).strip()
         return key,content
-
-class SymbolTool:
-    _greece = {
-        "𝛼":r"\alpha",
-        "𝛽":r"\beta",
-        "Γ":r"\Gamma",
-        "𝛾":r"\gamma",
-        "Δ":r"\Delta",
-        "𝛿":r"\delta",
-        "𝜖":r"\epsilon",
-        "𝜁":r"\zeta",
-        "𝜂":r"\eta",
-        "Θ":r"\Theta",
-        "𝜃":r"\theta",
-        "𝜄":r"\iota",
-        "𝜅":r"\kappa",
-        "Λ":r"\Lambda",
-        "𝜆":r"\lambda",
-        "𝜇":r"\mu",
-        "𝜈":r"\nu",
-        "Ξ":r"\Xi",
-        "𝜉":r"\xi",
-        "𝜊":r"\omicron",
-        "Π":r"\Pi",
-        "𝜋":r"\pi",
-        "𝜌":r"\rho",
-        "Σ":r"\Sigma",
-        "𝜎":r"\sigma",
-        "𝜏":r"\tau",
-        "Υ":r"\Upsilon",
-        "𝜐":r"\upsilon",
-        "Φ":r"\Phi",
-        "𝜙":r"\phi",
-        "𝜒":r"\chi",
-        "Ψ":r"\Psi",
-        "𝜓":r"\psi",
-        "Ω":r"\Omega",
-        "𝜔":r"\omega",
-    }
-    _op = {
-        "±": r"\pm",
-        "×": r"\times",
-        "÷": r"\div",
-        "∣": r"\mid",
-        "∤": r"\nmid",
-        "⋅": r"\cdot",
-        "∘": r"\circ",
-        "∗": r"\ast",
-        "⨀": r"\bigodot",
-        "⨂": r"\bigotimes",
-        "⨁": r"\bigoplus",
-        "≤": r"\leq",
-        "≥": r"\geq",
-        "≠": r"\neq",
-        "≈": r"\approx",
-        "≡": r"\equiv",
-        "∑": r"\sum",
-        "∏": r"\prod",
-        "∐": r"\coprod",
-        "∅": r"\emptyset",
-        "∈": r"\in",
-        "∉": r"\notin",
-        "⊂": r"\subset",
-        "⊃": r"\supset",
-        "⊆": r"\subseteq",
-        "⊇": r"\supseteq",
-        "⋂": r"\bigcap",
-        "⋃": r"\bigcup",
-        "⋁": r"\bigvee",
-        "⋀": r"\bigwedge",
-        "⨄": r"\biguplus",
-        "⨆": r"\bigsqcup",
-        "⊥": r"\bot",
-        "∠": r"\angle",
-        "′": r"\prime",
-        "∫": r"\int",
-        "∬": r"\iint",
-        "∭": r"\iiint",
-        "∮": r"\oint",
-        "∞": r"\infty",
-        "∇": r"\nabla",
-        "∵": r"\because",
-        "∴": r"\therefore",
-        "∀": r"\forall",
-        "∃": r"\exists",
-        "≯": r"\not>",
-        "⊄": r"\not\subset",
-    }
-    @staticmethod
-    def parse(s):
-        if s in SymbolTool._greece:
-            return NoEscape("||"+SymbolTool._greece[s])
-        elif s in SymbolTool._op:
-            return NoEscape(SymbolTool._op[s])
-
-        return NoEscape(s)
-
-#     http://3iter.com/2015/10/14/Mathjax%E4%B8%8ELaTex%E5%85%AC%E5%BC%8F%E7%AE%80%E4%BB%8B/#mjx-eqn-1-1
 
 class CleanTool:
     @staticmethod

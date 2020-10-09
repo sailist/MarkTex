@@ -40,10 +40,15 @@ class Scanner:
             elif ScanTool.isCode(line):#在环境内处理√
                 cur = doc.change(Document.code)
                 cur.append_raw(lines[index])
+                # print(index,lines[index])
                 index += 1
-                while index<size and not ScanTool.isCode(lines[index]):
+
+                while index<size and (not ScanTool.isCode(lines[index]) or len(lines[index]) == 0):
                     cur.append_raw(lines[index])
+                    # print(index,"-",lines[index])
                     index+=1
+                # index+=1
+                # print(index, "now", lines[index])
             elif ScanTool.isFormula(line):#在环境内处理√
                 cur = doc.change(Document.formula)
                 cur.append_raw(lines[index])
@@ -73,7 +78,15 @@ class Scanner:
             elif ScanTool.isQuote(line):#在方法内，转换为doc处理
                 cur = doc.change(Document.quote)
                 temp = index
+
                 while temp<size and not ScanTool.isBlank(lines[temp]):
+                    if ScanTool.isCode(lines[temp]):
+                        temp-=1
+                        break
+                        # temp+=1
+                        # while temp < size and not ScanTool.isCode(lines[temp]):
+                        #     print(temp,not ScanTool.isCode(lines[temp]),lines[temp])
+                        #     temp += 1
                     temp += 1
                 qdoc = self.analyse_quote(lines[index:temp+1])
                 cur.append_raw(qdoc)
@@ -112,9 +125,11 @@ class Scanner:
             elif ScanTool.isCode(line):# 在环境内自行处理
                 cur = doc.change(Document.code)
                 cur.append_raw(lines[index])
+                print(index,lines[index])
                 index += 1
                 while index < size and not ScanTool.isCode(lines[index]):
                     cur.append_raw(lines[index])
+                    print(index,lines[index])
                     index += 1
             elif ScanTool.isFormula(line):# 在环境内自行处理
                 cur = doc.change(Document.formula)
@@ -125,6 +140,7 @@ class Scanner:
                 while index < size and not ScanTool.isFormulaTail(lines[index]):
                     cur.append_raw(lines[index])
                     index += 1
+
                 if index < size and tmp != index:
                     cur.append_raw(lines[index])
             elif ScanTool.isList(line): #直接处理

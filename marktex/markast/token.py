@@ -1,4 +1,4 @@
-from marktex.markast.utils import ExtractTool,SymbolTool
+from marktex.markast.utils import ExtractTool
 from pylatex import NoEscape
 
 class Token: #可以作为 行内的部分出现
@@ -13,7 +13,7 @@ class Token: #可以作为 行内的部分出现
 
     def _extract(self):
         strlist = list(self.string)
-        self.string = NoEscape("".join([SymbolTool.parse(i) for i in strlist]))
+        # self.string = NoEscape("".join([SymbolTool.parse(i) for i in strlist]))
 
     def initial(self):
         pass

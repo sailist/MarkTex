@@ -2,24 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/marktex/example/texfile.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/marktex/markast/chars.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MANIFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/MANIFEST.in" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/example/example.md" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/example/example.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/example/example.tex" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/chars.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/document.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/document.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/parser.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/markast/token.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/token.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/markast/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/xmls.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/xmls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/markenv.tex" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markenv.tex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/marktex.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/marktex.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/texrender/texparam.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/texparam.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/texrender/texutils.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/texutils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/texrender/toTex.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texrender/toTex.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/example.tex" beforeDir="false" afterPath="$PROJECT_DIR$/output/example.tex" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.aux" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.aux" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/output/out/example.out" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.out" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.pdf" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.pdf" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.synctex.gz" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.synctex.gz" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/output/out/example.toc" beforeDir="false" afterPath="$PROJECT_DIR$/output/out/example.toc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_example.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -42,6 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="JupyterTrust" id="2383f275-060d-4d53-bada-2283e4b004cf" />
   <component name="ProjectId" id="1PAQP7hNHKsp8CBLaBhxZIUNBaH" />
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -71,37 +78,29 @@
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/output/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../si智库/知识见解LaTeX模板-2019年11月6日" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\E\jupyter_notebook\marktex" />
+      <recent name="C:\E\jupyter_notebook\marktex\marktex\texrender" />
+      <recent name="C:\E\jupyter_notebook\marktex\marktex\markast" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\Python\MarkTex\output\images" />
       <recent name="E:\Python\MarkTex\marktex\example" />
       <recent name="C:\E\jupyter_notebook\marktex" />
       <recent name="C:\E\jupyter_notebook\marktex\marktex\example" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\E\jupyter_notebook\marktex" />
-      <recent name="C:\E\jupyter_notebook\marktex\marktex\texrender" />
-      <recent name="C:\E\jupyter_notebook\marktex\marktex\markast" />
-    </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Python.run_example">
     <configuration name="run_example" type="PythonConfigurationType" factoryName="Python" temporary="true">
@@ -231,6 +230,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -273,28 +273,50 @@
       <workItem from="1572415379532" duration="2024000" />
       <workItem from="1572755146701" duration="20000" />
       <workItem from="1573285872230" duration="1560000" />
-      <workItem from="1573394044640" duration="9543000" />
+      <workItem from="1573394044640" duration="11274000" />
+      <workItem from="1573457287604" duration="1442000" />
+      <workItem from="1573458922184" duration="6764000" />
+      <workItem from="1573474172327" duration="1630000" />
+      <workItem from="1573545934888" duration="1879000" />
+      <workItem from="1573550277470" duration="2942000" />
+      <workItem from="1574850175306" duration="1136000" />
+      <workItem from="1575617755131" duration="1393000" />
+      <workItem from="1578818352822" duration="713000" />
+      <workItem from="1602028817330" duration="2312000" />
+      <workItem from="1602040709112" duration="9273000" />
+      <workItem from="1602071796580" duration="2432000" />
+      <workItem from="1602078514280" duration="1104000" />
+      <workItem from="1602121006921" duration="16365000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="661" y="252" width="598" height="536" key="find.popup" timestamp="1602168074181">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="661" y="252" width="598" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602168074181" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602156178007">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602156178007" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1573559977354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MarkTex$temp.coverage" NAME="temp Coverage Results" MODIFIED="1571661818171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1573454812608" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

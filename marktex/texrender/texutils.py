@@ -1,7 +1,6 @@
 from pylatex import NoEscape,Package,Command
 from pylatex.base_classes import Environment,Container
 from marktex import config
-from marktex.texrender import texparam
 
 class Text(Container):
     """A class that represents a section."""
@@ -49,11 +48,9 @@ class Equation(Environment):
 class CodeEnvironment(Environment):
     _latex_name = "langbox"
 
-    cpp = "C++"
-
     code_style_dict = {
-        "cpp": "C++"
-
+        "cpp": "C++",
+        "javascript":"js"
     }
     def __init__(self,mode=None,texconfig = None,**kwargs):
         if texconfig is None:

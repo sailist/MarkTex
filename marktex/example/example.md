@@ -6,19 +6,18 @@
 [maketitle]
 
 # 特性<sub>下标在这里</sub>
-- 支持目前主流的所有markdown语法（目前，脚注和xml标签暂时不支持）
+- 支持目前主流的所有markdown语法，包括脚注、xml
 - 额外添加了下划线语法（`__下划线__`）
 - 表格自动调整列宽
 - 复选框支持三种
 - 无论是本地图片还是网络图片，都能够支持。
-- 
 
 # 效果演示
 
 本文用于演示和测试转换后的效果
 
 ## 普通文本
-支持一般的文本和**加粗**，*斜体*，`行内代码`，和$InLine Formula$，[超链接](http://github.com)，注意公式暂时不支持中文。
+支持一般的文本和**加粗**，*斜体*，`行内代码`，和$InLine Formula$，[超链接](http://github.com)。
 
 ~~删除线~~,__下划线__
 
@@ -82,11 +81,13 @@
 ![](./exampleimage.png)
 
 ## 公式
-公式不支持中文，并且没有编号
-$$
-f(x_i)=ax_i+b
-$$
+公式没有编号，如果要编号可以通过手动添加tag的方式
 
+$f(x) = x_{1} 中文$ 
+
+$$
+使用函数 f(x_i)=ax_i+b \tag{1} 
+$$
 
 <include>texfile.tex</include>
 
@@ -118,8 +119,7 @@ $$
 ↑↓←→↔↕
 
 ## 代码
-代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 [Code Highlighting with minted](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted) 
-
+代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 [Code Highlighting with minted](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted) ，因此在添加代码环境的时候请注意标注在```后的代码语言和minted支持的相同，其中一部分minted和markdown中标识不相同的语言都做了映射（如markdown中是cpp但minted中是c++，以及javascrip和js），如果仍然存在转换错误，请手动调整语言类型或者提交错误给我由我来更新项目。
 
 ```python
 if __name__ == "__main__":
@@ -136,7 +136,8 @@ int main(){
 ```
 
 ## 引用
-> 引用内环境和普通文本基本一致，但是不支持标题。
+> 引用内环境和普通文本基本一致，但是不支持标题，不支持代码。
+> 不支持代码由于LaTeX中环境嵌套导致过长的代码使得pdf无法换页，因此我取消了在引用中行间代码的支持，在引用中检测到代码环境会直接跳出。
 > 演示**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
 > - 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
 > 1. 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
@@ -152,6 +153,8 @@ int main(){
 > 图片：
 > ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190726170401866.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3NhaWxpc3Q=,size_16,color_FFFFFF,t_70)
 > 
+
+
 
 # 新特性-引入其他Markdown文档
 
