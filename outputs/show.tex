@@ -1,6 +1,5 @@
 \documentclass{article}%
 \usepackage{lastpage}%
-\usepackage{amsmath}%
 %
 \usepackage{amsmath}%提供数学公式支持
 
@@ -116,103 +115,57 @@ boxrule=0pt,bottomrule=-1pt,toprule=-1pt,leftrule=-1pt,rightrule=-1pt}
 %
 \begin{document}%
 \normalsize%
-%
-
-%
-\section{公式}%
-
-%
-公式支持中文，但没有编号，如果要编号可以通过手动添加tag的方式%
-
-%
-\subsection{行内公式}%
-
-%
- $f(x) = x_{1} \text{中文}$ %
-
-%
-\subsection{行间公式}%
-
-%
-\[%
-\text{使用函数} f(x_i)=ax_i+b \tag{1}\\%
-\]%
-%
+\begin{markquote}%
 
 %
 
 %
-
-%
-\subsection{符号支持}%
-
-%
-符号集在内部做了一个映射，可以将任意公式内外的符号均映射成为 LaTeX 中的符号。%
-
-%
-原本的解决方案为添加一个额外的符号字体集来解决（来自于\href{https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters}{stackoverflow} ），目前的方案为两者优先采用映射方法，目前支持的符号列举如下（可能支持更多符号，但没有经过测试）：%
-
-%
-\subsubsection{希腊字母}%
-
-%
-$\alpha{}$$\beta{}$$\gamma{}$$\delta{}$$\varepsilon{}$$\zeta{}$$\eta{}$$\theta{}$$\imath{}$$\kappa{}$$\lambda{}$$\mu{}$$\vartheta{}$$\xi{}$$o{}$$\pi{}$$\rho{}$$\sigma{}$$\tau{}$$\upsilon{}$$\phi{}$$\chi{}$$\psi{}$$\omega{}$%
-
-%
-$A{}$$B{}$$\Gamma{}$$\triangle{}$$E{}$$Z{}$$H{}$$\Theta{}$$I{}$$K{}$$\wedge{}$$M{}$$N{}$$\Xi{}$$O{}$$\sqcap{}$$P{}$$\sum{}$$T{}$$Y{}$$\Phi{}$$X{}$$\Psi{}$$\Omega{}$%
+\begin{markquote}%
 
 %
 
 %
-\textbf{$\alpha{}$$\beta{}$$\gamma{}$$\delta{}$$\varepsilon{}$$\zeta{}$$\eta{}$$\theta{}$$\imath{}$$\kappa{}$$\lambda{}$$\mu{}$$\vartheta{}$$\xi{}$$o{}$$\pi{}$$\rho{}$$\sigma{}$$\tau{}$$\upsilon{}$$\phi{}$$\chi{}$$\psi{}$$\omega{}$}%
+\begin{markquote}%
 
-%
-\inlang{\small{$\alpha{}$$\beta{}$$\gamma{}$$\delta{}$$\varepsilon{}$$\zeta{}$$\eta{}$$\theta{}$$\imath{}$$\kappa{}$$\lambda{}$$\mu{}$$\vartheta{}$$\xi{}$$o{}$$\pi{}$$\rho{}$$\sigma{}$$\tau{}$$\upsilon{}$$\phi{}$$\chi{}$$\psi{}$$\omega{}$}}%
-
-%
- $\alpha{}\beta{}\gamma{}\delta{}\varepsilon{}\zeta{}\eta{}\theta{}\imath{}\kappa{}\lambda{}\mu{}\vartheta{}\xi{}o{}\pi{}\rho{}\sigma{}\tau{}\upsilon{}\phi{}\chi{}\psi{}\omega{}$ %
-
-%
-\[%
-\alpha{}\beta{}\gamma{}\delta{}\varepsilon{}\zeta{}\eta{}\theta{}\imath{}\kappa{}\lambda{}\mu{}\vartheta{}\xi{}o{}\pi{}\rho{}\sigma{}\tau{}\upsilon{}\phi{}\chi{}\psi{}\omega{}\\%
-\]%
 %
 
 %
-\begin{langbox}[Tex]%
-ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ%
-\end{langbox}%
+\begin{markquote}%
+
 %
 
 %
-\subsubsection{运算符号}%
+\begin{markquote}%
+Mark\TeX%
 
 %
-$\pm{}$$\times{}$$\div{}$$|{}$$\not{|}{}$%
+\end{markquote}%
 
 %
-$\cdot{}$$unknown$$\ast{}$$\odot{}$$\oplus{}$%
 
 %
-$\leq{}$$\geq{}$$\neq{}$$\approx{}$$\equiv{}$%
 
 %
-$\sum{}$$\sqcap{}$$\amalg{}$$\in{}$$\notin{}$$\subset{}$$\supset{}$$\subseteq{}$$\supseteq{}$$\subset{}$$unknown$%
+\end{markquote}%
 
 %
-$\wedge{}$$\vee{}$$\cap{}$$\cup{}$$\exists{}$$\forall{}$$\triangledown{}$%
 
 %
-$\bot{}$$\angle{}$%
 
 %
-$\infty{}$$unknown$$'{}$%
+\end{markquote}%
 
 %
-$\int{}$$\iint{}$$\iiint{}$%
 
 %
-$\uparrow{}$$\downarrow{}$$\leftarrow{}$$\to{}$$\leftrightarrow{}$$\updownarrow{}$
 
 %
+\end{markquote}%
+
+%
+
+%
+
+%
+\end{markquote}%
 \end{document}
