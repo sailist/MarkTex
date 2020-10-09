@@ -49,11 +49,13 @@ marktex a.md b.md ... -o "path"
 marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ```
 ## FQA
-Q: latex 文件所需的编译器是什么？
+**Q: latex 文件所需的编译器是什么？**
+
 A: 生成的 tex 文件使用了 ctex 包和 fontspec 包。所以无法通过 pdflatex、latex 或 lualatex进行编译，因此需要使用 xelatex 才能编译。
 
-Q: 关于在线编译 PDF
-A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [overleaf](https://www.overleaf.com/) 在线编辑 tex 文件。overleaf 的默认编译引擎是 pdflatex ，无法编译 marktex生成的文件。需要点击左上角的“菜单”图标，修改编译器，选择 xelatex 。以及，在 overleaf 上，ctex 的 fontset=windowsnew 参数无法支持，会导致编译超时，需要换成别的或删掉。
+**Q: 关于在线编译 PDF**
+
+A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [overleaf](https://www.overleaf.com/) 在线编辑 tex 文件。overleaf 的默认编译引擎是 pdflatex ，无法编译 marktex生成的文件。需要点击左上角的“菜单”图标，修改编译器，选择 xelatex 。
 
 
 # 特性介绍
