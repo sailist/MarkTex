@@ -115,8 +115,8 @@ def de_formula(s: env.Formula):
 
     data = []
     for line in code:
-        line = re.sub(chchar, lambda x: rf"\text{{{x.group(1)}}}", line)
-        data.append(NoEscape(f"{line}\\\\"))
+        line = re.sub(chchar, lambda x: r"\text{{{}}}".format(x.group(1)), line)
+        data.append(NoEscape("{}\\\\".format(line)))
 
     m = Math(data=data)
     return m
@@ -140,14 +140,13 @@ def de_table(s: env.Table):
     # c.append(NoEscape(r"\newlength\q"))
     c.append(
         NoEscape(
-            rf"\setlength\tablewidth{{\dimexpr (\textwidth -{2 * col}\tabcolsep)}}"))
+            r"\setlength\tablewidth{{\dimexpr (\textwidth -{}\tabcolsep)}}".format(2 * col)))
     c.append(NoEscape(r"\arrayrulecolor{tablelinegray!75}"))
     c.append(NoEscape(r"\rowcolors{2}{tablerowgray}{white}"))
 
     ratios = s.cacu_col_ratio()
-    # format = "|".join([rf"p{{{r}\textwidth}}<{{\centering}}" for r in ratios])
-    format = "|".join([rf"p{{{r}\tablewidth}}<{{\centering}}" for r in ratios])
-    format = f"|{format}|"
+    format = "|".join([r"p{{{r}\tablewidth}}<{{\centering}}".format(r=r) for r in ratios])
+    format = "|{format}|".format(format=format)
 
     t = Tabular(format)
     t.add_hline()
@@ -212,7 +211,7 @@ def de_image(s: lines.Image):
 
     c = Center()
     if isinstance(s.parent, env.Quote):
-        c.append(NoEscape(rf"\includegraphics[width=0.8\textwidth]{{{img_path}}}"))
+        c.append(NoEscape(r"\includegraphics[width=0.8\textwidth]{{{img_path}}}".format(img_path=img_path)))
     else:
         fig = Figure(position=config.fig_position)
         fig.add_image(img_path, placement='')

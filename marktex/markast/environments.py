@@ -341,7 +341,7 @@ class Table(Environ):
             if col_num is None:
                 col_num = len(cols)
             elif col_num != len(cols):
-                raise Exception(f"Tabel's column num must be equal,but {len(cols)}")
+                raise Exception("Tabel's column num must be equal,but {}".format(len(cols)))
 
             if col_max_lens is None:
                 col_max_lens = [len(i) for i in cols]
@@ -397,7 +397,7 @@ class Table(Environ):
         col_max_lens = [min(i, 10) for i in self.col_max_lens]
         ratio = [i / sum(col_max_lens) for i in col_max_lens]
 
-        return [f"{i:.3f}" for i in ratio]
+        return ["{:.3f}".format(i) for i in ratio]
 
 
 def parse_env(lines, istart=None, iend=None, matchers=None):

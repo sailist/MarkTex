@@ -85,5 +85,5 @@ for mdfile, opath in zip(mdfiles, output_paths):
     else:
         api.convert(mdfile, output_dir=opath, templete=templete)
 
-print(f"[info*]convert finished.")
+print("[info*]convert finished.")
 exit(0)

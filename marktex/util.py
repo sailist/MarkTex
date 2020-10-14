@@ -35,23 +35,23 @@ class ImageTool:
             ext = "png"
             import matplotlib.pyplot as plt
             pimg = plt.imread(pref)
-            newf = os.path.join(fdir, f"{mmd.hexdigest()}.{ext}")
+            newf = os.path.join(fdir, "{}.{}".format(mmd.hexdigest(), ext))
             newf = os.path.abspath(newf)
             plt.imsave(newf, pimg)
             newf = norm_path(newf)
             return newf
 
-        newf = os.path.join(fdir, f"{mmd.hexdigest()}{ext}")
+        newf = os.path.join(fdir, "{}{}".format(mmd.hexdigest(), ext))
         newf = os.path.abspath(newf)
 
         if os.path.exists(newf) and ImageTool.equal(pref, newf):
-            print(f"Have cache, checked.")
+            print("Have cache, checked.")
             newf = norm_path(newf)
             return newf
         else:
             shutil.copy2(pref, newf)
 
-        print(f"Image is local file, move it \tfrom:{pref}\tto:{newf}")
+        print("Image is local file, move it \tfrom:{}\tto:{}".format(pref, newf))
         newf = norm_path(newf)
         return newf
 
@@ -64,7 +64,7 @@ class ImageTool:
         :param fdir:
         :return:
         '''
-        print(f"\rCheck Image:{url}.")
+        print("\rCheck Image:{}.".format(url))
         os.makedirs(fdir, exist_ok=True)
         path_like = os.path.join(config.input_dir, url)
 
@@ -77,14 +77,14 @@ class ImageTool:
         mmd = md5()
         mmd.update(url.encode())
 
-        fpre = os.path.join(f"{mmd.hexdigest()}")
+        fpre = os.path.join("{}".format(mmd.hexdigest()))
 
         fs = os.listdir(fdir)
         prefs = [os.path.splitext(f)[0] for f in fs]
 
         # fname = os.path.abspath(fname)
         if fpre in prefs:
-            print(f"Have cache, checked.")
+            print("Have cache, checked.")
             i = prefs.index(fpre)
             fname = os.path.join(fdir, fs[i])
             return fname
@@ -95,7 +95,7 @@ class ImageTool:
             fs = os.listdir(fdir)
             prefs = [os.path.splitext(f)[0] for f in fs]
             if fpre in prefs:
-                print(f"Have cache, checked.")
+                print("Have cache, checked.")
                 i = prefs.index(fpre)
                 fname = os.path.join(fdir, fs[i])
                 return norm_path(fname)
@@ -105,24 +105,27 @@ class ImageTool:
                 if response.status_code == 200:
                     ext = imghdr.what(None, response.content)
                     if ext not in ["jpg", "png"]:
-                        tempf = os.path.join(fdir, f"temp.{ext}")
+                        tempf = os.path.join(fdir, "temp.{}".format(ext))
                         with open(tempf, "wb") as w:
                             w.write(response.content)
 
                         tmpi = plt.imread(tempf)
 
-                        fname = os.path.join(fdir, f"{fpre}.png")
+                        fname = os.path.join(fdir, "{}.png".format(fpre))
                         plt.imsave(fname, tmpi)
                         return norm_path(fname)
                     else:
-                        fname = os.path.join(fdir, f"{fpre}.{ext}")
+                        fname = os.path.join(fdir, "{}.{}".format(fpre, ext))
                         with open(fname, "wb") as w:
                             w.write(response.content)
 
                         return norm_path(fname)
             except:
-                print(f"\r\ttimeout retry {i + 1}/{retry}, "
-                      f"you can manually download and save it in {fdir} with name {fpre}.[ext]", end="\0", flush=True)
+                print("\r\ttimeout retry {}/{}, "
+                      "you can manually download and save it in {} with name {}.[ext]".format(
+                    i + 1, retry, fdir, fpre),
+                    end="\0",
+                    flush=True)
 
         return None
 

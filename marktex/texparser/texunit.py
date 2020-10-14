@@ -23,7 +23,7 @@ class CodeEnvironment(Environment):
 
         self.mode = mode
 
-        options = [NoEscape(f"{mode.capitalize()}")]
+        options = [NoEscape("{}".format(mode.capitalize()))]
         super().__init__(options=options, arguments=None, start_arguments=None, **kwargs)
 
 
@@ -140,5 +140,5 @@ def in_code(s):
 
 
 def in_formula(s):
-    s = re.sub(chchar, lambda x: rf"\text{{{x.group(1)}}}", s)
-    return NoEscape(f" ${s}$ ")
+    s = re.sub(chchar, lambda x: r"\text{{{}}}".format(x.group(1)), s)
+    return NoEscape(" ${s}$ ".format(s=s))
