@@ -30,8 +30,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/example/yaml_head.md" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/example/yaml_head.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/markast/environments.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/environments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/t.py" beforeDir="false" afterPath="$PROJECT_DIR$/t.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +290,7 @@
       <workItem from="1610591662060" duration="3130000" />
       <workItem from="1616811297669" duration="2976000" />
       <workItem from="1616834074977" duration="1675000" />
-      <workItem from="1616857428895" duration="1012000" />
+      <workItem from="1616857428895" duration="2469000" />
     </task>
     <task id="LOCAL-00001" summary="fix this code">
       <created>1602207956944</created>
@@ -461,22 +459,22 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="423" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1610607732831" />
-    <state width="1237" height="220" key="GridCell.Tab.0.bottom" timestamp="1616858421085">
+    <state width="1237" height="173" key="GridCell.Tab.0.bottom" timestamp="1616860819884">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="220" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616858421085" />
-    <state width="1237" height="220" key="GridCell.Tab.0.center" timestamp="1616858421084">
+    <state width="1237" height="173" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616860819884" />
+    <state width="1237" height="173" key="GridCell.Tab.0.center" timestamp="1616860819884">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="220" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616858421084" />
-    <state width="1237" height="220" key="GridCell.Tab.0.left" timestamp="1616858421084">
+    <state width="1237" height="173" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616860819884" />
+    <state width="1237" height="173" key="GridCell.Tab.0.left" timestamp="1616860819884">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="220" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616858421084" />
-    <state width="1237" height="220" key="GridCell.Tab.0.right" timestamp="1616858421084">
+    <state width="1237" height="173" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616860819884" />
+    <state width="1237" height="173" key="GridCell.Tab.0.right" timestamp="1616860819884">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="220" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616858421084" />
+    <state width="1237" height="173" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616860819884" />
     <state width="1237" height="237" key="GridCell.Tab.1.bottom" timestamp="1616814276735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -509,6 +507,10 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="441" y="64" width="573" height="616" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1616812882564" />
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup" timestamp="1616860649865">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="303" y="1" width="672" height="678" key="search.everywhere.popup/0.0.1280.680@0.0.1280.680" timestamp="1616860649865" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,16 +530,6 @@
           <line>142</line>
           <option name="timeStamp" value="5" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/marktex/markast/environments.py</url>
-          <line>118</line>
-          <option name="timeStamp" value="12" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/marktex/markast/environments.py</url>
-          <line>114</line>
-          <option name="timeStamp" value="13" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <watches-manager>
@@ -555,6 +547,6 @@
     <SUITE FILE_PATH="coverage/MarkTex$dd.coverage" NAME="dd Coverage Results" MODIFIED="1616812883805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1616811309098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MarkTex$temp.coverage" NAME="temp Coverage Results" MODIFIED="1571661818171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MarkTex$t.coverage" NAME="t Coverage Results" MODIFIED="1616858421061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MarkTex$t.coverage" NAME="t Coverage Results" MODIFIED="1616860819872" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

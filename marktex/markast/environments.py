@@ -224,10 +224,30 @@ class MultiBox(Environ):  # 复选框
         :return:
         """
         lines = self.inner[:]
-        matched = [re.match(self.RE, l) for l in lines]
-        for match in matched:
-            self.children_flag.append([match.group(1), match.group(2)])
-            self.children.append(match.group(3))
+        for line in lines:
+            match = re.match(self.RE, line)
+            if match is not None:
+                self.children_flag.append([match.group(1), match.group(2)])
+                self.children.append(match.group(3))
+            else:
+                match = re.match(Itemize.RE, line)
+                if match is None:
+                    match = re.match(Enumerate.RE, line)
+                self.children_flag.append([match.group(1), None])
+                self.children.append(match.group(2))
+
+    @classmethod
+    def match(cls, lines: List[str], start, end):
+        for id in range(start, end):
+            if re.search(cls.RE, lines[id]):
+                eid = id + 1
+
+                while eid < end and (re.search(cls.END_RE, lines[eid]) or
+                                     re.search(Itemize.END_RE, lines[eid]) or
+                                     re.search(Enumerate.END_RE, lines[eid])):
+                    eid += 1
+                return Match(True, id, eid)
+        return Match(False, -1, -1)
 
 
 @regist_func(registed_env)

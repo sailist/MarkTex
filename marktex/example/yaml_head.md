@@ -19,6 +19,7 @@ asd code
 
 
  - [ ] todoobject
+    - simaoi
  - [ ] todoobject
     - [x] todoobject2
         - [x] todoobject2
@@ -28,3 +29,5 @@ asd code
  - [ ] todoobject    
  
  
+ 
+ - base object
