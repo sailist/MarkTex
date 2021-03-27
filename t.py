@@ -13,6 +13,7 @@ ast = parser.parse_md_ast_from_file('marktex/example/yaml_head.md')
 # ast = parser.parse_md_ast_from_file('marktex/example/form.md')
 
 print(ast[4].check_levels)
+print(ast[6].check_levels)
 parser.print_ast(ast)
 # doc = parser.ast_to_texdoc(ast)
 # print(doc.dumps())

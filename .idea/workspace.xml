@@ -27,38 +27,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="update examples">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b969f44-68df-446b-85a4-8daebff33d7d.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b969f44-68df-446b-85a4-8daebff33d7d/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b969f44-68df-446b-85a4-8daebff33d7d/storage_v2/_src_/schema/main.uQUzAA.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dd.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/marktex/example/yaml_head.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/marktex/markfmt/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/all_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/code_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/footnote_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/formula_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/image_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/imgs/1c59f8ef2aa3c5e527a22b7c258489d6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/imgs/23a8048a54a8f32cd7c0573a1e52f239.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/imgs/38c1cb2db4236befd1b8075f1cf21e34.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/imgs/temp.gif" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/itemize_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/normal_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/quote_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/show.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/outputs/table_example.tex" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MANIFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/MANIFEST.in" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/example/yaml_head.md" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/example/yaml_head.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/marktex/markast/environments.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/environments.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/texparser/texparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texparser/texparser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/texparser/texunit.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texparser/texunit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/marktex/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/run_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_example.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/t.py" beforeDir="false" afterPath="$PROJECT_DIR$/t.py" afterDir="false" />
     </list>
@@ -141,6 +112,9 @@
     </key>
   </component>
   <component name="RunManager" selected="Python.t">
+    <configuration name="yaml_head.md" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://119.23.70.249/marktex/example/yaml_head.md">
+      <method v="2" />
+    </configuration>
     <configuration name="dd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="marktex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -229,42 +203,20 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="xmls" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="marktex" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/marktex/markast" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/marktex/markast/xmls.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <list>
       <item itemvalue="Python.run_example" />
-      <item itemvalue="Python.xmls" />
       <item itemvalue="Python.temp" />
       <item itemvalue="Python.t" />
       <item itemvalue="Python.dd" />
+      <item itemvalue="JavaScript Debug.yaml_head.md" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.t" />
+        <item itemvalue="JavaScript Debug.yaml_head.md" />
         <item itemvalue="Python.dd" />
         <item itemvalue="Python.run_example" />
         <item itemvalue="Python.temp" />
-        <item itemvalue="Python.xmls" />
       </list>
     </recent_temporary>
   </component>
@@ -338,7 +290,9 @@
       <workItem from="1609418295590" duration="753000" />
       <workItem from="1610438930311" duration="1295000" />
       <workItem from="1610591662060" duration="3130000" />
-      <workItem from="1616811297669" duration="2169000" />
+      <workItem from="1616811297669" duration="2976000" />
+      <workItem from="1616834074977" duration="1675000" />
+      <workItem from="1616857428895" duration="1012000" />
     </task>
     <task id="LOCAL-00001" summary="fix this code">
       <created>1602207956944</created>
@@ -507,50 +461,50 @@
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="423" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1610607732831" />
-    <state width="1237" height="228" key="GridCell.Tab.0.bottom" timestamp="1616813414694">
+    <state width="1237" height="220" key="GridCell.Tab.0.bottom" timestamp="1616858421085">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="228" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
-    <state width="1237" height="228" key="GridCell.Tab.0.center" timestamp="1616813414694">
+    <state width="1237" height="220" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616858421085" />
+    <state width="1237" height="220" key="GridCell.Tab.0.center" timestamp="1616858421084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="228" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
-    <state width="1237" height="228" key="GridCell.Tab.0.left" timestamp="1616813414694">
+    <state width="1237" height="220" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616858421084" />
+    <state width="1237" height="220" key="GridCell.Tab.0.left" timestamp="1616858421084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="228" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
-    <state width="1237" height="228" key="GridCell.Tab.0.right" timestamp="1616813414694">
+    <state width="1237" height="220" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616858421084" />
+    <state width="1237" height="220" key="GridCell.Tab.0.right" timestamp="1616858421084">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="228" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
-    <state width="1237" height="237" key="GridCell.Tab.1.bottom" timestamp="1616813343302">
+    <state width="1237" height="220" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616858421084" />
+    <state width="1237" height="237" key="GridCell.Tab.1.bottom" timestamp="1616814276735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="237" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616813343302" />
-    <state width="1237" height="237" key="GridCell.Tab.1.center" timestamp="1616813343301">
+    <state width="1237" height="237" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616814276735" />
+    <state width="1237" height="237" key="GridCell.Tab.1.center" timestamp="1616814276735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="237" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1616813343301" />
-    <state width="1237" height="237" key="GridCell.Tab.1.left" timestamp="1616813343301">
+    <state width="1237" height="237" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1616814276735" />
+    <state width="1237" height="237" key="GridCell.Tab.1.left" timestamp="1616814276735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="237" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1616813343301" />
-    <state width="1237" height="237" key="GridCell.Tab.1.right" timestamp="1616813343301">
+    <state width="1237" height="237" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1616814276735" />
+    <state width="1237" height="237" key="GridCell.Tab.1.right" timestamp="1616814276735">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state width="1237" height="237" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1616813343301" />
+    <state width="1237" height="237" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1616814276735" />
     <state x="221" y="0" key="com.intellij.database.dbimport.ImportDialog" timestamp="1610607684615">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="221" y="0" key="com.intellij.database.dbimport.ImportDialog/0.0.1280.680@0.0.1280.680" timestamp="1610607684615" />
-    <state x="503" y="123" width="1095" height="495" key="dock-window-1" timestamp="1616813468407">
+    <state x="503" y="123" width="1095" height="495" key="dock-window-1" timestamp="1616834375230">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="503" y="123" width="1095" height="495" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1616813468407" />
-    <state x="93" y="93" width="1095" height="495" key="dock-window-2" timestamp="1616813468407">
+    <state x="503" y="123" width="1095" height="495" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1616834375230" />
+    <state x="93" y="93" width="1095" height="495" key="dock-window-2" timestamp="1616834375230">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="93" y="93" width="1095" height="495" key="dock-window-2/0.0.1280.680@0.0.1280.680" timestamp="1616813468407" />
+    <state x="93" y="93" width="1095" height="495" key="dock-window-2/0.0.1280.680@0.0.1280.680" timestamp="1616834375230" />
     <state x="441" y="64" width="573" height="616" key="find.popup" timestamp="1616812882564">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -575,19 +529,14 @@
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/t.py</url>
-          <line>15</line>
-          <option name="timeStamp" value="9" />
+          <url>file://$PROJECT_DIR$/marktex/markast/environments.py</url>
+          <line>118</line>
+          <option name="timeStamp" value="12" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/marktex/markast/environments.py</url>
-          <line>187</line>
-          <option name="timeStamp" value="10" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/marktex/markast/environments.py</url>
-          <line>225</line>
-          <option name="timeStamp" value="11" />
+          <line>114</line>
+          <option name="timeStamp" value="13" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -598,6 +547,7 @@
         <watch expression="chchar" language="Python" />
         <watch expression="ast[4]" language="Python" />
         <watch expression="self.children_flag" language="Python" />
+        <watch expression="self.inner[1:-1]" language="Python" />
       </configuration>
     </watches-manager>
   </component>
@@ -605,6 +555,6 @@
     <SUITE FILE_PATH="coverage/MarkTex$dd.coverage" NAME="dd Coverage Results" MODIFIED="1616812883805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1616811309098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MarkTex$temp.coverage" NAME="temp Coverage Results" MODIFIED="1571661818171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MarkTex$t.coverage" NAME="t Coverage Results" MODIFIED="1616813360739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MarkTex$t.coverage" NAME="t Coverage Results" MODIFIED="1616858421061" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

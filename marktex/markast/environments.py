@@ -197,20 +197,13 @@ class MultiBox(Environ):  # 复选框
         res = []
         for space, _ in self.children_flag:
             ss = len(space)
+            while len(levels) > 0 and ss < levels[-1]:
+                levels.pop()
             if len(levels) == 0:
                 levels.append(ss)
-                res.append(len(levels))
-            else:
-                if ss not in levels:
-                    if ss > levels[-1]:
-                        levels.append(ss)
-                        res.append(len(levels))
-                    else:
-                        for i in range(len(levels) - 1):
-                            if ss > levels[i] and ss < levels[i + 1]:
-                                res.append(i)
-                else:
-                    res.append(levels.index(ss) + 1)
+            elif ss > levels[-1]:
+                levels.append(ss)
+            res.append(len(levels))
         return res
 
     @property
