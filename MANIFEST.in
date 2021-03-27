@@ -1,2 +1,3 @@
 include marktex/markenv.tex
+include marktex/texparser/sign_to_tex.txt
 recursive-include marktex/example *.md *.png *.tex *.pdf

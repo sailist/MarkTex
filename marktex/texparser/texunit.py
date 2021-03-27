@@ -3,7 +3,6 @@ from marktex.util import config
 from marktex import re
 from pylatex import Document as TDoc
 from pylatex.base_classes import Environment, Container
-from marktex.util import chchar
 
 
 class CodeEnvironment(Environment):
@@ -139,6 +138,7 @@ def in_code(s):
     return NoEscape(r"\inlang{{\small{{{}}}}}".format(escape_latex(s)))
 
 
+chchar = re.compile("([^\x00-\xff]+)")
 def in_formula(s):
     s = re.sub(chchar, lambda x: r"\text{{{}}}".format(x.group(1)), s)
     return NoEscape(" ${s}$ ".format(s=s))

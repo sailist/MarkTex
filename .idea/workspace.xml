@@ -1,7 +1,67 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="BRANCH:origin/08x" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </select>
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="fix this code" />
+    <list default="true" id="4a5e1d8d-bf0f-40e4-97dd-12533415e22e" name="Default" comment="update examples">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b969f44-68df-446b-85a4-8daebff33d7d.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b969f44-68df-446b-85a4-8daebff33d7d/storage_v2/_src_/schema/main.uQUzAA.meta" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources/0b969f44-68df-446b-85a4-8daebff33d7d/storage_v2/_src_/schema/main.uQUzAA.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dd.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marktex/example/yaml_head.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/marktex/markfmt/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/all_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/code_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/footnote_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/formula_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/image_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/imgs/1c59f8ef2aa3c5e527a22b7c258489d6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/imgs/23a8048a54a8f32cd7c0573a1e52f239.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/imgs/38c1cb2db4236befd1b8075f1cf21e34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/imgs/temp.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/itemize_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/normal_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/quote_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/show.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/outputs/table_example.tex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MANIFEST.in" beforeDir="false" afterPath="$PROJECT_DIR$/MANIFEST.in" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/markast/environments.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/markast/environments.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/texparser/texparser.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texparser/texparser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/texparser/texunit.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/texparser/texunit.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/marktex/util.py" beforeDir="false" afterPath="$PROJECT_DIR$/marktex/util.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/run_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/run_example.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/setup.py" beforeDir="false" afterPath="$PROJECT_DIR$/setup.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/t.py" beforeDir="false" afterPath="$PROJECT_DIR$/t.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -59,9 +119,10 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../si智库/知识见解LaTeX模板-2019年11月6日" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="settings.editor.selected.configurable" value="editing.templates" />
   </component>
@@ -72,13 +133,36 @@
       <recent name="C:\E\jupyter_notebook\marktex\marktex\markast" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Python\MarkTex" />
+      <recent name="E:\Python\MarkTex\marktex" />
       <recent name="E:\Python\MarkTex\output\images" />
       <recent name="E:\Python\MarkTex\marktex\example" />
       <recent name="C:\E\jupyter_notebook\marktex" />
-      <recent name="C:\E\jupyter_notebook\marktex\marktex\example" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.run_example">
+  <component name="RunManager" selected="Python.t">
+    <configuration name="dd" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="marktex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/dd.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="run_example" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="marktex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -101,6 +185,28 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="t" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="marktex" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/t.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="temp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="marktex" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -115,50 +221,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/temp.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="test" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="marktex" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="utils" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="marktex" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/marktex" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="C:\E\jupyter_notebook\marktex\marktex\markast\utils.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -190,19 +252,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.test" />
-      <item itemvalue="Python.utils" />
       <item itemvalue="Python.run_example" />
       <item itemvalue="Python.xmls" />
       <item itemvalue="Python.temp" />
+      <item itemvalue="Python.t" />
+      <item itemvalue="Python.dd" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.t" />
+        <item itemvalue="Python.dd" />
         <item itemvalue="Python.run_example" />
         <item itemvalue="Python.temp" />
         <item itemvalue="Python.xmls" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.utils" />
       </list>
     </recent_temporary>
   </component>
@@ -264,6 +326,19 @@
       <workItem from="1602078514280" duration="1104000" />
       <workItem from="1602121006921" duration="16365000" />
       <workItem from="1602207873546" duration="345000" />
+      <workItem from="1602212563111" duration="89000" />
+      <workItem from="1602227730847" duration="599000" />
+      <workItem from="1602239901693" duration="258000" />
+      <workItem from="1602250283325" duration="726000" />
+      <workItem from="1602682761119" duration="2290000" />
+      <workItem from="1602750318446" duration="30000" />
+      <workItem from="1603098921319" duration="1373000" />
+      <workItem from="1606356415932" duration="1712000" />
+      <workItem from="1608708148143" duration="1876000" />
+      <workItem from="1609418295590" duration="753000" />
+      <workItem from="1610438930311" duration="1295000" />
+      <workItem from="1610591662060" duration="3130000" />
+      <workItem from="1616811297669" duration="2169000" />
     </task>
     <task id="LOCAL-00001" summary="fix this code">
       <created>1602207956944</created>
@@ -272,7 +347,112 @@
       <option name="project" value="LOCAL" />
       <updated>1602207956944</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update imgs">
+      <created>1602208894647</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1602208894647</updated>
+    </task>
+    <task id="LOCAL-00003" summary="code refactoring, put old version code in branch 08x">
+      <created>1602209109800</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1602209109800</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update examples">
+      <created>1602209157220</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1602209157220</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update other files">
+      <created>1602209197374</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1602209197374</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update examples">
+      <created>1602209392738</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602209392738</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update">
+      <created>1602211240484</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1602211240484</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update">
+      <created>1602211246602</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602211246602</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update docs">
+      <created>1602211432250</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1602211432250</updated>
+    </task>
+    <task id="LOCAL-00010" summary="update texenv">
+      <created>1602211919863</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1602211919863</updated>
+    </task>
+    <task id="LOCAL-00011" summary="update docs">
+      <created>1602211951876</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602211951876</updated>
+    </task>
+    <task id="LOCAL-00012" summary="update imgs">
+      <created>1602211965411</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602211965411</updated>
+    </task>
+    <task id="LOCAL-00013" summary="update docs">
+      <created>1602212636697</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1602212636697</updated>
+    </task>
+    <task id="LOCAL-00014" summary="update examples">
+      <created>1602227792203</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1602227792203</updated>
+    </task>
+    <task id="LOCAL-00015" summary="update examples">
+      <created>1602227799273</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1602227799273</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add python3.5 support(format problem)">
+      <created>1602683270904</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1602683270904</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -289,7 +469,7 @@
                   <entry key="branch">
                     <value>
                       <list>
-                        <option value="08x" />
+                        <option value="origin/08x" />
                       </list>
                     </value>
                   </entry>
@@ -304,20 +484,127 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="fix this code" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix this code" />
+    <MESSAGE value="code refactoring, put old version code in branch 08x" />
+    <MESSAGE value="update other files" />
+    <MESSAGE value="update" />
+    <MESSAGE value="update texenv" />
+    <MESSAGE value="update imgs" />
+    <MESSAGE value="update docs" />
+    <MESSAGE value="update examples" />
+    <MESSAGE value="add python3.5 support(format problem)" />
+    <option name="LAST_COMMIT_MESSAGE" value="add python3.5 support(format problem)" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="661" y="252" width="598" height="536" key="find.popup" timestamp="1602168074181">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="239" y="0" width="807" height="680" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1610607733486">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="661" y="252" width="598" height="536" key="find.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602168074181" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1602156178007">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="239" y="0" width="807" height="680" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1280.680@0.0.1280.680" timestamp="1610607733486" />
+    <state x="351" y="141" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1610607689937">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1602156178007" />
+    <state x="351" y="141" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1280.680@0.0.1280.680" timestamp="1610607689937" />
+    <state x="423" y="95" key="FileChooserDialogImpl" timestamp="1610607732831">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="423" y="95" key="FileChooserDialogImpl/0.0.1280.680@0.0.1280.680" timestamp="1610607732831" />
+    <state width="1237" height="228" key="GridCell.Tab.0.bottom" timestamp="1616813414694">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="228" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
+    <state width="1237" height="228" key="GridCell.Tab.0.center" timestamp="1616813414694">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="228" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
+    <state width="1237" height="228" key="GridCell.Tab.0.left" timestamp="1616813414694">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="228" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
+    <state width="1237" height="228" key="GridCell.Tab.0.right" timestamp="1616813414694">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="228" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1616813414694" />
+    <state width="1237" height="237" key="GridCell.Tab.1.bottom" timestamp="1616813343302">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="237" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1616813343302" />
+    <state width="1237" height="237" key="GridCell.Tab.1.center" timestamp="1616813343301">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="237" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1616813343301" />
+    <state width="1237" height="237" key="GridCell.Tab.1.left" timestamp="1616813343301">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="237" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1616813343301" />
+    <state width="1237" height="237" key="GridCell.Tab.1.right" timestamp="1616813343301">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="237" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1616813343301" />
+    <state x="221" y="0" key="com.intellij.database.dbimport.ImportDialog" timestamp="1610607684615">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="221" y="0" key="com.intellij.database.dbimport.ImportDialog/0.0.1280.680@0.0.1280.680" timestamp="1610607684615" />
+    <state x="503" y="123" width="1095" height="495" key="dock-window-1" timestamp="1616813468407">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="503" y="123" width="1095" height="495" key="dock-window-1/0.0.1280.680@0.0.1280.680" timestamp="1616813468407" />
+    <state x="93" y="93" width="1095" height="495" key="dock-window-2" timestamp="1616813468407">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="93" y="93" width="1095" height="495" key="dock-window-2/0.0.1280.680@0.0.1280.680" timestamp="1616813468407" />
+    <state x="441" y="64" width="573" height="616" key="find.popup" timestamp="1616812882564">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="441" y="64" width="573" height="616" key="find.popup/0.0.1280.680@0.0.1280.680" timestamp="1616812882564" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/marktex/texparser/texparser.py</url>
+          <line>252</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/marktex/texparser/texparser.py</url>
+          <line>169</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/marktex/texparser/texunit.py</url>
+          <line>142</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/t.py</url>
+          <line>15</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/marktex/markast/environments.py</url>
+          <line>187</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/marktex/markast/environments.py</url>
+          <line>225</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="c.parent" language="Python" />
+        <watch expression="re.sub(chchar, lambda x: r&quot;\text{{{}}}&quot;.format(x.group(1)), s)" language="Python" />
+        <watch expression="chchar" language="Python" />
+        <watch expression="ast[4]" language="Python" />
+        <watch expression="self.children_flag" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1573559977354" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MarkTex$dd.coverage" NAME="dd Coverage Results" MODIFIED="1616812883805" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MarkTex$run_example.coverage" NAME="run_example Coverage Results" MODIFIED="1616811309098" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MarkTex$temp.coverage" NAME="temp Coverage Results" MODIFIED="1571661818171" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MarkTex$t.coverage" NAME="t Coverage Results" MODIFIED="1616813360739" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>

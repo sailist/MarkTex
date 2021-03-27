@@ -2,9 +2,10 @@ from setuptools import setup, find_packages
 
 long_description = ""  # 这里可以导入外部的README.md
 
+
 setup(
     name='marktex',
-    version='0.9.5.dev1',
+    version='0.9.6.1',
     description='convert markdown 2 latex code perfactly,support Chinese Language',
     long_description=long_description,
     url='https://github.com/sailist/MarkTex',

@@ -1,0 +1,2411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="zotero">
+  <database-model serializer="dbm" dbms="SQLITE" family-id="SQLITE" format-version="4.19">
+    <root id="1">
+      <ServerVersion>3.25.1</ServerVersion>
+    </root>
+    <schema id="2" parent="1" name="main">
+      <Current>1</Current>
+    </schema>
+    <collation id="3" parent="1" name="BINARY"/>
+    <collation id="4" parent="1" name="NOCASE"/>
+    <collation id="5" parent="1" name="RTRIM"/>
+    <table id="6" parent="2" name="annotations"/>
+    <table id="7" parent="2" name="baseFieldMappings"/>
+    <table id="8" parent="2" name="baseFieldMappingsCombined"/>
+    <table id="9" parent="2" name="charsets"/>
+    <table id="10" parent="2" name="collectionItems"/>
+    <table id="11" parent="2" name="collectionRelations"/>
+    <table id="12" parent="2" name="collections"/>
+    <table id="13" parent="2" name="creatorTypes"/>
+    <table id="14" parent="2" name="creators"/>
+    <table id="15" parent="2" name="customBaseFieldMappings"/>
+    <table id="16" parent="2" name="customFields"/>
+    <table id="17" parent="2" name="customItemTypeFields"/>
+    <table id="18" parent="2" name="customItemTypes"/>
+    <table id="19" parent="2" name="dbDebug1"/>
+    <table id="20" parent="2" name="deletedItems"/>
+    <table id="21" parent="2" name="feedItems"/>
+    <table id="22" parent="2" name="feeds"/>
+    <table id="23" parent="2" name="fieldFormats"/>
+    <table id="24" parent="2" name="fields"/>
+    <table id="25" parent="2" name="fieldsCombined"/>
+    <table id="26" parent="2" name="fileTypeMimeTypes"/>
+    <table id="27" parent="2" name="fileTypes"/>
+    <table id="28" parent="2" name="fulltextItemWords"/>
+    <table id="29" parent="2" name="fulltextItems"/>
+    <table id="30" parent="2" name="fulltextWords"/>
+    <table id="31" parent="2" name="groupItems"/>
+    <table id="32" parent="2" name="groups"/>
+    <table id="33" parent="2" name="highlights"/>
+    <table id="34" parent="2" name="itemAttachments"/>
+    <table id="35" parent="2" name="itemCreators"/>
+    <table id="36" parent="2" name="itemData"/>
+    <table id="37" parent="2" name="itemDataValues"/>
+    <table id="38" parent="2" name="itemNotes"/>
+    <table id="39" parent="2" name="itemRelations"/>
+    <table id="40" parent="2" name="itemTags"/>
+    <table id="41" parent="2" name="itemTypeCreatorTypes"/>
+    <table id="42" parent="2" name="itemTypeFields"/>
+    <table id="43" parent="2" name="itemTypeFieldsCombined"/>
+    <table id="44" parent="2" name="itemTypes"/>
+    <table id="45" parent="2" name="itemTypesCombined"/>
+    <table id="46" parent="2" name="items"/>
+    <table id="47" parent="2" name="libraries"/>
+    <table id="48" parent="2" name="proxies"/>
+    <table id="49" parent="2" name="proxyHosts"/>
+    <table id="50" parent="2" name="publicationsItems"/>
+    <table id="51" parent="2" name="relationPredicates"/>
+    <table id="52" parent="2" name="retractedItems"/>
+    <table id="53" parent="2" name="savedSearchConditions"/>
+    <table id="54" parent="2" name="savedSearches"/>
+    <table id="55" parent="2" name="settings"/>
+    <table id="56" parent="2" name="sqlite_master">
+      <System>1</System>
+    </table>
+    <table id="57" parent="2" name="storageDeleteLog"/>
+    <table id="58" parent="2" name="syncCache"/>
+    <table id="59" parent="2" name="syncDeleteLog"/>
+    <table id="60" parent="2" name="syncObjectTypes"/>
+    <table id="61" parent="2" name="syncQueue"/>
+    <table id="62" parent="2" name="syncedSettings"/>
+    <table id="63" parent="2" name="tags"/>
+    <table id="64" parent="2" name="translatorCache"/>
+    <table id="65" parent="2" name="users"/>
+    <table id="66" parent="2" name="version"/>
+    <column id="67" parent="6" name="annotationID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="68" parent="6" name="itemID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="69" parent="6" name="parent">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="70" parent="6" name="textNode">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="71" parent="6" name="offset">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="72" parent="6" name="x">
+      <Position>6</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="73" parent="6" name="y">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="74" parent="6" name="cols">
+      <Position>8</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="75" parent="6" name="rows">
+      <Position>9</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="76" parent="6" name="text">
+      <Position>10</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="77" parent="6" name="collapsed">
+      <Position>11</Position>
+      <DataType>BOOL|0s</DataType>
+    </column>
+    <column id="78" parent="6" name="dateModified">
+      <Position>12</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <index id="79" parent="6" name="annotations_itemID">
+      <ColNames>itemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="80" parent="6">
+      <ColNames>annotationID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="81" parent="6">
+      <ColNames>itemID</ColNames>
+      <RefTableName>itemAttachments</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="82" parent="7" name="itemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="83" parent="7" name="baseFieldID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="84" parent="7" name="fieldID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="85" parent="7" name="sqlite_autoindex_baseFieldMappings_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID
+baseFieldID
+fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="86" parent="7" name="baseFieldMappings_baseFieldID">
+      <ColNames>baseFieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="87" parent="7" name="baseFieldMappings_fieldID">
+      <ColNames>fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="88" parent="7">
+      <ColNames>itemTypeID
+baseFieldID
+fieldID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_baseFieldMappings_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="89" parent="7">
+      <ColNames>itemTypeID</ColNames>
+      <RefTableName>itemTypes</RefTableName>
+      <RefColNames>itemTypeID</RefColNames>
+    </foreign-key>
+    <foreign-key id="90" parent="7">
+      <ColNames>baseFieldID</ColNames>
+      <RefTableName>fields</RefTableName>
+      <RefColNames>fieldID</RefColNames>
+    </foreign-key>
+    <foreign-key id="91" parent="7">
+      <ColNames>fieldID</ColNames>
+      <RefTableName>fields</RefTableName>
+      <RefColNames>fieldID</RefColNames>
+    </foreign-key>
+    <column id="92" parent="8" name="itemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="93" parent="8" name="baseFieldID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="94" parent="8" name="fieldID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="95" parent="8" name="sqlite_autoindex_baseFieldMappingsCombined_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID
+baseFieldID
+fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="96" parent="8" name="baseFieldMappingsCombined_baseFieldID">
+      <ColNames>baseFieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="97" parent="8" name="baseFieldMappingsCombined_fieldID">
+      <ColNames>fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="98" parent="8">
+      <ColNames>itemTypeID
+baseFieldID
+fieldID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_baseFieldMappingsCombined_1</UnderlyingIndexName>
+    </key>
+    <column id="99" parent="9" name="charsetID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="100" parent="9" name="charset">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="101" parent="9" name="sqlite_autoindex_charsets_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>charset</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="102" parent="9" name="charsets_charset">
+      <ColNames>charset</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="103" parent="9">
+      <ColNames>charsetID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="104" parent="9">
+      <ColNames>charset</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_charsets_1</UnderlyingIndexName>
+    </key>
+    <trigger id="105" parent="10" name="fki_collectionItems_itemID_parentItemID">
+      <SourceTextLength>405</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <trigger id="106" parent="10" name="fki_collectionItems_libraryID">
+      <SourceTextLength>370</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <trigger id="107" parent="10" name="fku_collectionItems_itemID_parentItemID">
+      <SourceTextLength>415</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>U</Events>
+      <ColNames>itemID</ColNames>
+    </trigger>
+    <trigger id="108" parent="10" name="fku_collectionItems_libraryID">
+      <SourceTextLength>370</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>U</Events>
+    </trigger>
+    <column id="109" parent="10" name="collectionID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="110" parent="10" name="itemID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="111" parent="10" name="orderIndex">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="112" parent="10" name="sqlite_autoindex_collectionItems_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>collectionID
+itemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="113" parent="10" name="collectionItems_itemID">
+      <ColNames>itemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="114" parent="10">
+      <ColNames>collectionID
+itemID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_collectionItems_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="115" parent="10">
+      <ColNames>collectionID</ColNames>
+      <RefTableName>collections</RefTableName>
+      <RefColNames>collectionID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="116" parent="10">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="117" parent="11" name="collectionID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="118" parent="11" name="predicateID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="11" name="object">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="120" parent="11" name="sqlite_autoindex_collectionRelations_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>collectionID
+predicateID
+object</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="121" parent="11" name="collectionRelations_predicateID">
+      <ColNames>predicateID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="122" parent="11" name="collectionRelations_object">
+      <ColNames>object</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="123" parent="11">
+      <ColNames>collectionID
+predicateID
+object</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_collectionRelations_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="124" parent="11">
+      <ColNames>collectionID</ColNames>
+      <RefTableName>collections</RefTableName>
+      <RefColNames>collectionID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="125" parent="11">
+      <ColNames>predicateID</ColNames>
+      <RefTableName>relationPredicates</RefTableName>
+      <RefColNames>predicateID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <trigger id="126" parent="12" name="fki_collections_parentCollectionID_libraryID">
+      <SourceTextLength>398</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <trigger id="127" parent="12" name="fku_collections_parentCollectionID_libraryID">
+      <SourceTextLength>398</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>U</Events>
+    </trigger>
+    <column id="128" parent="12" name="collectionID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="129" parent="12" name="collectionName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="130" parent="12" name="parentCollectionID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <DefaultExpression>NULL</DefaultExpression>
+    </column>
+    <column id="131" parent="12" name="clientDateModified">
+      <Position>4</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="132" parent="12" name="libraryID">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="133" parent="12" name="key">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="134" parent="12" name="version">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="135" parent="12" name="synced">
+      <Position>8</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="136" parent="12" name="sqlite_autoindex_collections_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>libraryID
+key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="137" parent="12" name="collections_synced">
+      <ColNames>synced</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="138" parent="12">
+      <ColNames>collectionID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="139" parent="12">
+      <ColNames>libraryID
+key</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_collections_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="140" parent="12">
+      <ColNames>parentCollectionID</ColNames>
+      <RefTableName>collections</RefTableName>
+      <RefColNames>collectionID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="141" parent="12">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="142" parent="13" name="creatorTypeID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="143" parent="13" name="creatorType">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <key id="144" parent="13">
+      <ColNames>creatorTypeID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <trigger id="145" parent="14" name="insert_creators">
+      <SourceTextLength>182</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+      <Condition>NEW.firstName=&apos;&apos; AND NEW.lastName=&apos;&apos;</Condition>
+    </trigger>
+    <trigger id="146" parent="14" name="update_creators">
+      <SourceTextLength>182</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>U</Events>
+      <Condition>NEW.firstName=&apos;&apos; AND NEW.lastName=&apos;&apos;</Condition>
+    </trigger>
+    <column id="147" parent="14" name="creatorID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="148" parent="14" name="firstName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="149" parent="14" name="lastName">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="150" parent="14" name="fieldMode">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="151" parent="14" name="sqlite_autoindex_creators_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>lastName
+firstName
+fieldMode</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="152" parent="14">
+      <ColNames>creatorID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="153" parent="14">
+      <ColNames>lastName
+firstName
+fieldMode</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_creators_1</UnderlyingIndexName>
+    </key>
+    <column id="154" parent="15" name="customItemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="155" parent="15" name="baseFieldID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="156" parent="15" name="customFieldID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="157" parent="15" name="sqlite_autoindex_customBaseFieldMappings_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customItemTypeID
+baseFieldID
+customFieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="158" parent="15" name="customBaseFieldMappings_baseFieldID">
+      <ColNames>baseFieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="159" parent="15" name="customBaseFieldMappings_customFieldID">
+      <ColNames>customFieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="160" parent="15">
+      <ColNames>customItemTypeID
+baseFieldID
+customFieldID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_customBaseFieldMappings_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="161" parent="15">
+      <ColNames>customItemTypeID</ColNames>
+      <RefTableName>customItemTypes</RefTableName>
+      <RefColNames>customItemTypeID</RefColNames>
+    </foreign-key>
+    <foreign-key id="162" parent="15">
+      <ColNames>baseFieldID</ColNames>
+      <RefTableName>fields</RefTableName>
+      <RefColNames>fieldID</RefColNames>
+    </foreign-key>
+    <foreign-key id="163" parent="15">
+      <ColNames>customFieldID</ColNames>
+      <RefTableName>customFields</RefTableName>
+      <RefColNames>customFieldID</RefColNames>
+    </foreign-key>
+    <column id="164" parent="16" name="customFieldID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="165" parent="16" name="fieldName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="166" parent="16" name="label">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <key id="167" parent="16">
+      <ColNames>customFieldID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="168" parent="17" name="customItemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="169" parent="17" name="fieldID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="170" parent="17" name="customFieldID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="171" parent="17" name="hide">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="172" parent="17" name="orderIndex">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="173" parent="17" name="sqlite_autoindex_customItemTypeFields_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>customItemTypeID
+orderIndex</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="174" parent="17" name="customItemTypeFields_fieldID">
+      <ColNames>fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="175" parent="17" name="customItemTypeFields_customFieldID">
+      <ColNames>customFieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="176" parent="17">
+      <ColNames>customItemTypeID
+orderIndex</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_customItemTypeFields_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="177" parent="17">
+      <ColNames>customItemTypeID</ColNames>
+      <RefTableName>customItemTypes</RefTableName>
+      <RefColNames>customItemTypeID</RefColNames>
+    </foreign-key>
+    <foreign-key id="178" parent="17">
+      <ColNames>fieldID</ColNames>
+      <RefTableName>fields</RefTableName>
+      <RefColNames>fieldID</RefColNames>
+    </foreign-key>
+    <foreign-key id="179" parent="17">
+      <ColNames>customFieldID</ColNames>
+      <RefTableName>customFields</RefTableName>
+      <RefColNames>customFieldID</RefColNames>
+    </foreign-key>
+    <column id="180" parent="18" name="customItemTypeID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="181" parent="18" name="typeName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="182" parent="18" name="label">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="183" parent="18" name="display">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="184" parent="18" name="icon">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <key id="185" parent="18">
+      <ColNames>customItemTypeID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="186" parent="19" name="a">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="187" parent="19">
+      <ColNames>a</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="188" parent="20" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="189" parent="20" name="dateDeleted">
+      <Position>2</Position>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="190" parent="20" name="deletedItems_dateDeleted">
+      <ColNames>dateDeleted</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="191" parent="20">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="192" parent="20">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="193" parent="21" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="194" parent="21" name="guid">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="195" parent="21" name="readTime">
+      <Position>3</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <column id="196" parent="21" name="translatedTime">
+      <Position>4</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <index id="197" parent="21" name="sqlite_autoindex_feedItems_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>guid</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="198" parent="21">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="199" parent="21">
+      <ColNames>guid</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_feedItems_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="200" parent="21">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="201" parent="22" name="libraryID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="202" parent="22" name="name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="203" parent="22" name="url">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="204" parent="22" name="lastUpdate">
+      <Position>4</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <column id="205" parent="22" name="lastCheck">
+      <Position>5</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <column id="206" parent="22" name="lastCheckError">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="207" parent="22" name="cleanupReadAfter">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="208" parent="22" name="cleanupUnreadAfter">
+      <Position>8</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="209" parent="22" name="refreshInterval">
+      <Position>9</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="210" parent="22" name="sqlite_autoindex_feeds_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>url</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="211" parent="22">
+      <ColNames>libraryID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="212" parent="22">
+      <ColNames>url</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_feeds_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="213" parent="22">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="214" parent="23" name="fieldFormatID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="215" parent="23" name="regex">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="216" parent="23" name="isInteger">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <key id="217" parent="23">
+      <ColNames>fieldFormatID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="218" parent="24" name="fieldID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="219" parent="24" name="fieldName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="220" parent="24" name="fieldFormatID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <key id="221" parent="24">
+      <ColNames>fieldID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="222" parent="24">
+      <ColNames>fieldFormatID</ColNames>
+      <RefTableName>fieldFormats</RefTableName>
+      <RefColNames>fieldFormatID</RefColNames>
+    </foreign-key>
+    <column id="223" parent="25" name="fieldID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="224" parent="25" name="fieldName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="225" parent="25" name="label">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="226" parent="25" name="fieldFormatID">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="227" parent="25" name="custom">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="228" parent="25" name="sqlite_autoindex_fieldsCombined_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="229" parent="25">
+      <ColNames>fieldID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_fieldsCombined_1</UnderlyingIndexName>
+    </key>
+    <column id="230" parent="26" name="fileTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="231" parent="26" name="mimeType">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="232" parent="26" name="sqlite_autoindex_fileTypeMimeTypes_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fileTypeID
+mimeType</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="233" parent="26" name="fileTypeMimeTypes_mimeType">
+      <ColNames>mimeType</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="234" parent="26">
+      <ColNames>fileTypeID
+mimeType</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_fileTypeMimeTypes_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="235" parent="26">
+      <ColNames>fileTypeID</ColNames>
+      <RefTableName>fileTypes</RefTableName>
+      <RefColNames>fileTypeID</RefColNames>
+    </foreign-key>
+    <column id="236" parent="27" name="fileTypeID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="237" parent="27" name="fileType">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="238" parent="27" name="sqlite_autoindex_fileTypes_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fileType</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="239" parent="27" name="fileTypes_fileType">
+      <ColNames>fileType</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="240" parent="27">
+      <ColNames>fileTypeID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="241" parent="27">
+      <ColNames>fileType</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_fileTypes_1</UnderlyingIndexName>
+    </key>
+    <column id="242" parent="28" name="wordID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="243" parent="28" name="itemID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="244" parent="28" name="sqlite_autoindex_fulltextItemWords_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>wordID
+itemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="245" parent="28" name="fulltextItemWords_itemID">
+      <ColNames>itemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="246" parent="28">
+      <ColNames>wordID
+itemID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_fulltextItemWords_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="247" parent="28">
+      <ColNames>wordID</ColNames>
+      <RefTableName>fulltextWords</RefTableName>
+      <RefColNames>wordID</RefColNames>
+    </foreign-key>
+    <foreign-key id="248" parent="28">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="249" parent="29" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="250" parent="29" name="indexedPages">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="251" parent="29" name="totalPages">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="252" parent="29" name="indexedChars">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="253" parent="29" name="totalChars">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="254" parent="29" name="version">
+      <Position>6</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="255" parent="29" name="synced">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="256" parent="29" name="fulltextItems_version">
+      <ColNames>version</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="257" parent="29" name="fulltextItems_synced">
+      <ColNames>synced</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="258" parent="29">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="259" parent="29">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="260" parent="30" name="wordID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="261" parent="30" name="word">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="262" parent="30" name="sqlite_autoindex_fulltextWords_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>word</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="263" parent="30">
+      <ColNames>wordID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="264" parent="30">
+      <ColNames>word</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_fulltextWords_1</UnderlyingIndexName>
+    </key>
+    <column id="265" parent="31" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="266" parent="31" name="createdByUserID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="267" parent="31" name="lastModifiedByUserID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <key id="268" parent="31">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="269" parent="31">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="270" parent="31">
+      <ColNames>createdByUserID</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userID</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <foreign-key id="271" parent="31">
+      <ColNames>lastModifiedByUserID</ColNames>
+      <RefTableName>users</RefTableName>
+      <RefColNames>userID</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="272" parent="32" name="groupID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="273" parent="32" name="libraryID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="274" parent="32" name="name">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="275" parent="32" name="description">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="276" parent="32" name="version">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="277" parent="32" name="sqlite_autoindex_groups_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>libraryID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="278" parent="32">
+      <ColNames>groupID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="279" parent="32">
+      <ColNames>libraryID</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_groups_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="280" parent="32">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="281" parent="33" name="highlightID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="282" parent="33" name="itemID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="283" parent="33" name="startParent">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="284" parent="33" name="startTextNode">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="285" parent="33" name="startOffset">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="286" parent="33" name="endParent">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="287" parent="33" name="endTextNode">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="288" parent="33" name="endOffset">
+      <Position>8</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="289" parent="33" name="dateModified">
+      <Position>9</Position>
+      <DataType>DATE|0s</DataType>
+    </column>
+    <index id="290" parent="33" name="highlights_itemID">
+      <ColNames>itemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="291" parent="33">
+      <ColNames>highlightID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="292" parent="33">
+      <ColNames>itemID</ColNames>
+      <RefTableName>itemAttachments</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <trigger id="293" parent="34" name="fku_itemAttachments_parentItemID_collectionItems_itemID">
+      <SourceTextLength>266</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>U</Events>
+      <Condition>OLD.parentItemID IS NULL AND NEW.parentItemID IS NOT NULL</Condition>
+      <ColNames>parentItemID</ColNames>
+    </trigger>
+    <column id="294" parent="34" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="295" parent="34" name="parentItemID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="296" parent="34" name="linkMode">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="297" parent="34" name="contentType">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="298" parent="34" name="charsetID">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="299" parent="34" name="path">
+      <Position>6</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="300" parent="34" name="syncState">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="301" parent="34" name="storageModTime">
+      <Position>8</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="302" parent="34" name="storageHash">
+      <Position>9</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="303" parent="34" name="itemAttachments_parentItemID">
+      <ColNames>parentItemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="304" parent="34" name="itemAttachments_contentType">
+      <ColNames>contentType</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="305" parent="34" name="itemAttachments_charsetID">
+      <ColNames>charsetID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="306" parent="34" name="itemAttachments_syncState">
+      <ColNames>syncState</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="307" parent="34">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="308" parent="34">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="309" parent="34">
+      <ColNames>parentItemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="310" parent="34">
+      <ColNames>charsetID</ColNames>
+      <RefTableName>charsets</RefTableName>
+      <RefColNames>charsetID</RefColNames>
+      <OnDelete>set-null</OnDelete>
+    </foreign-key>
+    <column id="311" parent="35" name="itemID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="312" parent="35" name="creatorID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="313" parent="35" name="creatorTypeID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="314" parent="35" name="orderIndex">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="315" parent="35" name="sqlite_autoindex_itemCreators_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemID
+creatorID
+creatorTypeID
+orderIndex</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="316" parent="35" name="sqlite_autoindex_itemCreators_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemID
+orderIndex</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="317" parent="35" name="itemCreators_creatorTypeID">
+      <ColNames>creatorTypeID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="318" parent="35">
+      <ColNames>itemID
+creatorID
+creatorTypeID
+orderIndex</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemCreators_1</UnderlyingIndexName>
+    </key>
+    <key id="319" parent="35">
+      <ColNames>itemID
+orderIndex</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_itemCreators_2</UnderlyingIndexName>
+    </key>
+    <foreign-key id="320" parent="35">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="321" parent="35">
+      <ColNames>creatorID</ColNames>
+      <RefTableName>creators</RefTableName>
+      <RefColNames>creatorID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="322" parent="35">
+      <ColNames>creatorTypeID</ColNames>
+      <RefTableName>creatorTypes</RefTableName>
+      <RefColNames>creatorTypeID</RefColNames>
+    </foreign-key>
+    <column id="323" parent="36" name="itemID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="324" parent="36" name="fieldID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="325" parent="36" name="valueID">
+      <Position>3</Position>
+    </column>
+    <index id="326" parent="36" name="sqlite_autoindex_itemData_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemID
+fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="327" parent="36" name="itemData_fieldID">
+      <ColNames>fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="328" parent="36">
+      <ColNames>itemID
+fieldID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemData_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="329" parent="36">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="330" parent="36">
+      <ColNames>fieldID</ColNames>
+      <RefTableName>fieldsCombined</RefTableName>
+      <RefColNames>fieldID</RefColNames>
+    </foreign-key>
+    <foreign-key id="331" parent="36">
+      <ColNames>valueID</ColNames>
+      <RefTableName>itemDataValues</RefTableName>
+      <RefColNames>valueID</RefColNames>
+    </foreign-key>
+    <column id="332" parent="37" name="valueID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="333" parent="37" name="value">
+      <Position>2</Position>
+    </column>
+    <index id="334" parent="37" name="sqlite_autoindex_itemDataValues_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>value</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="335" parent="37">
+      <ColNames>valueID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="336" parent="37">
+      <ColNames>value</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_itemDataValues_1</UnderlyingIndexName>
+    </key>
+    <trigger id="337" parent="38" name="fku_itemNotes_parentItemID_collectionItems_itemID">
+      <SourceTextLength>254</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>U</Events>
+      <Condition>OLD.parentItemID IS NULL AND NEW.parentItemID IS NOT NULL</Condition>
+      <ColNames>parentItemID</ColNames>
+    </trigger>
+    <column id="338" parent="38" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="339" parent="38" name="parentItemID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="340" parent="38" name="note">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="341" parent="38" name="title">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="342" parent="38" name="itemNotes_parentItemID">
+      <ColNames>parentItemID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="343" parent="38">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="344" parent="38">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="345" parent="38">
+      <ColNames>parentItemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="346" parent="39" name="itemID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="347" parent="39" name="predicateID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="348" parent="39" name="object">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="349" parent="39" name="sqlite_autoindex_itemRelations_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemID
+predicateID
+object</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="350" parent="39" name="itemRelations_predicateID">
+      <ColNames>predicateID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <index id="351" parent="39" name="itemRelations_object">
+      <ColNames>object</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="352" parent="39">
+      <ColNames>itemID
+predicateID
+object</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemRelations_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="353" parent="39">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="354" parent="39">
+      <ColNames>predicateID</ColNames>
+      <RefTableName>relationPredicates</RefTableName>
+      <RefColNames>predicateID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="355" parent="40" name="itemID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="356" parent="40" name="tagID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="357" parent="40" name="type">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="358" parent="40" name="sqlite_autoindex_itemTags_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemID
+tagID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="359" parent="40" name="itemTags_tagID">
+      <ColNames>tagID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="360" parent="40">
+      <ColNames>itemID
+tagID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemTags_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="361" parent="40">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="362" parent="40">
+      <ColNames>tagID</ColNames>
+      <RefTableName>tags</RefTableName>
+      <RefColNames>tagID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="363" parent="41" name="itemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="364" parent="41" name="creatorTypeID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="365" parent="41" name="primaryField">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="366" parent="41" name="sqlite_autoindex_itemTypeCreatorTypes_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID
+creatorTypeID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="367" parent="41" name="itemTypeCreatorTypes_creatorTypeID">
+      <ColNames>creatorTypeID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="368" parent="41">
+      <ColNames>itemTypeID
+creatorTypeID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemTypeCreatorTypes_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="369" parent="41">
+      <ColNames>itemTypeID</ColNames>
+      <RefTableName>itemTypes</RefTableName>
+      <RefColNames>itemTypeID</RefColNames>
+    </foreign-key>
+    <foreign-key id="370" parent="41">
+      <ColNames>creatorTypeID</ColNames>
+      <RefTableName>creatorTypes</RefTableName>
+      <RefColNames>creatorTypeID</RefColNames>
+    </foreign-key>
+    <column id="371" parent="42" name="itemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="372" parent="42" name="fieldID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="373" parent="42" name="hide">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="374" parent="42" name="orderIndex">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="375" parent="42" name="sqlite_autoindex_itemTypeFields_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID
+fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="376" parent="42" name="sqlite_autoindex_itemTypeFields_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID
+orderIndex</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="377" parent="42" name="itemTypeFields_fieldID">
+      <ColNames>fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="378" parent="42">
+      <ColNames>itemTypeID
+orderIndex</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemTypeFields_1</UnderlyingIndexName>
+    </key>
+    <key id="379" parent="42">
+      <ColNames>itemTypeID
+fieldID</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_itemTypeFields_2</UnderlyingIndexName>
+    </key>
+    <foreign-key id="380" parent="42">
+      <ColNames>itemTypeID</ColNames>
+      <RefTableName>itemTypes</RefTableName>
+      <RefColNames>itemTypeID</RefColNames>
+    </foreign-key>
+    <foreign-key id="381" parent="42">
+      <ColNames>fieldID</ColNames>
+      <RefTableName>fields</RefTableName>
+      <RefColNames>fieldID</RefColNames>
+    </foreign-key>
+    <column id="382" parent="43" name="itemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="383" parent="43" name="fieldID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="384" parent="43" name="hide">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="385" parent="43" name="orderIndex">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="386" parent="43" name="sqlite_autoindex_itemTypeFieldsCombined_2">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID
+fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="387" parent="43" name="sqlite_autoindex_itemTypeFieldsCombined_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID
+orderIndex</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="388" parent="43" name="itemTypeFieldsCombined_fieldID">
+      <ColNames>fieldID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="389" parent="43">
+      <ColNames>itemTypeID
+orderIndex</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemTypeFieldsCombined_1</UnderlyingIndexName>
+    </key>
+    <key id="390" parent="43">
+      <ColNames>itemTypeID
+fieldID</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_itemTypeFieldsCombined_2</UnderlyingIndexName>
+    </key>
+    <column id="391" parent="44" name="itemTypeID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="392" parent="44" name="typeName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="393" parent="44" name="templateItemTypeID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="394" parent="44" name="display">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <key id="395" parent="44">
+      <ColNames>itemTypeID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="396" parent="45" name="itemTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="397" parent="45" name="typeName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="398" parent="45" name="display">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>1</DefaultExpression>
+    </column>
+    <column id="399" parent="45" name="custom">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="400" parent="45" name="sqlite_autoindex_itemTypesCombined_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>itemTypeID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="401" parent="45">
+      <ColNames>itemTypeID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_itemTypesCombined_1</UnderlyingIndexName>
+    </key>
+    <column id="402" parent="46" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="403" parent="46" name="itemTypeID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="404" parent="46" name="dateAdded">
+      <Position>3</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="405" parent="46" name="dateModified">
+      <Position>4</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="406" parent="46" name="clientDateModified">
+      <Position>5</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="407" parent="46" name="libraryID">
+      <Position>6</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="408" parent="46" name="key">
+      <Position>7</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="409" parent="46" name="version">
+      <Position>8</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="410" parent="46" name="synced">
+      <Position>9</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="411" parent="46" name="sqlite_autoindex_items_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>libraryID
+key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="412" parent="46" name="items_synced">
+      <ColNames>synced</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="413" parent="46">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="414" parent="46">
+      <ColNames>libraryID
+key</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_items_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="415" parent="46">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="416" parent="47" name="libraryID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="417" parent="47" name="type">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="418" parent="47" name="editable">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="419" parent="47" name="filesEditable">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="420" parent="47" name="version">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="421" parent="47" name="storageVersion">
+      <Position>6</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="422" parent="47" name="lastSync">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="423" parent="47" name="archived">
+      <Position>8</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <key id="424" parent="47">
+      <ColNames>libraryID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="425" parent="48" name="proxyID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="426" parent="48" name="multiHost">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="427" parent="48" name="autoAssociate">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <column id="428" parent="48" name="scheme">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <key id="429" parent="48">
+      <ColNames>proxyID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="430" parent="49" name="hostID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="431" parent="49" name="proxyID">
+      <Position>2</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="432" parent="49" name="hostname">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="433" parent="49" name="proxyHosts_proxyID">
+      <ColNames>proxyID</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="434" parent="49">
+      <ColNames>hostID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="435" parent="49">
+      <ColNames>proxyID</ColNames>
+      <RefTableName>proxies</RefTableName>
+      <RefColNames>proxyID</RefColNames>
+    </foreign-key>
+    <column id="436" parent="50" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <key id="437" parent="50">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="438" parent="51" name="predicateID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="439" parent="51" name="predicate">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="440" parent="51" name="sqlite_autoindex_relationPredicates_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>predicate</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="441" parent="51">
+      <ColNames>predicateID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="442" parent="51">
+      <ColNames>predicate</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_relationPredicates_1</UnderlyingIndexName>
+    </key>
+    <column id="443" parent="52" name="itemID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="444" parent="52" name="data">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="445" parent="52" name="flag">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <key id="446" parent="52">
+      <ColNames>itemID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="447" parent="52">
+      <ColNames>itemID</ColNames>
+      <RefTableName>items</RefTableName>
+      <RefColNames>itemID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="448" parent="53" name="savedSearchID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="449" parent="53" name="searchConditionID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="450" parent="53" name="condition">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="451" parent="53" name="operator">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="452" parent="53" name="value">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="453" parent="53" name="required">
+      <Position>6</Position>
+      <DataType>NONE|0s</DataType>
+    </column>
+    <index id="454" parent="53" name="sqlite_autoindex_savedSearchConditions_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>savedSearchID
+searchConditionID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="455" parent="53">
+      <ColNames>savedSearchID
+searchConditionID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_savedSearchConditions_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="456" parent="53">
+      <ColNames>savedSearchID</ColNames>
+      <RefTableName>savedSearches</RefTableName>
+      <RefColNames>savedSearchID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="457" parent="54" name="savedSearchID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="458" parent="54" name="savedSearchName">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="459" parent="54" name="clientDateModified">
+      <Position>3</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <column id="460" parent="54" name="libraryID">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="461" parent="54" name="key">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="462" parent="54" name="version">
+      <Position>6</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="463" parent="54" name="synced">
+      <Position>7</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="464" parent="54" name="sqlite_autoindex_savedSearches_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>libraryID
+key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="465" parent="54" name="savedSearches_synced">
+      <ColNames>synced</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="466" parent="54">
+      <ColNames>savedSearchID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="467" parent="54">
+      <ColNames>libraryID
+key</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_savedSearches_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="468" parent="54">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="469" parent="55" name="setting">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="470" parent="55" name="key">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="471" parent="55" name="value">
+      <Position>3</Position>
+    </column>
+    <index id="472" parent="55" name="sqlite_autoindex_settings_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>setting
+key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="473" parent="55">
+      <ColNames>setting
+key</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_settings_1</UnderlyingIndexName>
+    </key>
+    <column id="474" parent="56" name="type">
+      <Position>1</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="475" parent="56" name="name">
+      <Position>2</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="476" parent="56" name="tbl_name">
+      <Position>3</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="477" parent="56" name="rootpage">
+      <Position>4</Position>
+      <DataType>int|0s</DataType>
+    </column>
+    <column id="478" parent="56" name="sql">
+      <Position>5</Position>
+      <DataType>text|0s</DataType>
+    </column>
+    <column id="479" parent="57" name="libraryID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="480" parent="57" name="key">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="481" parent="57" name="dateDeleted">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="482" parent="57" name="sqlite_autoindex_storageDeleteLog_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>libraryID
+key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="483" parent="57">
+      <ColNames>libraryID
+key</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_storageDeleteLog_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="484" parent="57">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="485" parent="58" name="libraryID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="486" parent="58" name="key">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="487" parent="58" name="syncObjectTypeID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="488" parent="58" name="version">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="489" parent="58" name="data">
+      <Position>5</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="490" parent="58" name="sqlite_autoindex_syncCache_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>libraryID
+key
+syncObjectTypeID
+version</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="491" parent="58">
+      <ColNames>libraryID
+key
+syncObjectTypeID
+version</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_syncCache_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="492" parent="58">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="493" parent="58">
+      <ColNames>syncObjectTypeID</ColNames>
+      <RefTableName>syncObjectTypes</RefTableName>
+      <RefColNames>syncObjectTypeID</RefColNames>
+    </foreign-key>
+    <column id="494" parent="59" name="syncObjectTypeID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="495" parent="59" name="libraryID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="496" parent="59" name="key">
+      <Position>3</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="497" parent="59" name="dateDeleted">
+      <Position>4</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
+    </column>
+    <index id="498" parent="59" name="sqlite_autoindex_syncDeleteLog_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>syncObjectTypeID
+libraryID
+key</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="499" parent="59">
+      <ColNames>syncObjectTypeID
+libraryID
+key</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_syncDeleteLog_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="500" parent="59">
+      <ColNames>syncObjectTypeID</ColNames>
+      <RefTableName>syncObjectTypes</RefTableName>
+      <RefColNames>syncObjectTypeID</RefColNames>
+    </foreign-key>
+    <foreign-key id="501" parent="59">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="502" parent="60" name="syncObjectTypeID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="503" parent="60" name="name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <index id="504" parent="60" name="syncObjectTypes_name">
+      <ColNames>name</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="505" parent="60">
+      <ColNames>syncObjectTypeID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="506" parent="61" name="libraryID">
+      <Position>1</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="507" parent="61" name="key">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="508" parent="61" name="syncObjectTypeID">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="509" parent="61" name="lastCheck">
+      <Position>4</Position>
+      <DataType>TIMESTAMP|0s</DataType>
+    </column>
+    <column id="510" parent="61" name="tries">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="511" parent="61" name="sqlite_autoindex_syncQueue_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>libraryID
+key
+syncObjectTypeID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="512" parent="61">
+      <ColNames>libraryID
+key
+syncObjectTypeID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_syncQueue_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="513" parent="61">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <foreign-key id="514" parent="61">
+      <ColNames>syncObjectTypeID</ColNames>
+      <RefTableName>syncObjectTypes</RefTableName>
+      <RefColNames>syncObjectTypeID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="515" parent="62" name="setting">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="516" parent="62" name="libraryID">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="517" parent="62" name="value">
+      <Position>3</Position>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="518" parent="62" name="version">
+      <Position>4</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <column id="519" parent="62" name="synced">
+      <Position>5</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+      <DefaultExpression>0</DefaultExpression>
+    </column>
+    <index id="520" parent="62" name="sqlite_autoindex_syncedSettings_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>setting
+libraryID</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="521" parent="62">
+      <ColNames>setting
+libraryID</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_syncedSettings_1</UnderlyingIndexName>
+    </key>
+    <foreign-key id="522" parent="62">
+      <ColNames>libraryID</ColNames>
+      <RefTableName>libraries</RefTableName>
+      <RefColNames>libraryID</RefColNames>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <trigger id="523" parent="63" name="fki_tagsBEFORE">
+      <SourceTextLength>143</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>I</Events>
+    </trigger>
+    <trigger id="524" parent="63" name="fku_tags">
+      <SourceTextLength>157</SourceTextLength>
+      <Turn>before-row</Turn>
+      <Events>U</Events>
+      <ColNames>name</ColNames>
+    </trigger>
+    <column id="525" parent="63" name="tagID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="526" parent="63" name="name">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="527" parent="63" name="sqlite_autoindex_tags_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>name</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="528" parent="63">
+      <ColNames>tagID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <key id="529" parent="63">
+      <ColNames>name</ColNames>
+      <UnderlyingIndexName>sqlite_autoindex_tags_1</UnderlyingIndexName>
+    </key>
+    <column id="530" parent="64" name="fileName">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="531" parent="64" name="metadataJSON">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="532" parent="64" name="lastModifiedTime">
+      <Position>3</Position>
+      <DataType>INT|0s</DataType>
+    </column>
+    <index id="533" parent="64" name="sqlite_autoindex_translatorCache_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>fileName</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <key id="534" parent="64">
+      <ColNames>fileName</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_translatorCache_1</UnderlyingIndexName>
+    </key>
+    <column id="535" parent="65" name="userID">
+      <Position>1</Position>
+      <DataType>INTEGER|0s</DataType>
+    </column>
+    <column id="536" parent="65" name="username">
+      <Position>2</Position>
+      <DataType>TEXT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="537" parent="65">
+      <ColNames>userID</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="538" parent="66" name="schema">
+      <Position>1</Position>
+      <DataType>TEXT|0s</DataType>
+    </column>
+    <column id="539" parent="66" name="version">
+      <Position>2</Position>
+      <DataType>INT|0s</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="540" parent="66" name="sqlite_autoindex_version_1">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>schema</ColNames>
+      <ColumnCollations></ColumnCollations>
+      <Unique>1</Unique>
+    </index>
+    <index id="541" parent="66" name="schema">
+      <ColNames>schema</ColNames>
+      <ColumnCollations></ColumnCollations>
+    </index>
+    <key id="542" parent="66">
+      <ColNames>schema</ColNames>
+      <Primary>1</Primary>
+      <UnderlyingIndexName>sqlite_autoindex_version_1</UnderlyingIndexName>
+    </key>
+  </database-model>
+</dataSource>

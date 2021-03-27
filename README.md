@@ -58,6 +58,7 @@ A: 生成的 tex 文件使用了 ctex 包和 fontspec 包。所以无法通过 p
 A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [overleaf](https://www.overleaf.com/) 在线编辑 tex 文件。overleaf 的默认编译引擎是 pdflatex ，无法编译 marktex生成的文件。需要点击左上角的“菜单”图标，修改编译器，选择 xelatex 。
 
 
+
 # 特性介绍
 具体可以参考[example.md](./marktex/example/example.md)
 其pdf输出效果可以参考
@@ -273,3 +274,6 @@ int main(){
 
 # 其他
  - [ ] 多级嵌套存在优先级限制，仍然待解决
+ - [ ] 列表的缩进支持
+ - [ ] 表格列宽度比例的计算方式改进
+ - [ ] 添加其他类型的 parser ？

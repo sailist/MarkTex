@@ -1,4 +1,4 @@
-from marktex.util import chchar, cache, config, ImageTool, norm_path
+from marktex.util import cache, config, ImageTool, norm_path
 from .base import (registed_env_decoder,
                    registed_line_decoder, registed_token_decoder, regist_decoder, sign_to_tex,
                    registed_line_xml_decoder)
@@ -112,7 +112,7 @@ def de_enumerate(s: env.Enumerate):
 @regist_decoder(registed_env_decoder, env.Formula)
 def de_formula(s: env.Formula):
     code = [de_line(c) for c in s.children]
-
+    chchar = re.compile("([^\x00-\xff]+)")
     data = []
     for line in code:
         line = re.sub(chchar, lambda x: r"\text{{{}}}".format(x.group(1)), line)

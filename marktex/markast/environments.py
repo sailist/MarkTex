@@ -5,6 +5,7 @@ from .base import MetaComparable, regist_func
 from collections import namedtuple
 import re
 import bisect
+import sys
 
 registed_env = []
 
@@ -94,6 +95,60 @@ class Paramgraph(Environ):
 
 
 @regist_func(registed_env)
+class YAML(Environ):
+    # code:list[RawLine]
+    """行内自行处理"""
+    TYPE = ENV_FLAG.none
+
+    ignore_line = True
+    RE = re.compile("^---")  # code
+    END_RE = re.compile("^---$")
+
+    def __init__(self, raw, left, right, parent=None):
+        super().__init__(raw, left, right, parent)
+        self.children_flag = ''
+        self.config = {}
+
+    def preprocess(self):
+        """去掉上下的 ``` 然后将 lang 额外进行记录"""
+        self.children_flag = ''
+        try:
+            import yaml
+            from pprint import pformat
+            res = yaml.safe_load("\n".join(self.inner[1:-1]))
+            self.children.append(pformat(res))
+            self.config = res
+        except Exception as e:
+            print(e, file=sys.stderr)
+            self.children.extend(self.inner[1:-1])
+
+    @property
+    def language(self):
+        return self.children_flag
+
+    @classmethod
+    def match(cls, lines: List[str], start, end):
+        for id in range(start, end):
+            if id != 0:
+                break
+            if re.search(cls.RE, lines[id]):
+                eid = id + 1
+
+                while eid < end and (not re.search(cls.END_RE, lines[eid])):
+                    eid += 1
+                return Match(True, id, eid + 1)
+        return Match(False, -1, -1)
+
+    def __str__(self):
+        pchain = format_parent(self)
+        return '\\begin{{{name}}}\n' \
+               '{content}\n' \
+               '\\end{{{name}}}'.format(name=pchain,
+                                        content='\n'.join(
+                                            str(i) for i in self.children))
+
+
+@regist_func(registed_env)
 class Quote(Environ):
     """
     > ...
@@ -135,6 +190,28 @@ class MultiBox(Environ):  # 复选框
     def __init__(self, raw, left, right, parent=None):
         super().__init__(raw, left, right, parent)
         self.children_flag = []
+
+    @property
+    def check_levels(self):
+        levels = []
+        res = []
+        for space, _ in self.children_flag:
+            ss = len(space)
+            if len(levels) == 0:
+                levels.append(ss)
+                res.append(len(levels))
+            else:
+                if ss not in levels:
+                    if ss > levels[-1]:
+                        levels.append(ss)
+                        res.append(len(levels))
+                    else:
+                        for i in range(len(levels) - 1):
+                            if ss > levels[i] and ss < levels[i + 1]:
+                                res.append(i)
+                else:
+                    res.append(levels.index(ss) + 1)
+        return res
 
     @property
     def check_types(self):
@@ -410,7 +487,7 @@ def parse_env(lines, istart=None, iend=None, matchers=None):
         matchers = registed_env
     clips = [[istart, iend]]
 
-    lines = [line.strip() for line in lines]
+    lines = [line.rstrip() for line in lines]
 
     params = []
     while len(clips) > 0:
