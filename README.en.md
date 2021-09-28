@@ -13,18 +13,6 @@ Parse markdown file to LaTeX-code file. Can be used to convert markdown to PDF i
 
 > All supported syntax can be previewed at [example.md](./marktex/example/example.md) and [all_example.pdf](./outputs/out/all_example.pdf)
 
-1. 支持markdown中基本上所有的特性：标题、代码、引用、目录、图片、表格、链接...
-2. 图片支持行内图片（会自动调整大小适应一行）和行间图片，支持使用本地相对路径和网络链接，会自动判断下载
-3. 表格自动调整列宽，且进行了相关美化，不会变丑
-4. 支持通过tex模板文件定制
-5. 支持在当前markdown中引入其他markdown和tex文件，实现很方便的协作
-6. 公式支持中文啦
-7. 支持自定义额外解析串
-8. 语法树生成和代码转换完全分离，可以通过语法树自定义转换其他语言。
-9. ...
-
-> 最新支持的全部语法可以在[example.md](./marktex/example/example.md)中参考，相应的效果可以查看[all_example.pdf](./outputs/out/all_example.pdf)，README中因为比较麻烦，更新可能不会很及时。
-
 # How to use
 ```shell
 pip install marktex
@@ -40,52 +28,42 @@ from marktex import api
 api.convert('mdpath1','mdpath2',...,output_dir='output_dir')
 ```
 
-目录`outoput/`下的例子可以通过以下代码生成，运行后会生成到程序运行文件的 output 目录下
+run examples
+
 ```python
 from marktex.api import run_example
 run_example()
 ```
 
+run by command line tool.
 
-你也可以通过命令行运行：
-
-输出到对应文件的 "文件名" 所在的目录下：
+Output in one directory.
 ```bash
 marktex a.md b.md ...
 ```
 
-输出到一个同一的文件夹下：
+Output in the given directory.
 ```bash
 marktex a.md b.md ... -o "path"
 ```
 
-指定输出到各自文件夹，必须保证路径个数和文件个数相同：
+Output in given directories.
 ```bash
 marktex a.md b.md ... -e "pathfora" "pathforb" ...
 ```
-## FQA
-**Q: latex 文件所需的编译器是什么？**
-
-A: 生成的 tex 文件使用了 ctex 包和 fontspec 包。所以无法通过 pdflatex、latex 或 lualatex进行编译，因此需要使用 xelatex 才能编译。
-
-**Q: 关于在线编译 PDF**
-
-A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [overleaf](https://www.overleaf.com/) 在线编辑 tex 文件。overleaf 的默认编译引擎是 pdflatex ，无法编译 marktex生成的文件。需要点击左上角的“菜单”图标，修改编译器，选择 xelatex 。
 
 
 
-# 特性介绍
-具体可以参考[example.md](./marktex/example/example.md)
-其pdf输出效果可以参考
-[all_example.pdf](./outputs/out/all_example.pdf)
+# Preview
+see [example.md](./marktex/example/example.md) and [all_example.pdf](./outputs/out/all_example.pdf) for details.
 
-## 目录
+## TOC
 ```bash
  [toc]
 ```
 ![在这里插入图片描述](./src/toc.png)
 
-## 特性介绍
+## Features
 ```bash
 # 特性<sub>下标在这里</sub>
 - 支持目前主流的所有markdown语法（目前，脚注和xml标签暂时不支持）
@@ -96,7 +74,7 @@ A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [ov
 ```
 ![在这里插入图片描述](./src/feature.png)
 
-## 文字效果与五级标题
+## Text style
 ```bash
 # 效果演示
 
@@ -118,7 +96,7 @@ A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [ov
 
 ![在这里插入图片描述](./src/effect.png)
 
-## 表格
+## Table
 可以完美的自适应表格列宽（测试效果良好，不排除特例），不过暂时不支持表格内插入图片
 ```bash
 ## 表格
@@ -138,7 +116,7 @@ A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [ov
 ```
 ![在这里插入图片描述](./src/table.png)
 
-## 列表、序号、复选框
+## Itemize,Enumrate,MultiBox
 ```bash
 ## 列表和序号/itemize&enumerate
 - 支持**加粗**，*斜体*，`行内代码`,$Inline Formula$，[超链接](www.github.com)
@@ -155,7 +133,7 @@ A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [ov
 ```
 ![在这里插入图片描述](./src/list.png)
 
-## 图片
+## Image
 图片支持网络图片和本地图片，会被统一的哈希命名后存放到自定义的图片目录下
 ```bash
 ## 图片
@@ -167,26 +145,26 @@ A: 因为 latex 的编译器太大，安装麻烦，所以可以选择使用 [ov
 ![在这里插入图片描述](./src/img1.png)
 ![在这里插入图片描述](./src/img2.png)
 
-## 公式
+## Formula
 
 公式支持中文，但没有编号，如果要编号可以通过手动添加tag的方式
 
-### 行内公式
+### Inline Formula
 $f(x) = x_{1} 中文$ 
 
-### 行间公式
+### Line Formula
 $$
 使用函数 f(x_i)=ax_i+b \tag{1} 
 $$
 
 
 
-### 符号支持
+### Sign Support
 符号集在内部做了一个映射，可以将任意公式内外的符号均映射成为 LaTeX 中的符号。
 
 原本的解决方案为添加一个额外的符号字体集来解决（来自于[stackoverflow](https://tex.stackexchange.com/questions/69901/how-to-typeset-greek-letters) ），目前的方案为两者优先采用映射方法，目前支持的符号列举如下（可能支持更多符号，但没有经过测试）：
 
-#### 希腊字母
+#### Greece
 αβγδεζηθικλμνξοπρστυφχψω
 
 ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
@@ -204,7 +182,7 @@ $$αβγδεζηθικλμνξοπρστυφχψω$$
 ΑΒΓΔΕΖΗΘΙΚΛΜΝΞΟΠΡΣΤΥΦΧΨΩ
 ```
 
-#### 运算符号
+#### Operator
 ±×÷∣∤
 
 ⋅∘∗⊙⊕
@@ -227,7 +205,7 @@ $$αβγδεζηθικλμνξοπρστυφχψω$$
 ![在这里插入图片描述](./src/sign.png)
 
 
-## 代码
+## Code
 
 ```bash
 代码使用tcolorbox和minted，基本支持所有主流语言。支持的所有语言请参考 [Code Highlighting with minted](https://www.overleaf.com/learn/latex/Code_Highlighting_with_minted) 
@@ -246,7 +224,7 @@ int main(){
 
 ![](./src/code.png)
 
-## 引用
+## Quote
 ```bash
 ## 引用
 > 引用内环境和普通文本基本一致，但是不支持标题。
@@ -270,7 +248,7 @@ int main(){
 
 ![在这里插入图片描述](./src/quote2.png)
 
-## 新特性
+## Include
 ```bash
 # 新特性-引入其他Markdown文档
 
@@ -287,7 +265,7 @@ int main(){
 ![](./src/newf2.png)
 
 
-# 其他
+# TODOs
  - [ ] 多级嵌套存在优先级限制，仍然待解决
  - [ ] 列表的缩进支持
  - [ ] 表格列宽度比例的计算方式改进
