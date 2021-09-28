@@ -2,10 +2,9 @@ from setuptools import setup, find_packages
 
 long_description = ""  # 这里可以导入外部的README.md
 
-
 setup(
     name='marktex',
-    version='0.9.7.1',
+    version='0.9.8',
     description='convert markdown 2 latex code perfactly,support Chinese Language',
     long_description=long_description,
     url='https://github.com/sailist/MarkTex',
@@ -14,7 +13,7 @@ setup(
     license='MIT',
     include_package_data=True,
     install_requires=[
-        "pylatex", "matplotlib"
+        "pylatex", "matplotlib", 'requests'
     ],
     classifiers=[
         'Development Status :: 3 - Alpha',
