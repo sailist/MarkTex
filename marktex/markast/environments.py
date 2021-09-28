@@ -242,9 +242,7 @@ class MultiBox(Environ):  # 复选框
             if re.search(cls.RE, lines[id]):
                 eid = id + 1
 
-                while eid < end and (re.search(cls.END_RE, lines[eid]) or
-                                     re.search(Itemize.END_RE, lines[eid]) or
-                                     re.search(Enumerate.END_RE, lines[eid])):
+                while eid < end and (re.search(cls.END_RE, lines[eid])):
                     eid += 1
                 return Match(True, id, eid)
         return Match(False, -1, -1)
